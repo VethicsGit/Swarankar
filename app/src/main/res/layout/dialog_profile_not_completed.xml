@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/_15sdp"
+    android:paddingLeft="@dimen/_20sdp"
+    android:background="@drawable/drawable_back_dialog"
+    android:paddingRight="@dimen/_20sdp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/close" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingRight="@dimen/_20sdp">
+
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:alpha=".9"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="Please complete your\nprofile to access other\noptions."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/dialog_profile_button_ok"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center"
+            android:background="#f04742"
+            android:gravity="center"
+            android:text="OK"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

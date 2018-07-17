@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="llfname" type="id" />
+    <item name="llname" type="id" />
+    <item name="llmobile" type="id" />
+    <item name="llemail" type="id" />
+    <item name="llmemberid" type="id" />
+    <item name="llsubcaste" type="id" />
+    <item name="llgotraself" type="id" />
+    <item name="llgotramother" type="id" />
+    <item name="llmaritalstatus" type="id" />
+    <item name="lldob" type="id" />
+    <item name="llprofession" type="id" />
+    <item name="llprofessionorganization" type="id" />
+    <item name="llprofessionstatus" type="id" />
+    <item name="llprofessionindustry" type="id" />
+    <item name="llprofessiondesignation" type="id" />
+    <item name="llofficelocality" type="id" />
+    <item name="lleducationqualification" type="id" />
+    <item name="lleducationinstitute" type="id" />
+    <item name="llstatuseducational" type="id" />
+    <item name="llareastudy" type="id" />
+    <item name="llreslocality" type="id" />
+    <item name="llresward" type="id" />
+    <item name="llresconstituency" type="id" />
+    <item name="llresvillage" type="id" />
+    <item name="llrestehsil" type="id" />
+    <item name="llperlocality" type="id" />
+    <item name="llperward" type="id" />
+    <item name="llperconstituency" type="id" />
+    <item name="llpervillage" type="id" />
+    <item name="llpertehsil" type="id" />
+    <item name="officelocation" type="id" />
+    <item name="residencelocation" type="id" />
+    <item name="permanentlocation" type="id" />
+
+
+    <item name="firstname" type="id" />
+    <item name="lastname" type="id" />
+    <item name="mobilenumber" type="id" />
+    <item name="email" type="id" />
+    <item name="memberid" type="id" />
+    <item name="subcaste" type="id" />
+    <item name="gotraself" type="id" />
+    <item name="gotramother" type="id" />
+    <item name="maritalstatus" type="id" />
+    <item name="dob" type="id" />
+    <item name="profession1" type="id" />
+    <item name="professionorganizationname" type="id" />
+    <item name="professionstatus" type="id" />
+    <item name="professionindustry" type="id" />
+    <item name="professiondesignation" type="id" />
+    <item name="officelocality" type="id" />
+
+    <item name="officecountry" type="id" />
+    <item name="officestate" type="id" />
+    <item name="officedistrict" type="id" />
+
+    <item name="educationalqulification" type="id" />
+    <item name="educationalinstitute" type="id" />
+    <item name="statuseducational" type="id" />
+    <item name="areastudy" type="id" />
+
+    <item name="residencelocality" type="id" />
+    <item name="residenceward" type="id" />
+    <item name="residenceconstituency" type="id" />
+    <item name="residencevillage" type="id" />
+    <item name="residencetehsil" type="id" />
+
+    <item name="residencecountry" type="id" />
+    <item name="residencestate" type="id" />
+    <item name="residencedistrict" type="id" />
+
+    <item name="permanentlocality" type="id" />
+    <item name="permanentward" type="id" />
+    <item name="permanentconstituency" type="id" />
+    <item name="permanentvillage" type="id" />
+    <item name="permanenttehsil" type="id" />
+
+    <item name="permanentcountry" type="id" />
+    <item name="permanentstate" type="id" />
+    <item name="permanentdistrict" type="id" />
+
+</resources>

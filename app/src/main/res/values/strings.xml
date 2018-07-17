@@ -1,0 +1,551 @@
+<resources>
+    <string name="app_name">Swarnkar Connect</string>
+    <string name="facebook_app_id">758995004275405</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="saving_image">Saving image</string>
+    <string name="preparing_card">Preparing card</string>
+    <string name="no_storage_card">No storage card</string>
+    <string name="not_enough_space">Not enough space</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_news">NewsActivity</string>
+
+
+    <array name="sub_cast">
+        <item>Sub Caste</item>
+    </array>
+
+
+
+    <array name="gotra_self">
+        <item>Select</item>
+        <item>gotra1</item>
+        <item>gotra2</item>
+        <item>gotra3</item>
+    </array>
+    <array name="gotra_mother">
+        <item>Select</item>
+        <item>pending</item>
+
+    </array>
+    <array name="maratial_status">
+        <item>Select</item>
+        <item>Married</item>
+        <item>Unmarried</item>
+
+    </array>
+    <array name="gender">
+        <item>Select</item>
+        <item>Male</item>
+        <item>Female</item>
+    </array>
+
+    <array name="child">
+        <item>Select</item>
+        <item>Son</item>
+        <item>Daughter</item>
+    </array>
+
+    <array name="profession">
+        <item>Select</item>
+        <item>Government</item>
+        <item>Private</item>
+        <item>Professional</item>
+        <item>Business</item>
+        <item>Student</item>
+        <item>Public</item>
+        <item>others</item>
+    </array>
+    <array name="profession_status">
+        <item>Select</item>
+        <item>Working</item>
+        <item>Retired</item>
+        <item>others</item>
+    </array>
+
+    <array name="profession_industry">
+        <item>Select</item>
+        <item>Gems and Jewellery -Sub Gems and Jewellery</item>
+        <item>Gems and Jewellery -test</item>
+        <item>Gems and Jewellery -Sub Gems</item>
+        <item>Government Sector</item>
+        <item>Accounting/Tax/Company Secretary/Audit</item>
+        <item>Administration</item>
+        <item>Advertising/PR/Event Managment</item>
+        <item>Agriculture/Daily Based/Forestry/Fishing</item>
+        <item>Apparel/Garments</item>
+        <item>Architecture/Interior Design</item>
+        <item>Automobiles/Auto Component/Ancillaries</item>
+        <item>Bank/Insurance/Finacial Service</item>
+        <item>Beauty/Fitness/Personal Care</item>
+        <item>Beverages/Liquo</item>
+        <item>Bio Tech/R and D/Scientist</item>
+        <item>Biotechnology/Pharmaceutical/Medicine</item>
+        <item>Business Managment/Consultance/Freelancers</item>
+        <item>Catering/Food Service/Restaurant</item>
+        <item>Ceramics and sanitry walls</item>
+        <item>Consumer Durebles/FMCG</item>
+        <item>Corporate Planning/Consulting/Stratergy</item>
+        <item>Courier/Frieght/Transportation</item>
+        <item>CRM/Call Center/BPO/ITES/Medical Transcription</item>
+        <item>Defence/Marine/Aviation/Mining/Shipping</item>
+        <item>Direct Sales Agents/Insurance Agents</item>
+        <item>Doctor/Nurses/Medical Professional</item>
+        <item>Electronics/Electrical</item>
+        <item>Engineering/Project Manager/Site Engineering/Civil Engineering</item>
+        <item>Entertainment/Media/Anchoring/TV/Films/Production</item>
+        <item>Envirmental Services</item>
+        <item>Export/Import</item>
+        <item>Fashion/Modelling/Photography</item>
+        <item>Front Office Staff/Secretarial/Computer Operators</item>
+        <item>Hospital/HealthCare</item>
+        <item>HR/PM/IR/Training</item>
+        <item>IT/Telecom-Hardware</item>
+        <item>IT/Telecom-Software</item>
+        <item>Journalist/Editors/Content</item>
+        <item>Legal/Law</item>
+        <item>Marketing/Media Planning/Research/Surveyor</item>
+        <item>NGO/Social Services</item>
+        <item>Petroleum/Oil and Gas/Power</item>
+        <item>Printing/Paper/Packing</item>
+        <item>Production/Manufacturing/Maintenance/Industrial</item>
+        <item>Real Estate/Infrastructure/Construction/Cement/Metal/Steel/Iron</item>
+        <item>Recruitment/Placement Agencies</item>
+        <item>Sales/Bussiness Development</item>
+        <item>Security/Law Enforcement</item>
+        <item>Service Engineers(Electrician,Plumber,Carpenter,etc.)</item>
+        <item>Sports/Recreation</item>
+        <item>Teaching/Education/Training</item>
+        <item>Ticketing/Reservation/Hotel/Travel/Tourism/Airlines/Hospitality</item>
+        <item>Top Managment</item>
+        <item>Warehousing</item>
+    </array>
+
+    <array name="Area_study">
+        <item>Select</item>
+        <item>Architecture/Design</item>
+        <item>Arts and Humanities</item>
+        <item>Basics Sciences</item>
+        <item>Bussiness and Commerce</item>
+        <item>Diploma/Certification Courses</item>
+        <item>Education</item>
+        <item>Engineering</item>
+        <item>Research</item>
+        <item>Hotel Managment</item>
+        <item>Information Sciences</item>
+        <item>Journalism and Communication</item>
+        <item>Law</item>
+        <item>Managment</item>
+        <item>Medical Sciences</item>
+        <item>Planning and Design</item>
+        <item>other</item>
+    </array>
+
+    <array name="Status_Education">
+        <item>Select</item>
+        <item>Completed</item>
+        <item>Pursuing</item>
+        <item>Incomplete</item>
+    </array>
+
+    <array name="relationship">
+        <item>Select</item>
+        <item>Father</item>
+        <item>Mother</item>
+        <item>Brother</item>
+        <item>Sister</item>
+        <item>Wife</item>
+        <item>Husband</item>
+        <item>Children</item>
+        <item>Brothers wife</item>
+        <item>Brothers children</item>
+        <item>Sisters husband</item>
+        <item>Sisters children</item>
+    </array>
+    <string name="title_activity_family">FamilyActivity</string>
+    <string name="title_activity_add_family">AddFamilyActivity</string>
+    <string name="title_activity_update_family1">Update Family</string>
+
+    <string name="terms_condition">I accept the <a href="http://demo.vethics.in/swarnkar/termsofuse">Terms and Conditions.</a> </string>
+
+    <string name="title_activity_termsn_condition">Terms and Conditions</string>
+    <string name="terms_condidtions"><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META http-equiv="X-UA-Compatible" content="IE=8">
+<TITLE>bcl_804639786.htm</TITLE>
+<META name="generator" content="BCL easyConverter SDK 5.0.08">
+<STYLE type="text/css">
+
+body {margin-top: 0px;margin-left: 0px;}
+
+#page_1 {position:relative; overflow: hidden;margin: 100px 0px 115px 96px;padding: 0px;border: none;width: 698px;}
+
+#page_1 #p1dimg1 {position:absolute;top:534px;left:0px;z-index:-1;width:602px;height:117px;}
+#page_1 #p1dimg1 #p1img1 {width:602px;height:117px;}
+#page_2 {position:relative; overflow: hidden;margin: 99px 0px 107px 96px;padding: 0px;border: none;width: 698px;}#page_3 {position:relative; overflow: hidden;margin: 99px 0px 161px 96px;padding: 0px;border: none;width: 698px;}#page_4 {position:relative; overflow: hidden;margin: 99px 0px 103px 96px;padding: 0px;border: none;width: 698px;}#page_5 {position:relative; overflow: hidden;margin: 99px 0px 104px 96px;padding: 0px;border: none;width: 698px;}#page_6 {position:relative; overflow: hidden;margin: 99px 0px 100px 96px;padding: 0px;border: none;width: 698px;}
+#page_6 #id_1 {border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 698px;overflow: hidden;}
+#page_6 #id_2 {border:none;margin: 20px 0px 0px 0px;padding: 0px;border:none;width: 698px;overflow: hidden;}#page_7 {position:relative; overflow: hidden;margin: 99px 0px 95px 96px;padding: 0px;border: none;width: 698px;}#page_8 {position:relative; overflow: hidden;margin: 99px 0px 106px 96px;padding: 0px;border: none;width: 698px;}#page_9 {position:relative; overflow: hidden;margin: 98px 0px 105px 96px;padding: 0px;border: none;width: 698px;}#page_10 {position:relative; overflow: hidden;margin: 98px 0px 112px 96px;padding: 0px;border: none;width: 698px;}#page_11 {position:relative; overflow: hidden;margin: 98px 0px 151px 96px;padding: 0px;border: none;width: 698px;}#page_12 {position:relative; overflow: hidden;margin: 98px 0px 187px 96px;padding: 0px;border: none;width: 698px;}#page_13 {position:relative; overflow: hidden;margin: 98px 0px 168px 96px;padding: 0px;border: none;width: 698px;}#page_14 {position:relative; overflow: hidden;margin: 98px 0px 173px 96px;padding: 0px;border: none;width: 698px;}
+.ft0{font: bold 24px \'Calibri\';line-height: 29px;}
+.ft1{font: bold 21px \'Calibri\';line-height: 26px;}
+.ft2{font: 16px \'Calibri\';line-height: 19px;}
+.ft3{font: bold 18px \'Calibri\';line-height: 22px;}
+.ft4{font: 16px \'Calibri\';background-color: #ffff00;line-height: 19px;}
+.ft5{font: 16px \'Calibri\';background-color: #ffff00;margin-left: 12px;line-height: 19px;}
+.ft6{font: bold 16px \'Calibri\';line-height: 19px;}
+.ft7{font: 16px \'Calibri\';margin-left: 12px;line-height: 19px;}
+.ft8{font: 13px \'Times New Roman\';line-height: 15px;}
+.ft9{font: 16px \'Calibri\';margin-left: 18px;line-height: 19px;}
+.ft10{font: 15px \'Calibri\';line-height: 18px;}
+.ft11{font: bold 15px \'Calibri\';line-height: 18px;}
+.ft12{font: bold 15px \'Calibri\';line-height: 19px;}
+.ft13{font: bold 15px \'Calibri\';background-color: #ffff00;line-height: 18px;}
+.ft14{font: 14px \'Calibri\';line-height: 17px;}
+.ft15{font: 14px \'Calibri\';margin-left: 13px;line-height: 17px;}
+.ft16{font: 15px \'Calibri\';margin-left: 13px;line-height: 18px;}
+.ft17{font: 14px \'Calibri\';line-height: 19px;}
+.ft18{font: 14px \'Calibri\';line-height: 18px;}
+.ft19{font: 15px \'Calibri\';text-decoration: underline;color: #0000ff;line-height: 18px;}
+.ft20{font: 15px \'Calibri\';line-height: 19px;}
+.ft21{font: 15px \'Calibri\';background-color: #ffff00;line-height: 18px;}
+
+.p0{text-align: left;padding-left: 94px;margin-top: 0px;margin-bottom: 0px;}
+.p1{text-align: left;padding-left: 24px;margin-top: 13px;margin-bottom: 0px;}
+.p2{text-align: justify;padding-right: 96px;margin-top: 39px;margin-bottom: 0px;}
+.p3{text-align: left;margin-top: 21px;margin-bottom: 0px;}
+.p4{text-align: justify;padding-right: 91px;margin-top: 18px;margin-bottom: 0px;}
+.p5{text-align: left;margin-top: 23px;margin-bottom: 0px;}
+.p6{text-align: left;margin-top: 18px;margin-bottom: 0px;}
+.p7{text-align: justify;padding-left: 48px;padding-right: 96px;margin-top: 19px;margin-bottom: 0px;text-indent: -24px;}
+.p8{text-align: justify;padding-left: 48px;padding-right: 97px;margin-top: 2px;margin-bottom: 0px;text-indent: -24px;}
+.p9{text-align: justify;padding-right: 96px;margin-top: 21px;margin-bottom: 0px;}
+.p10{text-align: left;margin-top: 20px;margin-bottom: 0px;}
+.p11{text-align: justify;padding-right: 96px;margin-top: 19px;margin-bottom: 0px;}
+.p12{text-align: left;padding-left: 48px;padding-right: 97px;margin-top: 22px;margin-bottom: 0px;text-indent: -24px;}
+.p13{text-align: justify;padding-left: 48px;padding-right: 96px;margin-top: 0px;margin-bottom: 0px;text-indent: -24px;}
+.p14{text-align: justify;padding-left: 48px;padding-right: 96px;margin-top: 2px;margin-bottom: 0px;text-indent: -24px;}
+.p15{text-align: justify;padding-right: 96px;margin-top: 18px;margin-bottom: 0px;}
+.p16{text-align: left;padding-left: 24px;margin-top: 22px;margin-bottom: 0px;}
+.p17{text-align: left;padding-left: 24px;margin-top: 1px;margin-bottom: 0px;}
+.p18{text-align: justify;padding-left: 48px;padding-right: 97px;margin-top: 0px;margin-bottom: 0px;text-indent: -24px;}
+.p19{text-align: justify;padding-left: 48px;padding-right: 97px;margin-top: 3px;margin-bottom: 0px;text-indent: -24px;}
+.p20{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.p21{text-align: left;margin-top: 25px;margin-bottom: 0px;}
+.p22{text-align: left;margin-top: 24px;margin-bottom: 0px;}
+.p23{text-align: justify;padding-right: 97px;margin-top: 19px;margin-bottom: 0px;}
+.p24{text-align: justify;padding-right: 91px;margin-top: 19px;margin-bottom: 0px;}
+.p25{text-align: left;margin-top: 26px;margin-bottom: 0px;}
+.p26{text-align: left;margin-top: 27px;margin-bottom: 0px;}
+.p27{text-align: left;margin-top: 22px;margin-bottom: 0px;}
+.p28{text-align: justify;padding-right: 96px;margin-top: 0px;margin-bottom: 0px;}
+.p29{text-align: justify;padding-right: 97px;margin-top: 0px;margin-bottom: 0px;}
+.p30{text-align: justify;padding-right: 97px;margin-top: 20px;margin-bottom: 0px;}
+.p31{text-align: left;padding-left: 48px;padding-right: 96px;margin-top: 20px;margin-bottom: 0px;text-indent: -24px;}
+.p32{text-align: left;padding-left: 48px;padding-right: 97px;margin-top: 0px;margin-bottom: 0px;text-indent: -24px;}
+.p33{text-align: left;padding-left: 24px;margin-top: 18px;margin-bottom: 0px;}
+.p34{text-align: left;padding-left: 48px;padding-right: 97px;margin-top: 1px;margin-bottom: 0px;text-indent: -24px;}
+.p35{text-align: left;padding-right: 97px;margin-top: 21px;margin-bottom: 0px;}
+.p36{text-align: justify;padding-right: 96px;margin-top: 23px;margin-bottom: 0px;text-indent: 5px;}
+.p37{text-align: justify;padding-right: 96px;margin-top: 13px;margin-bottom: 0px;}
+.p38{text-align: justify;padding-right: 96px;margin-top: 16px;margin-bottom: 0px;text-indent: 5px;}
+.p39{text-align: justify;padding-right: 96px;margin-top: 17px;margin-bottom: 0px;text-indent: 7px;}
+.p40{text-align: justify;padding-right: 96px;margin-top: 3px;margin-bottom: 0px;}
+.p41{text-align: justify;padding-right: 96px;margin-top: 14px;margin-bottom: 0px;text-indent: 3px;}
+.p42{text-align: justify;padding-right: 96px;margin-top: 20px;margin-bottom: 0px;text-indent: 8px;}
+.p43{text-align: justify;padding-right: 97px;margin-top: 13px;margin-bottom: 0px;}
+.p44{text-align: justify;padding-right: 96px;margin-top: 49px;margin-bottom: 0px;}
+.p45{text-align: left;margin-top: 15px;margin-bottom: 0px;}
+.p46{text-align: left;margin-top: 12px;margin-bottom: 0px;}
+.p47{text-align: left;padding-left: 48px;padding-right: 91px;margin-top: 12px;margin-bottom: 0px;text-indent: -24px;}
+.p48{text-align: justify;padding-left: 48px;padding-right: 97px;margin-top: 15px;margin-bottom: 0px;text-indent: -24px;}
+.p49{text-align: justify;padding-right: 96px;margin-top: 15px;margin-bottom: 0px;}
+.p50{text-align: left;padding-left: 24px;margin-top: 16px;margin-bottom: 0px;}
+.p51{text-align: left;padding-left: 24px;margin-top: 11px;margin-bottom: 0px;}
+.p52{text-align: left;padding-left: 24px;margin-top: 0px;margin-bottom: 0px;}
+.p53{text-align: left;padding-left: 24px;margin-top: 12px;margin-bottom: 0px;}
+.p54{text-align: justify;padding-right: 91px;margin-top: 12px;margin-bottom: 0px;}
+.p55{text-align: justify;padding-right: 96px;margin-top: 12px;margin-bottom: 0px;}
+.p56{text-align: justify;padding-right: 96px;margin-top: 20px;margin-bottom: 0px;}
+.p57{text-align: justify;padding-right: 96px;margin-top: 17px;margin-bottom: 0px;}
+.p58{text-align: justify;padding-right: 91px;margin-top: 38px;margin-bottom: 0px;}
+.p59{text-align: justify;padding-right: 91px;margin-top: 25px;margin-bottom: 0px;}
+.p60{text-align: justify;padding-right: 91px;margin-top: 54px;margin-bottom: 0px;}
+.p61{text-align: left;margin-top: 13px;margin-bottom: 0px;}
+.p62{text-align: justify;padding-right: 97px;margin-top: 12px;margin-bottom: 0px;}
+.p63{text-align: left;margin-top: 16px;margin-bottom: 0px;}
+.p64{text-align: justify;padding-right: 96px;margin-top: 56px;margin-bottom: 0px;}
+.p65{text-align: justify;padding-right: 91px;margin-top: 52px;margin-bottom: 0px;}
+.p66{text-align: justify;padding-right: 97px;margin-top: 57px;margin-bottom: 0px;}
+.p67{text-align: justify;padding-right: 91px;margin-top: 53px;margin-bottom: 0px;}
+.p68{text-align: left;margin-top: 2px;margin-bottom: 0px;}
+.p69{text-align: justify;padding-right: 97px;margin-top: 52px;margin-bottom: 0px;}
+.p70{text-align: justify;padding-right: 96px;margin-top: 52px;margin-bottom: 0px;}
+.p71{text-align: justify;padding-right: 96px;margin-top: 55px;margin-bottom: 0px;}
+.p72{text-align: left;margin-top: 19px;margin-bottom: 0px;}
+.p73{text-align: justify;padding-right: 91px;margin-top: 11px;margin-bottom: 0px;}
+.p74{text-align: left;margin-top: 11px;margin-bottom: 0px;}
+
+</STYLE>
+</HEAD>
+
+<BODY>
+<DIV id="page_1">
+<DIV id="p1dimg1">
+<IMG src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAB0AloDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKAMKiiivw09MKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAN2iiiv3I8wKKKKACiiigDCooor8NPTCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii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7KfYzaKKK/IjvCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k=" alt=""></DIV><P class="p0 ft0">Swarnkar Website T&C and Privacy Policy</P>
+<P class="p1 ft1">1. Terms & conditions for WEBSITE</P>
+<P class="p2 ft2">These are the Terms and Conditions of Use for the SWARNKAR website maintained by SWARNKAR and SWARNKAR\'s other subsidiaries, affiliates and divisions and their respective successors and assigns (collectively, as used in these terms and conditions, "SWARNKAR").</P>
+<P class="p3 ft3">Applicability of terms and conditions:</P>
+<P class="p4 ft2">Access to and use of this website is subject to the terms and conditions set forth herein and to all applicable laws and regulations. You, as a visitor to and user of this website, accept such terms and conditions as a condition to the privilege of accessing the information made available herein, being provided the privilege to supply information hereunder, and otherwise making use of the website. These terms and conditions may be revised from time to time without further notice by updating this posting, and you accept responsibility for reviewing the applicable terms and conditions each time you visit or use this website in the future.</P>
+<P class="p5 ft3">Intended purposes of website: (Need to Update the purpose)</P>
+<P class="p6 ft4">The primary purposes of the SWARNKAR General Partner (US) LLC website are:</P>
+<P class="p7 ft4"><SPAN class="ft4">1.</SPAN><SPAN class="ft5">to provide employers who are existing or prospective clients of SWARNKAR with an online tool and resources to post job openings and orders and with other relevant information; and</SPAN></P>
+<P class="p8 ft4"><SPAN class="ft4">2.</SPAN><SPAN class="ft5">to provide professionals who are seeking jobs with an online tool and resources to</SPAN><SPAN class="ft2"> assess and evaluate available opportunities that may match their qualifications and preferences and to submit their resumes and other relevant information to apply for </SPAN>such positions.</P>
+<P class="p9 ft2">SWARNKAR maintains this website as a service to such employers and job seekers. The user instructions on the website further define the intended purposes and other terms and <SPAN class="ft4">conditions of use for each feature of this website.</SPAN></P>
+<P class="p10 ft3">Permitted uses of website:</P>
+<P class="p11 ft2">Many portions of this website are available for public viewing and use, but you must register or enter into a separate agreement with <SPAN class="ft6">SWARNKAR </SPAN>to access other portions of the website, such as those that enable an employer to post a job opening and those that enable a job seeker to submit a resume. Subject to these terms and conditions, the terms and conditions of any applicable license or other agreement and applicable law, <SPAN class="ft6">SWARNKAR </SPAN>hereby grants you permission to:</P>
+<P class="p12 ft2"><SPAN class="ft2">1.</SPAN><SPAN class="ft7">view and use for the intended purposes those portions of the website to which we have granted you access;</SPAN></P>
+</DIV>
+<DIV id="page_2">
+
+
+<P class="p13 ft2"><SPAN class="ft2">2.</SPAN><SPAN class="ft7">make one complete, unaltered electronic copy and/or one complete, unaltered paper copy of any page on this website to which we have granted you access, provided you do not remove any copyright, trademark and other proprietary rights notices and that you use it solely for personal or internal business purposes and do not distribute or republish it;</SPAN></P>
+<P class="p8 ft2"><SPAN class="ft2">3.</SPAN><SPAN class="ft7">submit job postings and job applications and otherwise sign up for our services, subject to payment of all applicable charges and agreement to the terms and conditions of any other agreement associated with those services; and</SPAN></P>
+<P class="p14 ft2"><SPAN class="ft2">4.</SPAN><SPAN class="ft7">use any website links, discussion forums, contact lists and </SPAN><NOBR>e-mail</NOBR> links to which you have been granted access to navigate the website and internet and to interact with SWARNKAR and other users of our website in accordance with these terms and conditions.</P>
+<P class="p3 ft3"><SPAN class="ft6">P</SPAN>rohibited uses of website</P>
+<P class="p15 ft2">Except as expressly set forth under "Permitted Uses of Website," to promote the integrity, reliability and security of this website and the services we provide over this website, any other use of this website or its contents is prohibited without first obtaining written permission from SWARNKAR. Without limiting the generality of the foregoing, users of this website may not:</P>
+<P class="p16 ft2"><SPAN class="ft2">1.</SPAN><SPAN class="ft7">make unsolicited offers or proposals or send junk mail to other users;</SPAN></P>
+<P class="p17 ft2"><SPAN class="ft2">2.</SPAN><SPAN class="ft7">harass, defame or defraud other users;</SPAN></P>
+<P class="p18 ft2"><SPAN class="ft2">3.</SPAN><SPAN class="ft7">knowingly damage or interfere with the operation of our services, any software that utilizes them or any user\'s enjoyment of them, by any means, including uploading or otherwise disseminating viruses, worms or other harmful code or through making repeated or automated "hits\' on this website with the intention or likely impact of causing delay or loss in availability of service on the website;</SPAN></P>
+<P class="p19 ft2"><SPAN class="ft2">4.</SPAN><SPAN class="ft7">disable, circumvent, avoid, bypass, remove, deactivate, impair or otherwise interfere with </SPAN><NOBR>security-related</NOBR> features of our services or software, features that enforce restrictions or limitations on use of our services or software, or features that prevent or restrict use or copying of any content or other material accessible through use of our services or software;</P>
+<P class="p14 ft2"><SPAN class="ft2">5.</SPAN><SPAN class="ft7">use our services to upload, or otherwise make available, files that contain images, photographs, software or other material protected by copyright, trademark or other intellectual property laws or by rights of privacy or publicity, unless you own or control the rights or have received all necessary consent to do so;</SPAN></P>
+<P class="p14 ft2"><SPAN class="ft2">6.</SPAN><SPAN class="ft7">use our services to download any file posted by another user that you know, or reasonably should know, cannot be legally reproduced, displayed, performed and/or distributed in this manner;</SPAN></P>
+<P class="p8 ft2"><SPAN class="ft2">7.</SPAN><SPAN class="ft7">access or use our services in violation of any local, state, national, or international law, regulation or order, including, without limitation, those governing labor and employment, data protection and privacy; or</SPAN></P>
+<P class="p14 ft2"><SPAN class="ft2">8.</SPAN><SPAN class="ft7">otherwise access or use this website in violation of these terms and conditions or use our other services or our software in violation of any applicable license or service agreement or infringe any intellectual property right or misappropriate any intellectual property.</SPAN></P>
+</DIV>
+<DIV id="page_3">
+
+
+<P class="p20 ft3"><SPAN class="ft6">C</SPAN>onsequences of unacceptable use:</P>
+<P class="p15 ft2">We reserve the right to take any and all action we deem appropriate if we become aware of conduct that we believe does not conform to the requirements of these terms and conditions, any agreement pursuant to which you use our services or any software that utilizes them, or applicable law, but we do not assume any responsibility for such conduct or any obligation to act to prevent it or stop it after it has occurred. We disclaim all liability for failure or refusal to take action with respect to conduct prohibited by this policy or for delay in taking action if we choose to act. Without limiting the foregoing, we reserve the right to terminate service to anyone whom we become aware is repeatedly using our services in violation of copyright law. It is your sole responsibility to use the services in compliance with all applicable copyright and other laws.</P>
+<P class="p21 ft3"><SPAN class="ft6">U</SPAN>ser accounts, security and passwords:</P>
+<P class="p15 ft2">If any service available to you on this website requires you to register or open a user account, you must complete the registration process by providing us with current, complete and accurate information as prompted by the applicable registration form. You may be asked to choose a user name and/or password. You are entirely responsible for maintaining the confidentiality of your password and account. Furthermore, you are entirely responsible for any and all activities that occur under your account, whether used by you or by someone who has obtained your account information from you. You must notify SWARNKAR immediately of any unauthorized use of your account or any other breach of security. SWARNKAR will not be liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge. You may not use anyone else\'s account at any time, without the permission of the account holder.</P>
+<P class="p21 ft3"><SPAN class="ft6">A</SPAN>ccuracy of information on website:</P>
+<P class="p15 ft2">SWARNKAR has attempted to include accurate and <NOBR>up-to-date</NOBR> information on this website at the time of its initial posting and each updating, but makes no representations or warranties as to the accuracy or completeness of such information. SWARNKAR undertakes no duty to supplement or update the information on this website in the future, and any voluntary efforts by SWARNKAR to do so will not constitute an undertaking of such a duty. Users of this website accept all information made available herein "as is" without any representation or warranty. SWARNKAR accepts no responsibility for any action taken by users of this website or other persons based on the information presented herein. All access and use of this website, and any and all content presented herein, is at the user\'s own risk.</P>
+<P class="p22 ft3"><NOBR><SPAN class="ft6">T</SPAN>hird-party</NOBR> statements and opinions:</P>
+<P class="p23 ft2">SWARNKAR is not responsible for any opinions, advice or statements made by third parties. Except as required by law, we have no obligation to monitor user postings or to remove or retain user supplied content, although we reserve the right to do so.</P>
+</DIV>
+<DIV id="page_4">
+
+
+<P class="p20 ft3"><SPAN class="ft6">P</SPAN>rivacy policy:</P>
+<P class="p15 ft2">SWARNKAR has adopted a Privacy Policy that governs SWARNKAR\'s collection, use, sharing, retention, care and disposal of personal information and business information of users of this website.</P>
+<P class="p3 ft3"><SPAN class="ft6">P</SPAN>osting and use of <NOBR>non-confidential</NOBR> information:</P>
+<P class="p24 ft2">Except for personal information and confidential business information that is governed by our Privacy Policy, any communication or material you transmit to SWARNKAR or other persons through this website or any other means of communication, such as a participation in a forum, blog or discussion group, is transmitted by you on a <NOBR>non-confidential</NOBR> basis. SWARNKAR makes no promise, express or implied, not to use such communication or material for any purpose whatsoever, including commercialization of any ideas or information contained in such communication or the disclosure, reproduction, publication, broadcast and/or posting of such information, without any financial or other obligation to you.</P>
+<P class="p5 ft3"><SPAN class="ft6">R</SPAN>isks of internet communications:</P>
+<P class="p15 ft2">Users of this website understand that the internet is a publicly accessible medium and that communication between users and SWARNKAR over the internet are inherently insecure, and may therefore be subject to the risk of being viewed by other parties. You accept all risks relating to any transmissions of information to SWARNKAR over the internet.</P>
+<P class="p3 ft3"><NOBR><SPAN class="ft6">T</SPAN>hird-party</NOBR> terms and conditions:</P>
+<P class="p15 ft2">SWARNKAR may provide links to other websites and other websites (including search engine and aggregator sites) may contain links to this website. Those other websites are not under SWARNKAR\'s control, and are subject to different terms and conditions than this website. SWARNKAR accepts no responsibility for such terms and conditions, and recommends that all users of this website who click on a link to another website carefully review the terms and conditions of use, and privacy policy, relating to such website before interacting further with that website. In addition, third parties may develop or provide tools or other software applications or components, materials, data, content or other products or services for use with our products or services, some of which may be accessible on or via this website. SWARNKAR makes no representation or warranty with respect to the quality, reliability or <NOBR>non-infringement</NOBR> of any <NOBR>third-party</NOBR> product, service or material accessible on or via this website. Your rights with respect to third party products, services or data may be subject to the terms and conditions of separate agreements with the third parties providing them.</P>
+<P class="p25 ft3"><SPAN class="ft6">O</SPAN>utbound linking:</P>
+<P class="p24 ft2">This website may contain links to <NOBR>third-party</NOBR> websites. These links are provided solely as a convenience to you. Unless explicitly stated otherwise, they are not intended as a certification or endorsement of the owner of the website, the website\'s content, or any products or services available on or via the website. SWARNKAR does not control and is not responsible for linked websites, or any websites (other than our own) that are linked to them.</P>
+</DIV>
+<DIV id="page_5">
+
+
+<P class="p20 ft3"><SPAN class="ft6">I</SPAN>nbound linking, framing and meta tags:</P>
+<P class="p15 ft2">You may make referential links to any of the publicly accessible pages on this website that are not password protected, subject to review and termination by us at any time and for any reason. Please be aware that we continually update and revise our website. We do not accept responsibility for ensuring that any page to which you may provide a link will remain available or that its content will remain the same. You may not link to our website in any way that might lead others to believe that our website or any of its contents were created or are operated or offered by you or any party other than SWARNKAR. Unless you have entered into a separate written agreement with us permitting you to do so, you may not frame or otherwise display any portion of our website or any of its contents, nor may you place any text or other content on your website, in a manner that states or implies that there is any association between you and SWARNKAR. You may not use any of SWARNKAR\'s trade names, trademarks or any of the textual content of our website as meta tags in your own website, unless we have granted you a license explicitly permitting you to do so.</P>
+<P class="p26 ft3">SWARNKAR\'s intellectual property:</P>
+<P class="p15 ft2">Unless indicated otherwise, all contents of this website are the private property of SWARNKAR and/or its licensors, affiliates and other content providers, including employers and job seekers who submit job openings or employment applications, and SWARNKAR and such persons reserve all rights with respect to this website\'s content. The contents of this website, including images, text, data, software, photographs, graphics, videos, music, sounds and other information, and the overall layout, look and feel of the website, are protected by copyright, trade secret, trademark and other applicable intellectual property or privacy laws. Such contents may not be distributed, downloaded, reproduced, copied, displayed, transmitted, modified, reused, removed, reposted, incorporated into derivative works or otherwise used except as provided herein without the express written permission of SWARNKAR. Any other use, or any misuse, of such contents is prohibited contractually by these terms and conditions and may violate applicable copyright, trademark, communications and other intellectual property or privacy laws.</P>
+<P class="p25 ft3"><SPAN class="ft6">T</SPAN>rade and service mark usage:</P>
+<P class="p15 ft2">SWARNKAR and its brand names and logos are trademarks and service marks of SWARNKAR Holding NV. Use of SWARNKAR\'s trademarks and service marks is subject to the terms and conditions of our trademark usage policy, which may be obtained from us on request. Other trademarks, product names, company names and logos appearing on this website are the property of their respective owners. You must obtain permission from those owners before copying or using their trademarks, product names, company names or logos.</P>
+<P class="p27 ft3"><SPAN class="ft6">W</SPAN>ebsite intended for U.S. users only(*Optional):</P>
+<P class="p15 ft2">This website is hosted and operated in the United States of America. SWARNKAR makes no representation or warranty that the information or services on this website are appropriate or available for use in other locations, and access to this website from territories where its contents may be illegal is prohibited. Those who choose to access the SWARNKAR website</P>
+</DIV>
+<DIV id="page_6">
+
+
+<DIV id="id_1">
+<P class="p28 ft2">from other locations do so at their own risk and are responsible for compliance with applicable local laws.</P>
+<P class="p10 ft3">Accessibility:</P>
+<P class="p15 ft2">SWARNKAR is committed to working with and providing reasonable accommodation to individuals with disabilities. If, because of a medical condition or disability, you require a reasonable accommodation for any part of the employment process, please email either barbara.blevens@us.SWARNKAR.com or angie.raughley@us.SWARNKAR.com, or call either <NOBR>888-726-3782</NOBR> ext. 7095 or <NOBR>877-288-1080</NOBR> and let us know the nature of your request and your contact information.</P>
+<P class="p27 ft3"><SPAN class="ft6">N</SPAN>o warranties:</P>
+<P class="p11 ft2">This website and its contents are provided to you on an "as is" and "as available" basis. SWARNKAR, and its directors, officers, employees, controlled or controlling entities, business partners, agents, <NOBR>third-party</NOBR> content providers, licensors and suppliers (collectively, "affiliates"), make no representations or warranties of any kind about this website or its contents, and they disclaim all warranties regarding this website and its contents, whether express, implied or statutory, including, without limitation, warranties of description, merchantability, fitness for a particular purpose, accuracy or completeness of content, or the availability or quality of any products or services available via this website.</P>
+<P class="p5 ft3"><SPAN class="ft6">L</SPAN>imitations on types of damages:</P>
+<P class="p15 ft2">Neither SWARNKAR nor any other person involved in creating, producing or delivering this website will be liable for any incidental, consequential, indirect, special or punitive damages, loss of use, loss of data, loss caused by virus, loss of income or profit, loss of or damage to property, claims of third parties, or other losses of any kind or character, even if SWARNKAR has been advised of the possibility of such damages or losses, arising out of user\'s access, use or inability to use this website, or any errors or omissions in the services provided through this website or the other contents of this website.</P>
+<P class="p5 ft3">Limitations on amount of liability:</P>
+<P class="p15 ft2">In no event will SWARNKAR and its affiliates be liable with respect to all claims arising out of or related to your use of this website for more than five hundred U.S. dollars ($500), or, if such limitation on liability is unenforceable under applicable law, then their aggregate liability will be limited to the maximum extent permitted by law.</P>
+<P class="p3 ft3">Waiver:</P>
+<P class="p11 ft2">No delay or failure to take any action or exercise any right that SWARNKAR may take or exercise pursuant to these terms and conditions or applicable law will constitute a waiver of that action or right by SWARNKAR.</P>
+</DIV>
+<DIV id="id_2">
+<P class="p20 ft3">Severability:</P>
+</DIV>
+</DIV>
+<DIV id="page_7">
+
+
+<P class="p29 ft2">If any part of these terms and conditions is declared invalid or unenforceable by a court of competent jurisdiction, then such declaration will not affect the validity of any remaining portion of these terms and conditions and such remaining portion will remain in full force and effect as if the invalid portion had been eliminated.</P>
+<P class="p3 ft6">Changes to the Terms of Use and Website:</P>
+<P class="p11 ft2">We may revise and update these Terms of Use from time to time in our sole discretion. All changes are effective immediately when posted, and apply to all access to and use of the Website thereafter. Your continued use of the Website following the posting of revised Terms of Use means that you accept and agree to the changes. You are expected to check this page frequently so you are aware of any changes, as they are binding on you.</P>
+<P class="p9 ft2">We may update the content on this Website from time to time, but its content is not necessarily complete or <NOBR>up-to-date.</NOBR> Any of the material on the Website may be out of date at any given time, and the Company is under no obligation to update such material.</P>
+<P class="p10 ft6">Intellectual Property Rights:</P>
+<P class="p30 ft2">The Website and its entire contents, features and functionality (including but not limited to all information, software, text, displays, images, video and audio, and the design, selection and arrangement thereof), are owned by the Company, its licensors or other providers of such material and are protected by United States and international copyright, trademark, patent, trade secret and other intellectual property or proprietary rights laws.</P>
+<P class="p9 ft2">These Terms of Use permit you to use the Website for your personal, <NOBR>non-commercial</NOBR> use only. You must not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store or transmit any of the material on our Website, except as follows:</P>
+<P class="p31 ft2"><SPAN class="ft8">∙</SPAN><SPAN class="ft9">Your computer may temporarily store copies of such materials in RAM incidental to your accessing and viewing those materials.</SPAN></P>
+<P class="p32 ft2"><SPAN class="ft8">∙</SPAN><SPAN class="ft9">You may store files that are automatically cached by your Web browser for display enhancement purposes.</SPAN></P>
+<P class="p14 ft2"><SPAN class="ft8">∙</SPAN><SPAN class="ft9">You may print [or download] one copy of a reasonable number of pages of the Website for your own personal, </SPAN><NOBR>non-commercial</NOBR> use and not for further reproduction, publication or distribution.</P>
+<P class="p3 ft2">You must not:</P>
+<P class="p33 ft2"><SPAN class="ft8">∙</SPAN><SPAN class="ft9">Modify copies of any materials from this site.</SPAN></P>
+<P class="p34 ft2"><SPAN class="ft8">∙</SPAN><SPAN class="ft9">Use any illustrations, photographs, video or audio sequences or any graphics separately from the accompanying text.</SPAN></P>
+<P class="p34 ft2"><SPAN class="ft8">∙</SPAN><SPAN class="ft9">Delete or alter any copyright, trademark or other proprietary rights notices from copies of materials from this site.</SPAN></P>
+<P class="p35 ft2">You must not access or use for any commercial purposes any part of the Website or any services or materials available through the Website.</P>
+</DIV>
+<DIV id="page_8">
+
+
+<P class="p29 ft2">If you wish to make any use of material on the Website other than that set out in this section, please address your request to: <SPAN class="ft6">EMAIL ADDRESS</SPAN></P>
+<P class="p11 ft2">If you print, copy, modify, download or otherwise use or provide any other person with access to any part of the Website in breach of the Terms of Use, your right to use the Website will cease immediately and you must, at our option, return or destroy any copies of the materials you have made. No right, title or interest in or to the Website or any content on the site is transferred to you, and all rights not expressly granted are reserved by the Company. Any use of the Website not expressly permitted by these Terms of Use is a breach of these Terms of Use and may violate copyright, trademark and other laws.</P>
+<P class="p36 ft2">The Company name and all related names, logos, product and service names, designs and slogans are the proprietary rights of the Company or its affiliates or licensors. You must not use such marks without the prior written permission of the Company. All other names, logos, products and service names, designs and slogans on this Website are the trademarks of their respective owners.</P>
+<P class="p27 ft3">Dispute Resolution:</P>
+<P class="p15 ft2">These terms and conditions are governed by the laws of the state of Georgia, United States of America. Users of this website consent to the exclusive jurisdiction and venue of federal and state courts sitting in Georgia for the resolution of any and all legal disputes that may arise under these terms and conditions or with respect to this website or the information made available herein. Users waive any and all objections or defenses against such jurisdiction and venue and covenants not to bring any suit or other legal action against <SPAN class="ft6">SWARNKAR </SPAN>involving the foregoing in any other jurisdiction, venue or forum.</P>
+<P class="p27 ft6">DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY:</P>
+<P class="p37 ft10">WE DO NOT WARRANT THAT THE SERVICES, INFORMATION, CONTENT, MATERIALS OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THIS WEBSITE ARE FREE OF VIR– USES OR OTHER HARMFUL COMPONENTS. WE RECOMMEND SCANNING ANY FILES BEFORE DOWNLOADING.</P>
+<P class="p38 ft10">While every effort is made to ensure that the content of this Website is accurate, the Website is provided “as is” and we make no representations or warranties in relation to the accuracy or completeness of the information found on it. While the content of this site is provided in good faith, we do not warrant that the information will be kept up to date, be true, or that this site will always (or ever) be available for use.</P>
+<P class="p39 ft11">BY USING THIS WEBSITE YOU UNDERSTAND AND AGREE THAT SWARNKAR , (i) DOES NOT WARRANT THAT YOU WILL RECEIVE ANY EMPLOYMENT OR JOB OFFERS THROUGH THE SITE; (ii)</P>
+<P class="p40 ft11">THAT SWARNKAR WILL NOT BE RESPONSIBLE FOR ANY EMPLOYMENT OFFERS, EMPLOYMENT SCREENINGS, EMPLOYMENT DECISIONS, AND ACTUAL EMPLOYMENT PRESENTED BY THIRD PARTIES. (iii) THAT SWARNKAR DOES NOT GUARANTEE THE ACCURACY, COMPLETENESS, VALIDITY, OR TIMELINESS OF INFORMATION LISTED BY ANY THIRD PARTIES; (iv) THAT GRIFFIN STAFFING NETWORK SHALL NOT BE RESPONSIBLE FOR ANY MATERIALS POSTED BY THIRD PARTIES, INCLUDING, BUT NOT LIMITED TO, JOB OPENINGS AND EMPLOYMENT LISTINGS; AND (v) THAT GRIFFIN STAFFING NETWORK IS NEITHER YOUR EMPLOYER OR YOUR AGENT IN ANY REGARD. YOU</P>
+</DIV>
+<DIV id="page_9">
+
+
+<P class="p28 ft11">SHALL — USE YOUR OWN JUDGMENT, CAUTION, AND COMMON SENSE IN EVALUATING ANY PROSPECTIVE EMPLOYERS AND ANY INFORMATION PROVIDED BY ANY THIRD PARTY.</P>
+<P class="p41 ft11">OUR SERVICES AND ALL INFORMATION, CONTENT, MATERIALS AND OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH OUR WEBSITE AND SERVICES ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS. WE MAKE NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THE SERVICES, OR THE INFORMATION, CONTENT, MATERIALS OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICES. YOU EXPRESSLY AGREE THAT YOUR — USE OF OUR SERVICES IS AT YOUR SOLE RISK.</P>
+<P class="p42 ft12">THE INFORMATION, TECHNIQUES, AND SERVICES DISCUSSED HEREIN ARE PRESENTED FOR INFORMATIONAL AND EDUCATIONAL PURPOSES ONLY. TO THE FULL EXTENT PERMISSIBLE BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE WILL NOT BE LIABLE FOR ANY DAMAGES OF ANY KIND ARISING FROM THE — USE OF ANY SERVICE, OR FROM ANY INFORMATION, CONTENT, MATERIALS OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH ANY IN TOUCH WITH SPIRIT SERVICE, INCLUDING, BUT NOT LIMITED TO DIRECT, INDIRECT, INCIDENTAL, PUNITIVE, AND CONSEQUENTIAL DAMAGES, UNLESS OTHERWISE SPECIFIED IN WRITING.</P>
+<P class="p43 ft10">You agree to indemnify and hold harmless the Company from any liability for physical or mental injury to you or third parties, or any loss or damage of any kind, to you or to third parties, resulting from use of any information, technique or service on this Website, in whole or in part. You agree to all the above, whether you receive the information, techniques or services from this Website itself, from the owner of this site, from other persons listed on this Website or from any other parties purporting to practice any of the techniques or services discussed herein.</P>
+<P class="p44 ft10">This is the Privacy Policy for the SWARNKAR website maintained by SWARNKAR Pa<SPAN class="ft13">rtner name</SPAN> (US) LLC on behalf of SWARNKAR and its other subsidiaries, affiliates and divisions and their respective successors and assigns (collectively, as used in this Privacy Policy, "SWARNKAR ").</P>
+<P class="p45 ft11">Overview</P>
+<P class="p46 ft10">The primary purposes of the SWARNKAR website are:</P>
+<P class="p47 ft14"><SPAN class="ft14">1.</SPAN><SPAN class="ft15">to provide employers who are existing or prospective clients of SWARNKAR with an online tool and resources to post job openings and orders and with other relevant information; and</SPAN></P>
+<P class="p48 ft10"><SPAN class="ft10">2.</SPAN><SPAN class="ft16">to provide professionals who are seeking jobs with an online tool and resources to assess and evaluate available opportunities that may match their qualifications and preferences and to submit their resumes and other relevant information to apply for such positions.</SPAN></P>
+<P class="p49 ft10">As a result of its purposes, use of this website facilitates and inherently involves the collection and exchange of valuable and sensitive information among employers, job seekers and SWARNKAR. This Privacy Policy covers the collection, use, sharing, retention, care and disposal of personal information by or on behalf of SWARNKAR of or relating to:</P>
+<P class="p50 ft10"><SPAN class="ft10">1.</SPAN><SPAN class="ft16">anonymous visitors to the SWARNKAR website,</SPAN></P>
+<P class="p51 ft10"><SPAN class="ft10">2.</SPAN><SPAN class="ft16">persons who register as employers on the SWARNKAR website,</SPAN></P>
+</DIV>
+<DIV id="page_10">
+
+
+<P class="p52 ft10"><SPAN class="ft10">3.</SPAN><SPAN class="ft16">persons who register as job seekers on the SWARNKAR website, and</SPAN></P>
+<P class="p53 ft10"><SPAN class="ft10">4.</SPAN><SPAN class="ft16">Other individuals who may supply personal information to SWARNKAR from time to time.</SPAN></P>
+<P class="p54 ft17">By using this website, such persons expressly consent to this Privacy Policy. This Privacy Policy applies only to the SWARNKAR website. Websites or online services provided by third parties accessible by a link on the SWARNKAR website and users of this website who enter into any online communication or transaction with each other, such as a job seeker and employer, may have their own distinct privacy policy. Users assume responsibility for informing themselves of the privacy policies of such third parties and other users and making any user choices, including refraining from communicating with such third parties or other users whose privacy policy they do not accept.</P>
+<P class="p37 ft10">SWARNKAR reserves the right to update this Privacy Policy from time to time. Any changes will only be effective prospectively, from the time such changes are published on the website and, with respect to any particular information of or relating to any person, SWARNKAR will comply with this Privacy Policy as in effect at the time such information was supplied or obtained unless it obtains consent for the application of any other or different terms to such information.</P>
+<P class="p6 ft11">Information collection</P>
+<P class="p55 ft10">SWARNKAR collects information from and regarding individuals in a variety of ways from a variety of sources. SWARNKAR initially collects information from users of its website during their visits to the website. We may also collect information externally from this website, such as information regarding those job seekers who secure employment with or through SWARNKAR and those employers who are or become clients of SWARNKAR. This information enables us to profile the interests of employers and job seekers, post and solicit applications for job openings and orders and track the status of pending openings.</P>
+<P class="p56 ft10">We sometimes afford job seekers and employers an opportunity to provide us with specific additional information when they enroll on this website and complete their profile, such as their physical geographical location. Providing this information is optional. However, providing this information helps us better serve job seekers, employers and other website visitors by including their preferences and choices on various options.</P>
+<P class="p57 ft10">SWARNKAR also collects and uses information by installing small computer files (known as cookies) on the hard drive of each computer used to visit our website. A cookie is a string of information sent by a website and stored on your hard drive or temporarily in your computer\'s memory. Cookies are an important element of your experience on our website. They allow us to welcome you each time you visit and customize our information to your past website experiences. Cookies also help us detect and stop fraud.</P>
+<P class="p58 ft18">The website may include <NOBR>first-party</NOBR> cookies (i.e., cookies that send data directly to SWARNKAR and agents and contractors acting on behalf of SWARNKAR , used to monitor, analyze and administer the website) and <NOBR>third-party</NOBR> cookies (i.e., cookies that send data to our contractors for their commercial use). The cookies on our website may also track Internet activities across different websites.</P>
+<P class="p59 ft18">Some computer browsers permit you to disable or uninstall cookies, and you may do so by following the instructions provided by your hardware and software vendors. SWARNKAR does not provide the means for you to opt out of having cookies placed on your computer, and makes no representation or warranty that the disabling devices provided by your hardware and software vendors will be effective</P>
+</DIV>
+<DIV id="page_11">
+
+
+<P class="p28 ft10">to block or remove the cookies. However, disabling or uninstalling these cookies will adversely impact the user experience on the SWARNKAR website and may prevent you from accessing and using certain features of the website.</P>
+<P class="p60 ft17">SWARNKAR and the vendor hosting this website collect traffic data regarding this website, and such data collection activities may involve interaction with cookies, the collection of user IP addresses and the exchange of numeric codes used to identify a computer. Your computer\'s IP address is not necessarily linked to your personally identifiable information, but does distinguish your computer from other computers that access the SWARNKAR website. SWARNKAR may use traffic data and your computer\'s IP address to help diagnose problems with its server, analyze trends, administer its website, and serve more relevant advertising via Google\'s advertising network and for other purposes. SWARNKAR may also use your computer\'s IP address to identify you as a distinct, though anonymous, visitor, for whom the experience may be personalized during future visits.</P>
+<P class="p61 ft10">To opt out of the Google remarketing advertising network, visit <A href="https://www.google.com/settings/ads/onweb/?hl=en&sig=ACi0TCivrxzhIQFNwWltJOQkVfUSyI5nxidmBBpuljxngspKIXSxRVtoTUMUbxCYPHBFciF99cenY84rfy4uVVLLgVAvb8AJ6lHIrVxJIGQyzaXgj_22qzkZKwI78XIgYXMvIvrygkIb042taH7RuwxfAUbqvm0G_15vv2VowjDHOySv4oC1pwpGNFRBfxUxKN8el44sBMV3"><SPAN class="ft19">Google\'s Ad Preference Manager</SPAN></A><A href="https://www.google.com/settings/ads/onweb/?hl=en&sig=ACi0TCivrxzhIQFNwWltJOQkVfUSyI5nxidmBBpuljxngspKIXSxRVtoTUMUbxCYPHBFciF99cenY84rfy4uVVLLgVAvb8AJ6lHIrVxJIGQyzaXgj_22qzkZKwI78XIgYXMvIvrygkIb042taH7RuwxfAUbqvm0G_15vv2VowjDHOySv4oC1pwpGNFRBfxUxKN8el44sBMV3">.</A></P>
+<P class="p46 ft11">Tracking</P>
+<P class="p62 ft10">Some Web browsers may be configured to send Do Not Track signals to websites, or users may use similar mechanisms to indicate a user’s preference that certain web technologies not be used to track the user’s online activity. The website does not accept or process such Do Not Track signals or similar mechanisms.</P>
+<P class="p63 ft11">Information use</P>
+<P class="p55 ft10">SWARNKAR uses each registered job seeker\'s personal information to administer the various services opted for by the job seeker and to make the job seeker aware of career opportunities and other developments from time to time. Personal data is information which can be used to identify you, such as name, date of birth, identification number or other factors specific to your identity, such as address, telephone, email or cell/mobile number.</P>
+<P class="p64 ft20">The user information that SWARNKAR collects may be added to our databases and used for business purposes, including for marketing and promotional purposes, for a statistical analysis of users’ behaviour, for product development, for content improvement, or to customize the content and layout of the website. In addition, SWARNKAR will, on occasion, send emails to you about job information you requested from the website or <NOBR>third-party</NOBR> products. If you do not want to receive email from us, visit the “Opt Out” or “Unsubscribe” link at the bottom of any SWARNKAR email to remove yourself from continued receipt of such email messages.</P>
+<P class="p65 ft10">Among other uses, SWARNKAR uses the information to identify an individual as a registered job seeker, to present potential employment opportunities to the job seeker, to present the job seeker to potential employers and to report these transactions to the relevant job seeker. We also give each job seeker the option to receive certain targeted communications from time to time.</P>
+</DIV>
+<DIV id="page_12">
+
+
+<P class="p20 ft11">Information sharing</P>
+<P class="p55 ft10">With the job seeker\'s permission, SWARNKAR may submit the job seeker\'s resume, application and/or other information to a prospective employer on the basis that such prospective employer will not disclose the fact that such job seeker is seeking employment or communicate with any other person regarding the contents of such job seeker\'s resume or application except with the job seeker\'s consent or otherwise in compliance with applicable labor and employment laws.</P>
+<P class="p66 ft10">SWARNKAR may also from time to time submit the job seeker\'s profile, with sufficient information removed so that the job seeker is not readily personally identifiable, to prospective employers to solicit their potential interest in him or her as a job candidate.</P>
+<P class="p67 ft17">SWARNKAR may share a job seeker\'s personal information with entities with whom it contracts to assist in administering the website, including the job board on the website, from time to time. We may also share user information with third party companies and individuals with whom we contract in connection with the following: to facilitate the website; to provide the website or portions of the website on our behalf; to perform related services, including without limitation, maintenance services, database management, fulfillment, web analytics and improvement of the features or functionality of</P>
+<P class="p68 ft10">the<SPAN style="padding-left:528px;">website.</SPAN></P>
+<P class="p56 ft20">SWARNKAR may also share a job seeker\'s personal information with business partners to offer you goods, services and other incentives relating to the website and the job board. Once we establish and maintain an employment, staffing or placement relationship with you, we use the data you provided to us to comply with laws and regulations, including but not limited to employment law, tax and social security and national and international sanctions regulation compliance. For the purposes mentioned above, SWARNKAR may transfer your personal data to other SWARNKAR entities that provide services on behalf of SWARNKAR .</P>
+<P class="p69 ft10">We may also share your information with any successor or assign some or all of the relevant part of our business, whether through a sale of our business, merger or otherwise.</P>
+<P class="p70 ft10">We may share user information with appropriate third parties when we believe, in our sole discretion, that such sharing is appropriate: to comply with the law, including but not limited to, in response to a subpoena served on SWARNKAR ; to enforce or apply this Privacy Policy or other applicable terms, rules or policies; to protect the rights, property or safety of SWARNKAR , our users or others; or to prevent activity that we believe, in our sole discretion, may be or may become illegal, unethical or legally actionable (including exchanging user information with other companies and organizations for fraud protection).</P>
+</DIV>
+<DIV id="page_13">
+
+
+<P class="p29 ft10">In all cases in which we share a job seeker\'s personal information, we will seek contractual commitments from the party with whom we share such information to abide by the same terms and conditions as those applicable to us in this Privacy Policy regarding the use, sharing, retention, care and disposal of such information.</P>
+<P class="p71 ft20">Please note that if you use any bulletin board, chat room, comment posting feature or other public communication service, forum or feature offered through the website, or post any information available for viewing by other users, any of the information that you share will be visible to other users. The information that you make available can be read, used and collected by other users to send you unsolicited messages outside of the website. SWARNKAR is not responsible for the manner in which any information that you decide to share by such public communication services will be used by other users.</P>
+<P class="p69 ft10">We may release aggregate user information (without revealing any personal information) to advertisers and other third parties in order to promote or describe use of the website.</P>
+<P class="p61 ft11">Information security</P>
+<P class="p55 ft10">SWARNKAR restricts access to the personal information it collects to those who have a valid business need to know that information. Access to personal information is granted based on the minimum access required to fulfill the business need and purpose for which it is collected, used and shared. We endeavour to use commercially reasonable security safeguards, practices and procedures, and we commit to the highest level of care to protect the privacy and integrity of personal information, throughout its useful <NOBR>life-cycle,</NOBR> from collection until destruction.</P>
+<P class="p72 ft11">Information security incident response</P>
+<P class="p62 ft10">If an unforeseen event occurs that results in the discovery that your personal information has been involved in a <NOBR>cyber-security</NOBR> or data breach incident, we will take appropriate steps to respond to the incident, in a timely manner and, if applicable, notify you of the incident so you can take whatever steps may be necessary to protect your personal information.</P>
+<P class="p63 ft11">Retention of personal information</P>
+<P class="p55 ft10">SWARNKAR will keep your personal information for as long as we have a business need and purpose to retain the information, including storage for auditing and archival purposes. When we believe we no longer need such information, we will destroy or otherwise dispose of your personal information in a manner intended to preserve your privacy and security.</P>
+<P class="p45 ft11">Accessing and updating your profile</P>
+<P class="p37 ft10">Job seekers may review, update or remove their job seeker profile directly from the website from time to time (subject to SWARNKAR’s storage policies, as described above). You may also contact us and ask to see your job seeker profile and choices, and you may advise us of any changes or inaccuracies in such profile and choices and we will update or correct as appropriate.</P>
+</DIV>
+<DIV id="page_14">
+<P class="p20 ft11">Consultant texting applicants & employees</P>
+<P class="p55 ft10">We are pleased to offer you the ability to <NOBR>opt-in</NOBR> to receive text messages from your SWARNKAR. If you elect to enroll to receive text messages from your SWARNKAR Consultant, you will receive easy- <NOBR>to-check</NOBR> text messages related to SWARNKAR. This information may include, but is not limited to, information such as job postings, assignment updates, weather alerts and reminders for upcoming events and services. Please see a SWARNKAR Consultant to learn how to enroll.</P>
+<P class="p6 ft11">Consultant texting <NOBR>opt-out</NOBR></P>
+<P class="p55 ft10">If at any time you wish to stop receiving text messages, you will have the option to <NOBR>opt-out</NOBR> by simply texting STOP after receiving a text from SWARNKAR or you can contact SWARNKAR and request to have your number removed through SWARNKAR’s Call Center at <SPAN class="ft21">CONTACT NUMBER</SPAN></P>
+<P class="p45 ft11">International data transfer</P>
+<P class="p73 ft17">By accessing and using the website, you acknowledge and agree that SWARNKAR controls and operates all parts of the website from its offices in the United States of America and that the website is intended for use by users located in the United States of America. Unless expressly stated to the contrary, SWARNKAR makes no representation that the website is appropriate or will be available for use in other countries. If you access the website from outside the United States, you acknowledge and agree that your information may be transferred to and maintained on computers and servers located outside of your state, province, country or other governmental jurisdiction where the privacy laws may be different from those in your jurisdiction. Your consent to this Privacy Policy and other applicable terms, rules or policies followed by your submission of such information represents your agreement to the transfer of such information to the United States and the collection, use and potential disclosure of your information in accordance with United States law and our Privacy Policy.</P>
+<P class="p45 ft11">Children\'s privacy</P>
+<P class="p54 ft17">By using the website, you represent and warrant that you are thirteen (13) years of age or older and that you agree to and agree to abide by all applicable terms, rules and policies. Any access to or use of the website by anyone under the age of thirteen (13) is unauthorized. If IMPLEMENT believes that you are under the age of thirteen (13) or that you are not old enough to consent to and be legally bound by applicable terms, rules or policies, SWARNKAR may, at any time, in its sole discretion, and with or without notice: (i) terminate your access to or use of the website (or any portion, aspect or feature of them), or (ii) delete any content or information that you have posted through the website.</P>
+<P class="p61 ft11">Reporting fraudulent activities</P>
+<P class="p55 ft10">If you become aware of any potentially fraudulent activity on our website or in an email or text, please contact SWARNKAR\'s Call Center at <SPAN class="ft21">NUMBER</SPAN> so that we can follow up with appropriate actions. We take these matters and the protection of our applicants/employees sensitive information, very seriously.</P>
+<P class="p63 ft11">Contacting SWARNKAR</P>
+<P class="p74 ft10">If you have any questions, comments or concerns regarding this Privacy Policy, please contact US on</P>
+<P class="p68 ft21">NUMBER</P>
+</DIV>
+</BODY>
+</html>
+]]></string>
+    <string name="title_activity_advance_search">Advance Search</string>
+    <string name="search">Search</string>
+
+    <string-array name="advance_search_fields">
+        <item>First Name</item>
+        <item>Last Name</item>
+        <item>Mobile Number</item>
+        <item>Email</item>
+        <item>Member ID</item>
+        <item>Sub Caste</item>
+        <item>Gotra (Self)</item>
+        <item>Gotra (Mother)</item>
+        <item>Marital Status</item>
+        <item>Date of Birth</item>
+        <item>Profession</item>
+        <item>Profession Organization Name</item>
+        <item>Profession Status</item>
+        <item>Profession Industry</item>
+        <item>Profession Designation</item>
+        <item>Office Locality/Area</item>
+        <item>Office Location</item>
+        <item>Educational Qualification</item>
+        <item>Educational Name of Institution</item>
+        <item>Status of Education</item>
+        <item>Area of Study</item>
+        <item>Residential Locality/Area</item>
+        <item>Residential Ward No.</item>
+        <item>Residential Constituency</item>
+        <item>Residential Village</item>
+        <item>Residential Tehsil</item>
+        <item>Residential Location</item>
+        <item>Permanent Address Locality/Area</item>
+        <item>Permanent Address Ward No.</item>
+        <item>Permanent Address Constituency</item>
+        <item>Permanent Address Village</item>
+        <item>Permanent Address Tehsil</item>
+        <item>Permanent Address Location</item>
+
+    </string-array>
+    <string name="title_activity_search_result">Search Results</string>
+</resources>

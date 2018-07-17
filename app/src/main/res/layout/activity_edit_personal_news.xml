@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.swarankar.Activity.Activity.NewsPostActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+                <EditText
+                    android:id="@+id/news_post_event_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/editText"
+                    android:alpha="0.8"
+                    android:hint="Event Title"/>
+
+                <EditText
+                    android:id="@+id/news_post_name_of_organization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name of Organization"
+                    style="@style/editText"
+                    android:alpha="0.8"
+                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                <EditText
+                    android:id="@+id/news_post_vanue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Venue"
+                    android:alpha="0.8"
+                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                <EditText
+                    android:id="@+id/news_post_mobile_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:alpha="0.8"
+                    style="@style/editText"
+                    android:hint="Mobile Number"
+                    android:inputType="number"
+                    android:maxLength="10" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_5sdp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/news_post_start_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Start Date"
+                            android:alpha="0.8"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_marginTop="@dimen/_5sdp"/>
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="#8e8e8e"
+                            android:layout_marginRight="@dimen/_15sdp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/news_post_end_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:alpha="0.8"
+                            android:hint="End Date"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="#8e8e8e"
+                            android:layout_marginLeft="@dimen/_5sdp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/news_post_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:alpha="0.8"
+                        android:hint="Time"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#8e8e8e"
+                        android:layout_marginLeft="@dimen/_5sdp"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/news_post_contact_person"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact Person"
+                    android:layout_weight="1"
+                    android:alpha="0.8"
+                    android:layout_marginTop="@dimen/_5sdp"/>
+
+                <ImageView
+                    android:id="@+id/image_upload"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/placeholder"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Image"
+                    android:layout_marginTop="@dimen/_5sdp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:gravity="end">
+        <Button
+            android:id="@+id/new_post_btn_post"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#20a0bd"
+            android:text="Edit"
+            android:layout_gravity="end"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/TextColor"/>
+    </LinearLayout>
+
+</LinearLayout>

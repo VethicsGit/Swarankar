@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/my_account"
+            android:title="My account" />
+        <item
+            android:id="@+id/nav_family"
+            android:icon="@drawable/family1"
+            android:title="Family" />
+        <item
+            android:id="@+id/nav_jobs"
+            android:icon="@drawable/jobs"
+            android:title="Jobs" />
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/news"
+            android:title="News" />
+
+        <!--<item-->
+        <!--android:id="@+id/nav_discussion"-->
+        <!--android:icon="@drawable/discussion"-->
+        <!--android:title="Discussion" />-->
+        <item
+            android:id="@+id/nav_society"
+            android:icon="@drawable/socity1"
+            android:title="Society" />
+        <item
+            android:id="@+id/nav_periodicals"
+            android:icon="@drawable/periodicals"
+            android:title="Periodicals" />
+
+        <item
+            android:id="@+id/nav_donation"
+            android:icon="@drawable/periodicals"
+            android:title="Donation" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Sign Out" />
+    </group>
+
+
+</menu>

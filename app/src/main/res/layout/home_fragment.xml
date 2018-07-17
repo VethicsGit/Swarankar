@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.swarankar.Activity.Fragment.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
+                android:orientation="vertical">
+
+
+                  <!--  <android.support.v7.widget.CardView
+                        android:layout_width="193dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/shadow">
+
+                        <LinearLayout
+                            android:id="@+id/home_layout_search"
+                            android:layout_width="212dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_marginRight="@dimen/_1sdp"
+                            android:layout_weight="1"
+                            android:background="#f6f6f6"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="63dp"
+                                android:layout_height="68dp"
+                                android:background="@drawable/search" />
+
+                            <TextView
+                                android:layout_width="189dp"
+                                android:layout_height="wrap_content"
+                                android:background="@color/textcolor"
+                                android:gravity="center"
+                                android:text="SEARCH"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="198dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp">
+
+
+                        <LinearLayout
+                            android:id="@+id/lv_profile"
+                            android:layout_width="184dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_3sdp"
+                            android:layout_weight="1"
+                            android:background="#f6f6f6"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="65dp"
+                                android:layout_height="64dp"
+                                android:background="@drawable/profile" />
+
+                            <TextView
+                                android:layout_width="205dp"
+                                android:layout_height="wrap_content"
+                                android:background="@color/textcolor"
+                                android:gravity="center"
+                                android:text="PROFILE"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>-->
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingTop="@dimen/_1sdp">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="198dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp">
+
+
+                    <LinearLayout
+                        android:id="@+id/home_layout_family"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/family" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="FAMILY"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="198dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp">
+
+
+
+                    <LinearLayout
+                        android:id="@+id/lv_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginRight="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/profile" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="PROFILE"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_2sdp"
+
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_weight="1">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="198dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp">
+
+
+
+                    <LinearLayout
+                        android:id="@+id/lv_adverticemnet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/advertise" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="ADVERTISE POST"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="198dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp">
+
+
+
+                    <LinearLayout
+                        android:id="@+id/lv_jobs"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginRight="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/job" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="JOBS"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingTop="@dimen/_1sdp">
+
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="198dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp">
+
+
+
+                    <LinearLayout
+                        android:id="@+id/home_layout_society"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+
+                            android:background="@drawable/socity" />
+
+                        <TextView
+                            android:id="@+id/text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="SOCIETY"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:id="@+id/home_layout_event"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_marginRight="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+
+                            android:background="@drawable/events" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="EVENTS"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60sdp"
+                    android:background="@drawable/bottomimg" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bottom_back" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

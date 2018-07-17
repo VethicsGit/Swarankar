@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6E6"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.swarankar.Activity.Activity.FamilyActivity"
+    tools:showIn="@layout/activity_family2">
+
+    <LinearLayout
+        android:id="@+id/family_constraint_layout"
+        android:layout_width="match_parent"
+        android:background="#E6E6E6"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            android:layout_width="match_parent"
+            android:translationZ="10dp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:elevation="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/edt_grand_father_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:hint="Enter Grand Father Name"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_grand_mother_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+         android:backgroundTint="@color/colorPrimaryDark"
+            android:hint="Enter Grand Mother Name"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_grand_father_name" />
+
+        <EditText
+            android:id="@+id/edt_father_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+        android:backgroundTint="@color/colorPrimaryDark"
+            android:hint="Enter Father Name"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_grand_mother_name" />
+
+        <EditText
+            android:id="@+id/edt_mother_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+          android:backgroundTint="@color/colorPrimaryDark"
+            android:hint="Enter Mother Name"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_father_name" />
+
+        </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            android:layout_width="match_parent"
+            android:translationZ="10dp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:elevation="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_family_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                   android:background="@color/white"
+                    android:text="Submit"
+                    android:elevation="@dimen/_10sdp"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_mother_name" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

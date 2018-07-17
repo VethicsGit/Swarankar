@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    android:background="#f1f1f1">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient7"
+        card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:padding="@dimen/_6sdp">
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:id="@+id/news_item_profile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/profile"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/news_item_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vijay Sinha"
+                        android:textSize="@dimen/_18sdp"
+                        android:textColor="#f45f5b"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="@dimen/_8sdp"/>
+
+                    <TextView
+                        android:id="@+id/news_item_date_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2 jun at 5:15Pm"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:background="#eeeeee"></LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_5sdp">
+            <TextView
+                android:id="@+id/news_item_event_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="daada"
+                android:paddingLeft="@dimen/_5sdp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/news_item_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Explore the Possibilities by Swaranakar"/>
+
+            <ImageView
+                android:id="@+id/news_item_img"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="fitXY"
+                android:padding="@dimen/_5sdp"
+                android:background="@mipmap/ic_launcher" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact : "/>
+            <TextView
+                android:id="@+id/news_item_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Smith"
+                android:textAllCaps="true"
+                android:textColor="#1576a1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/news_item_contact_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" +91 6548253656"
+                android:layout_gravity="center"
+                android:gravity="center|start"
+                android:layout_weight="1.2"
+                android:drawableLeft="@drawable/call"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/news_item_shadual_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" +91 6548253656"
+                android:layout_gravity="center"
+                android:gravity="center|start"
+                android:layout_weight="0.8"
+                android:drawableLeft="@drawable/calander"/>
+        </LinearLayout>
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

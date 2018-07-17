@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="@dimen/_10sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1.4">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/search_img_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/placeholder"
+                app:civ_border_width="@dimen/_2sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_8sdp">
+
+             <TextView
+                 android:id="@+id/search_txt_name"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="Rajesh"
+                 android:textStyle="bold"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_15sdp"/>
+            <TextView
+                android:id="@+id/search_txt_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Social"
+                android:textSize="@dimen/_13sdp"/>
+            <TextView
+                android:id="@+id/search_txt_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jaipur,rajashrhan"
+                android:textColor="#2588af"
+                android:textSize="@dimen/_13sdp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <Button
+                android:id="@+id/search_btn_view_profile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="View Profile"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="#2588af"
+                android:textAllCaps="false"
+                android:background="@drawable/gradiant_grey"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+</LinearLayout>

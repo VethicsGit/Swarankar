@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textView_dynamic_spinner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:drawableEnd="@drawable/angle_arrow_down"
+    android:drawableRight="@drawable/angle_arrow_down"
+    android:gravity="start|center"
+    android:hint="Property_level"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/_4sdp"
+    android:paddingRight="@dimen/_4sdp"
+    android:textColor="@color/black"
+    android:textSize="12.0dip" />

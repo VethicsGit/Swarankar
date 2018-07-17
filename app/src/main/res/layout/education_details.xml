@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lv_education_details1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:background="#E6E6E6"
+    android:visibility="gone">
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/txt_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:text="Education Details"-->
+    <!--android:textSize="@dimen/_15sdp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:gravity="center"-->
+    <!--android:padding="@dimen/_10sdp"/>-->
+
+    <!--</LinearLayout>-->
+
+    <android.support.v7.widget.CardView
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        android:layout_width="match_parent"
+        android:translationZ="10dp"
+        android:elevation="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Education Qualification :" />
+
+        <EditText
+            android:id="@+id/edt_education_qualification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Education Qualification"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:enabled="false" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:visibility="gone"
+        android:background="@color/grey" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Name of Institution :" />
+
+        <EditText
+            android:id="@+id/edt_name_of_institute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name of Institution"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:enabled="false" />
+    </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        android:layout_width="match_parent"
+        android:translationZ="10dp"
+        android:elevation="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:visibility="gone"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:text="Area of Study :" />
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spinner_area_study"
+            android:layout_width="match_parent"
+           android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            android:enabled="false" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lv_area_study_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other Area Of study :" />
+
+            <EditText
+                android:id="@+id/edt_area_study_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/editText"
+                android:enabled="false" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:visibility="gone"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:text="Status of Education :" />
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spinner_status_education"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:backgroundTint="@color/colorPrimaryDark"
+            android:enabled="false"/>
+    </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_previousb"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginRight="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="previous"-->
+    <!--android:textColor="@color/white" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_nextb"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="Next"-->
+    <!--android:textColor="@color/white" />-->
+    <!--</LinearLayout>-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_previousg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginRight="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="previous"-->
+    <!--android:textColor="@color/white" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_nextg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="Next"-->
+    <!--android:textColor="@color/white" />-->
+    <!--</LinearLayout>-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_previousd"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginRight="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="previous"-->
+    <!--android:textColor="@color/white" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_nextd"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="Next"-->
+    <!--android:textColor="@color/white" />-->
+    <!--</LinearLayout>-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_previousq"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginRight="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="previous"-->
+    <!--android:textColor="@color/white" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/education_detail_btn_nextq"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="@dimen/_2sdp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:text="Next"-->
+    <!--android:textColor="@color/white" />-->
+    <!--</LinearLayout>-->
+
+
+</LinearLayout>
+
+

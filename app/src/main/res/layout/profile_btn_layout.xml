@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/profile_btn_layout"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--new-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/profile_btn_personal_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:drawablePadding="5dp"
+                    android:text="      Personal Detail      "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:src="@mipmap/personal" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_red_aerrow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Personal Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorPrimary"
+
+                        />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/profile_btn_Profession_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:text="  Professional Detail  "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:src="@mipmap/profesional" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_red_aerrow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Professional Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorPrimary" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/profile_btn_education_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:text="   Educational Detail   "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:translationZ="@dimen/_20sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:padding="15dp"
+                        android:src="@mipmap/education" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_red_aerrow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Educational Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorPrimary"
+
+                        />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/profile_btn_address_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+
+                    android:text="       Address Detail        "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:translationZ="@dimen/_20sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:padding="15dp"
+                        android:src="@mipmap/address" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_red_aerrow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Address Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorPrimary"
+
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/profile_btn_contact_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:text="        Contact Detail      "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:translationZ="@dimen/_20sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:padding="15dp"
+                        android:src="@mipmap/contact" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_red_aerrow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Contact Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorPrimary"
+
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/profile_btn_family_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:text="         Family Detail         "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:translationZ="@dimen/_20sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:padding="15dp"
+                        android:src="@mipmap/family" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_red_aerrow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Family Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorPrimary"
+
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- old-->
+        <!--
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".2"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_marginRight="@dimen/_1sdp"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/personal_ok_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="end"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ok"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/profile_btn_personal_details"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/personal_detail" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profile_btn_personal_details"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="Personal Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/lv_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_3sdp"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/professional_ok_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ok"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/profile_btn_Profession_details"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/pro_detail" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profile_btn_Profession_details"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="Professional Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/_1sdp">
+
+                        <RelativeLayout
+                            android:id="@+id/home_layout_family"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_marginRight="@dimen/_1sdp"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/education_ok_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="5dp"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ok"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <Button
+                                    android:id="@+id/profile_btn_education_details"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/edu_detail" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profile_btn_education_details"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="Education Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_3sdp"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/address_ok_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="5dp"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ok"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/profile_btn_address_details"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/address_detail" />
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profile_btn_address_details"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="Address Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:id="@+id/lv_adverticemnet"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:layout_marginRight="@dimen/_1sdp"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/contact_ok_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="5dp"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ok"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/profile_btn_contact_details"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/contact_detail" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profile_btn_contact_details"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="Contact Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/lv_jobs"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_marginRight="@dimen/_3sdp"
+                            android:layout_weight="1"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/family_ok_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="5dp"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ok"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/profile_btn_family_details"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/family2" />
+
+                                <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/profile_btn_family_details"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:gravity="center"
+                                    android:text="Family Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>-->
+
+    </LinearLayout>
+
+</LinearLayout>
