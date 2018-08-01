@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingLeft="@dimen/_20sdp"
     android:paddingRight="@dimen/_20sdp">
@@ -42,8 +42,8 @@
                 android:textColor="@color/black" />
 
 
-            <Button
-                android:id="@+id/button_ok"
+           <!-- <android.support.v7.widget.AppCompatButton
+                android:id="@+id/alert_diaog_button_ok"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
@@ -58,7 +58,7 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="@dimen/_10sdp"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
         </LinearLayout>
 

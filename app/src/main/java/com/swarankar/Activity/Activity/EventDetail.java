@@ -11,6 +11,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -124,7 +125,7 @@ public class EventDetail extends AppCompatActivity {
                 imgList = response.body().getImages();
                 if (imgList.size() > 0) {
                     int numberOfColumns = 3;
-                    GridLayoutManager linearLayoutManager = new GridLayoutManager(EventDetail.this, numberOfColumns);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(EventDetail.this, LinearLayoutManager.HORIZONTAL,false);
                     rcImage.setLayoutManager(linearLayoutManager);
                     adapter = new EventDtailsImageAdapter(EventDetail.this, imgList);
                 }

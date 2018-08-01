@@ -26,13 +26,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new NewsAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.news_recycler_item, parent, false), this);
+        return new NewsAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.news_recycler_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        if (newsList.get(position).getUsername() != null) {
+        /*if (newsList.get(position).getUsername() != null) {
             holder.txtName.setText(AndroidUtils.wordFirstCap(newsList.get(position).getUsername()));
         } else {
             holder.txtName.setText(newsList.get(position).getUsername());
@@ -44,19 +44,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.txtContactName.setText(AndroidUtils.wordFirstCap(newsList.get(position).getCntName()));
         holder.txtAddress.setText(AndroidUtils.wordFirstCap(newsList.get(position).getAddress()));
         Glide.with(context).load(newsList.get(position).getImageFront() + "").into(holder.img);
-        Glide.with(context).load(newsList.get(position).getImageFront() + "").into(holder.profile_img);
+        Glide.with(context).load(newsList.get(position).getImageFront() + "").into(holder.profile_img);*/
     }
 
     @Override
     public int getItemCount() {
-        return newsList.size();
+        return 10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtName, txtDatetime, txtAddress, txtContactName, txtContactNo, txtDateSchadual, txtEvetntTitle;
         ImageView img, profile_img;
 
-        public ViewHolder(View itemView, NewsAdapter newsAdapter) {
+        public ViewHolder(View itemView) {
             super(itemView);
             txtName = (TextView) itemView.findViewById(R.id.news_item_name);
             txtDatetime = (TextView) itemView.findViewById(R.id.news_item_date_time);

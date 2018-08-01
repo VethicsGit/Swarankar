@@ -24,6 +24,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -54,8 +55,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 import com.swarankar.Activity.Activity.ChangePassword;
 import com.swarankar.Activity.Activity.FamilyActivity;
@@ -78,6 +85,9 @@ import com.swarankar.Activity.Utils.Constants;
 import com.swarankar.Activity.cropper.CropImage;
 import com.swarankar.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -87,8 +97,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -108,22 +121,57 @@ import static com.swarankar.Activity.Utils.APIClient.BASE_URL;
  */
 
 public class Profile1Fragment extends Fragment implements View.OnClickListener {
-    ImageView  arc,profile_ok_image, profession_ok_image, education_ok_image, address_ok_image, contact_ok_image, family_ok_image;
-    CheckBox permenent_address_checkbox;
-
     private static final int RESULT_GALLERY = 0;
     private static final int CAMERA_REQUEST = 1;
-    final int CROP_PIC = 2;
     private static final int MY_CAPTURE_REQUEST_CODE = 4;
-
-    String uri;
-
-    String ProfileImage = "";
-
+    public static List<String> CastList = new ArrayList<>();
+    final int CROP_PIC = 2;
     final String[] items = {"Camera", "Gallery"};
+    public List<ModelCountry> CountryList = new ArrayList<>();
+    public List<ModelState> StateList;
+    public List<ModelCity> CityList;
+    public List<Profession> professionlist = new ArrayList<>();
+    public List<String> gotraSelfList = new ArrayList<>();
+    public List<String> gotraMotherList = new ArrayList<>();
+    ImageView arc, profile_ok_image, profession_ok_image, education_ok_image, address_ok_image, contact_ok_image, family_ok_image;
+    CheckBox permenent_address_checkbox;
+    String uri;
+    String ProfileImage = "";
     AlertDialog.Builder builder;
+    //    <--Persional details-->
+    ImageView imgback;
+    LinearLayout lvsubcastOther;
+    EditText edSubcastOther;
+    LinearLayout lvOtherStatus;
+    EditText edOtherStatus;
+    LinearLayout lvOtherProfessionIndustry, lvSubProfessionCategory;
+    EditText edOtherProfessionIndustry;
+    EditText edAreaStudyOther;
+    LinearLayout lvAreaStudyOther;
+    Calendar myCalendar;
+    int dobyear, dobmonth, dobday;
+    TextView txtTitle;
+    String dob;
+    String strGotraSelf = "";
+    String strGotraMother = "";
+    String strMaritalStatus = "";
+    String strGender = "";
+    String strProfession = "", strProfessionothers = "";
+    String strProfessionStatus = "";
+    String strProfessionIndustry, strProfessionIndustryId;
+    String strProfessionSubCat = "", strProfessionSubCatId;
+    String strAreaStudy = "", strAreaStudyothers = "", strProfessionStatusothers = "", strSubCastOther = "";
+    String strStatusEducation = "";
+    ProgressDialog loading;
+    List<ModelProfessionSociety> ProfessionIndustryList;
+    String strOCountryId, strOCountryName, strOStateId, strOStateName, strOCityName, strOCityId;
+    String strPCountryId, strPCountryName, strPStateId, strPStateName, strPCityName, strPCityId;
+    String strRCountryId, strRCountryName, strRStateId, strRStateName, strRCityName, strRCityId;
+    String gender;
+    String subcaste;
+    LinearLayout lvTitle;
+    String a = "0";
     private Uri picUri;
-
     private String imgPath;
     private LinearLayout btnLayout;
     private RelativeLayout profileBtnPersonalDetails;
@@ -132,12 +180,6 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private RelativeLayout profileBtnAddressDetails;
     private RelativeLayout profileBtnContactDetails;
     private RelativeLayout profileBtnFamilyDetails;
-
-    //    <--Persional details-->
-    ImageView imgback;
-
-    LinearLayout lvsubcastOther;
-    EditText edSubcastOther;
     private CircleImageView imgUser;
     private TextView profileTxtName;
     private TextView profileTxtEmail;
@@ -154,12 +196,10 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private Spinner spinnerMaritalstatus;
     private TextView edtDob;
     private Spinner spinnerGender;
-
     private RadioButton radiomale;
     private RadioButton radioFemale;
     private RadioGroup rdGender;
     private Button btnSignOut;
-
     //    <--Professional details-->
     private LinearLayout lvPerofessionDetails;
     private Spinner spinnerProfession;
@@ -175,20 +215,13 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private Spinner spinnerState;
     private Spinner spinnerDistrict;
     private EditText edtOfficeNo;
-    LinearLayout lvOtherStatus;
-    EditText edOtherStatus;
-    LinearLayout lvOtherProfessionIndustry, lvSubProfessionCategory;
-    EditText edOtherProfessionIndustry;
-
     //    <--Education details-->
     private LinearLayout lvEducationDetails;
+    //    private Button btnUpdate;
     private EditText edtEducationQualification;
     private EditText edtNameOfInstitute;
     private Spinner spinnerAreaStudy;
     private Spinner spinnerStatusEducation;
-    EditText edAreaStudyOther;
-    LinearLayout lvAreaStudyOther;
-
     //    <--Residetial details-->
     private LinearLayout lvResidetialDetails;
     private EditText residetialEdtHouseno;
@@ -200,7 +233,6 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private Spinner residetialSpinnerCountry;
     private Spinner residetialSpinnerState;
     private Spinner residetialSpinnerDistrict;
-
     //    <--parmenent details-->
     private LinearLayout lvParmenentAddressDetails;
     private EditText parmenentEdtHouseno;
@@ -212,7 +244,6 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private Spinner parmenentSpinnerCountry;
     private Spinner parmenentSpinnerState;
     private Spinner parmenentSpinnerDistrict;
-
     //    <--Contact details-->
     private LinearLayout lvContactDetails;
     private EditText EdtMobileNo1;
@@ -220,65 +251,66 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private EditText edtStdNo;
     private EditText edtEmail;
     private Button btnContact;
-//    private Button btnUpdate;
 
-    Calendar myCalendar;
-    int dobyear, dobmonth, dobday;
-    TextView txtTitle;
-    String dob;
+    ImageView family_green_dot;
+    ImageView personal_green_dot;
+    ImageView professional_green_dot;
+    ImageView educational_green_dot;
+    ImageView address_green_dot;
+    ImageView contact_green_dot;
 
-    String strGotraSelf = "";
-    String strGotraMother = "";
-    String strMaritalStatus = "";
-    String strGender = "";
-    String strProfession = "", strProfessionothers = "";
-    String strProfessionStatus = "";
-    String strProfessionIndustry, strProfessionIndustryId;
-    String strProfessionSubCat = "", strProfessionSubCatId;
-    String strAreaStudy = "", strAreaStudyothers = "", strProfessionStatusothers = "", strSubCastOther = "";
-    String strStatusEducation = "";
-    ProgressDialog loading;
-    List<ModelProfessionSociety> ProfessionIndustryList;
+    public static Bitmap decodeUri(Context c, Uri uri, final int requiredSize) throws FileNotFoundException {
 
-    public List<ModelCountry> CountryList = new ArrayList<>();
-    public List<ModelState> StateList;
-    public static List<String> CastList = new ArrayList<>();
-    public List<ModelCity> CityList;
-    public List<Profession> professionlist = new ArrayList<>();
-    public List<String> gotraSelfList = new ArrayList<>();
-    public List<String> gotraMotherList = new ArrayList<>();
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o);
 
-    String strOCountryId, strOCountryName, strOStateId, strOStateName, strOCityName, strOCityId;
-    String strPCountryId, strPCountryName, strPStateId, strPStateName, strPCityName, strPCityId;
-    String strRCountryId, strRCountryName, strRStateId, strRStateName, strRCityName, strRCityId;
-    String gender;
-    String subcaste;
-    LinearLayout lvTitle;
-    String a = "0";
+        int width_tmp = o.outWidth, height_tmp = o.outHeight;
+        int scale = 1;
 
+        while (true) {
+            if (width_tmp / 2 < requiredSize || height_tmp / 2 < requiredSize) break;
+            width_tmp /= 2;
+            height_tmp /= 2;
+            scale *= 2;
+        }
 
+        BitmapFactory.Options o2 = new BitmapFactory.Options();
+        o2.inSampleSize = scale;
+        return BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o2);
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
-
 
         btnLayout = (LinearLayout) view.findViewById(R.id.profile_btn_layout);
         lvTitle = (LinearLayout) view.findViewById(R.id.layout_title);
-        profileBtnPersonalDetails =  view.findViewById(R.id.profile_btn_personal_details);
-        profileBtnProfessionDetails =  view.findViewById(R.id.profile_btn_Profession_details);
+        profileBtnPersonalDetails = view.findViewById(R.id.profile_btn_personal_details);
+        profileBtnProfessionDetails = view.findViewById(R.id.profile_btn_Profession_details);
         profileBtnEducationDetails = view.findViewById(R.id.profile_btn_education_details);
-        profileBtnAddressDetails =view.findViewById(R.id.profile_btn_address_details);
-        profileBtnContactDetails =  view.findViewById(R.id.profile_btn_contact_details);
-        profileBtnFamilyDetails =  view.findViewById(R.id.profile_btn_family_details);
+        profileBtnAddressDetails = view.findViewById(R.id.profile_btn_address_details);
+        profileBtnContactDetails = view.findViewById(R.id.profile_btn_contact_details);
+        profileBtnFamilyDetails = view.findViewById(R.id.profile_btn_family_details);
         profileBtnPersonalDetails.setOnClickListener(this);
         profileBtnProfessionDetails.setOnClickListener(this);
         profileBtnEducationDetails.setOnClickListener(this);
         profileBtnAddressDetails.setOnClickListener(this);
         profileBtnContactDetails.setOnClickListener(this);
         profileBtnFamilyDetails.setOnClickListener(this);
+
+
+        family_green_dot=view.findViewById(R.id.family_green_dot);
+        personal_green_dot=view.findViewById(R.id.personal_green_dot);
+        professional_green_dot=view.findViewById(R.id.professional_green_dot);
+        educational_green_dot=view.findViewById(R.id.educational_green_dot);
+        address_green_dot=view.findViewById(R.id.address_green_dot);
+        contact_green_dot=view.findViewById(R.id.contact_green_dot);
+
+
+
 //    <--Persional details-->
-      /*  profile_ok_image = (ImageView) view.findViewById(R.id.personal_ok_image);*/
+        /*  profile_ok_image = (ImageView) view.findViewById(R.id.personal_ok_image);*/
         lvsubcastOther = (LinearLayout) view.findViewById(R.id.lv_subcast_other);
         edSubcastOther = (EditText) view.findViewById(R.id.edt_subacast_other);
         txtTitle = (TextView) view.findViewById(R.id.txt_title);
@@ -293,18 +325,18 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         profileEdtLastName = (EditText) view.findViewById(R.id.profile_edt_lastName);
         mobileNo = (EditText) view.findViewById(R.id.mobile_no);
         spinnerSubcaste = (Spinner) view.findViewById(R.id.spinner_subcaste);
-        spinnerSubcaste.setEnabled(false);
+        spinnerSubcaste.setEnabled(true);
         textView5 = (TextView) view.findViewById(R.id.textView5);
         spinnerGotraSelf = (Spinner) view.findViewById(R.id.spinner_gotra_self);
-        spinnerGotraSelf.setEnabled(false);
+        spinnerGotraSelf.setEnabled(true);
         spinnerGotraMother = (Spinner) view.findViewById(R.id.spinner_gotra_mother);
-        spinnerGotraMother.setEnabled(false);
+        spinnerGotraMother.setEnabled(true);
         spinnerMaritalstatus = (Spinner) view.findViewById(R.id.spinner_maritalstatus);
-        spinnerMaritalstatus.setEnabled(false);
+        spinnerMaritalstatus.setEnabled(true);
         edtDob = (TextView) view.findViewById(R.id.edt_dob);
         imgback = (ImageView) view.findViewById(R.id.img_profile_back);
 //        spinnerGender = (Spinner)view.findViewById( R.id.spinner_gender );
-//        spinnerGender.setEnabled(false);
+//        spinnerGender.setEnabled(true);
 //        btnPersonal = (Button)view.findViewById( R.id.btn_personal );
 //        btnPersonal.setBackgroundResource(R.drawable.gradient_round1);
         btnSignOut = (Button) view.findViewById(R.id.btn_sign_out);
@@ -323,7 +355,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
         Glide.with(getContext()).load("https://upload.wikimedia.org/wikipedia/commons/f/fc/Nemer_Saade_Profile_Picture.jpg").into(imgUser);
         //    <--Professional details-->
-      /*  profession_ok_image = (ImageView) view.findViewById(R.id.professional_ok_image);*/
+        /*  profession_ok_image = (ImageView) view.findViewById(R.id.professional_ok_image);*/
         lvOtherStatus = (LinearLayout) view.findViewById(R.id.lv_profession_status_other);
         edOtherStatus = (EditText) view.findViewById(R.id.edt_profession_status_other);
         lvOtherProfessionIndustry = (LinearLayout) view.findViewById(R.id.lv_profession_other);
@@ -331,24 +363,24 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         edOtherProfessionIndustry = (EditText) view.findViewById(R.id.edt_profession_other);
         lvPerofessionDetails = (LinearLayout) view.findViewById(R.id.lv_perofession_details);
         spinnerProfession = (Spinner) view.findViewById(R.id.spinner_profession);
-        spinnerProfession.setEnabled(false);
+        spinnerProfession.setEnabled(true);
         edtOrganizationName = (EditText) view.findViewById(R.id.edt_organization_name);
         spinnerProfessionStatus = (Spinner) view.findViewById(R.id.spinner_status);
-        spinnerProfessionStatus.setEnabled(false);
+        spinnerProfessionStatus.setEnabled(true);
         spinnerProfessionIndustry = (Spinner) view.findViewById(R.id.spinner_profession_industry);
-        spinnerProfessionIndustry.setEnabled(false);
+        spinnerProfessionIndustry.setEnabled(true);
         spinnerProfessionIndustrySubCat = (Spinner) view.findViewById(R.id.spinner_sub_profession_industry);
-        spinnerProfessionIndustrySubCat.setEnabled(false);
+        spinnerProfessionIndustrySubCat.setEnabled(true);
         edtDesignation = (EditText) view.findViewById(R.id.edt_designation);
         edtHouseno = (EditText) view.findViewById(R.id.edt_houseno);
         edtArea = (EditText) view.findViewById(R.id.edt_area);
         edtPincode = (EditText) view.findViewById(R.id.edt_pincode);
         spinnerCountry = (Spinner) view.findViewById(R.id.spinner_country);
-        spinnerCountry.setEnabled(false);
+        spinnerCountry.setEnabled(true);
         spinnerState = (Spinner) view.findViewById(R.id.spinner_state);
-        spinnerState.setEnabled(false);
+        spinnerState.setEnabled(true);
         spinnerDistrict = (Spinner) view.findViewById(R.id.spinner_district);
-        spinnerDistrict.setEnabled(false);
+        spinnerDistrict.setEnabled(true);
         edtOfficeNo = (EditText) view.findViewById(R.id.edt_office_no);
 
 //        professionDetailBtnPrevious = (Button)view.findViewById( R.id.profession_detail_btn_previous );
@@ -357,21 +389,21 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //        professionDetailBtnPrevious.setOnClickListener( this );
 
         //    <--Education details-->
-       /* education_ok_image = (ImageView) view.findViewById(R.id.education_ok_image);*/
+        /* education_ok_image = (ImageView) view.findViewById(R.id.education_ok_image);*/
         lvEducationDetails = (LinearLayout) view.findViewById(R.id.lv_education_details1);
         edAreaStudyOther = (EditText) view.findViewById(R.id.edt_area_study_other);
         lvAreaStudyOther = (LinearLayout) view.findViewById(R.id.lv_area_study_other);
         edtEducationQualification = (EditText) view.findViewById(R.id.edt_education_qualification);
         edtNameOfInstitute = (EditText) view.findViewById(R.id.edt_name_of_institute);
         spinnerAreaStudy = (Spinner) view.findViewById(R.id.spinner_area_study);
-        spinnerAreaStudy.setEnabled(false);
+        spinnerAreaStudy.setEnabled(true);
         spinnerStatusEducation = (Spinner) view.findViewById(R.id.spinner_status_education);
-        spinnerStatusEducation.setEnabled(false);
+        spinnerStatusEducation.setEnabled(true);
 //
 //        btnEducation = (Button)view.findViewById( R.id.btn_education );
 
         //    <--Residetial details-->
-       /* address_ok_image = (ImageView) view.findViewById(R.id.address_ok_image);*/
+        /* address_ok_image = (ImageView) view.findViewById(R.id.address_ok_image);*/
         lvResidetialDetails = (LinearLayout) view.findViewById(R.id.lv_residetial_details);
         residetialEdtHouseno = (EditText) view.findViewById(R.id.residetial_edt_houseno);
         residetialEdtArea = (EditText) view.findViewById(R.id.residetial_edt_area);
@@ -380,17 +412,17 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         residetialEdtVillage = (EditText) view.findViewById(R.id.residetial_edt_village);
         residetialEdtTehsil = (EditText) view.findViewById(R.id.residetial_edt_tehsil);
         residetialSpinnerCountry = (Spinner) view.findViewById(R.id.residetial_spinner_country);
-        residetialSpinnerCountry.setEnabled(false);
+        residetialSpinnerCountry.setEnabled(true);
         residetialSpinnerState = (Spinner) view.findViewById(R.id.residetial_spinner_state);
-        residetialSpinnerState.setEnabled(false);
+        residetialSpinnerState.setEnabled(true);
         residetialSpinnerDistrict = (Spinner) view.findViewById(R.id.residetial_spinner_district);
-        residetialSpinnerDistrict.setEnabled(false);
+        residetialSpinnerDistrict.setEnabled(true);
 
 //        btnResidetial = (Button)view.findViewById( R.id.btn_residetial_address );
 
         //    <--parmenent details-->
         permenent_address_checkbox = (CheckBox) view.findViewById(R.id.permenent_address_checkbox);
-        permenent_address_checkbox.setEnabled(false);
+        permenent_address_checkbox.setEnabled(true);
         lvParmenentAddressDetails = (LinearLayout) view.findViewById(R.id.lv_parmenent_address_details);
         parmenentEdtHouseno = (EditText) view.findViewById(R.id.parmenent_edt_houseno);
         parmenentEdtArea = (EditText) view.findViewById(R.id.parmenent_edt_area);
@@ -399,16 +431,16 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         parmenentEdtVillage = (EditText) view.findViewById(R.id.parmenent_edt_village);
         parmenentEdtTehsil = (EditText) view.findViewById(R.id.parmenent_edt_tehsil);
         parmenentSpinnerCountry = (Spinner) view.findViewById(R.id.parmenent_spinner_country);
-        parmenentSpinnerCountry.setEnabled(false);
+        parmenentSpinnerCountry.setEnabled(true);
         parmenentSpinnerState = (Spinner) view.findViewById(R.id.parmenent_spinner_state);
-        parmenentSpinnerState.setEnabled(false);
+        parmenentSpinnerState.setEnabled(true);
         parmenentSpinnerDistrict = (Spinner) view.findViewById(R.id.parmenent_spinner_district);
-        parmenentSpinnerDistrict.setEnabled(false);
+        parmenentSpinnerDistrict.setEnabled(true);
         //spinnerProfessionIndustrySubCat.setVisibility(View.GONE);
 //        btnParmenentAddress = (Button)view.findViewById( R.id.btn_parmenent_address );
 
         //    <--Contact details-->
-       /* contact_ok_image = (ImageView) view.findViewById(R.id.contact_ok_image);*/
+        /* contact_ok_image = (ImageView) view.findViewById(R.id.contact_ok_image);*/
         lvContactDetails = (LinearLayout) view.findViewById(R.id.lv_contact_details);
         EdtMobileNo1 = (EditText) view.findViewById(R.id._edt_mobile_no_1);
         EdtMobileNo2 = (EditText) view.findViewById(R.id._edt_mobile_no_2);
@@ -417,7 +449,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //        btnContact = (Button)view.findViewById( R.id.btn_contact_details );
 //        btnUpdate = (Button) view.findViewById(R.id.btn_update);
 
-  /*      profileBnEdit.setVisibility(View.GONE);*/
+        /*      profileBnEdit.setVisibility(View.GONE);*/
 //        btnUpdate.setVisibility(View.GONE);
 
 //        btnContact.setOnClickListener(this);
@@ -441,15 +473,15 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
                     getPCountry(strPCountryName, strPStateName, strPCityName);
 
-                    parmenentEdtHouseno.setEnabled(false);
-                    parmenentEdtArea.setEnabled(false);
-                    parmenentEdtWardno.setEnabled(false);
-                    parmenentEdtConstituency.setEnabled(false);
-                    parmenentEdtVillage.setEnabled(false);
-                    parmenentEdtTehsil.setEnabled(false);
-                    parmenentSpinnerCountry.setEnabled(false);
-                    parmenentSpinnerState.setEnabled(false);
-                    parmenentSpinnerDistrict.setEnabled(false);
+                    parmenentEdtHouseno.setEnabled(true);
+                    parmenentEdtArea.setEnabled(true);
+                    parmenentEdtWardno.setEnabled(true);
+                    parmenentEdtConstituency.setEnabled(true);
+                    parmenentEdtVillage.setEnabled(true);
+                    parmenentEdtTehsil.setEnabled(true);
+                    parmenentSpinnerCountry.setEnabled(true);
+                    parmenentSpinnerState.setEnabled(true);
+                    parmenentSpinnerDistrict.setEnabled(true);
                 } else {
                     parmenentEdtHouseno.setEnabled(true);
                     parmenentEdtArea.setEnabled(true);
@@ -466,7 +498,206 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //        ProfileImage = "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";
 //
 //
-//        getData();
+
+        loading = new ProgressDialog(getActivity());
+        loading.setMessage("Please Wait..");
+        loading.setCancelable(false);
+        loading.setCanceledOnTouchOutside(false);
+        loading.show();
+        final String strUserid = Constants.loginSharedPreferences.getString(Constants.uid, "");
+        Volley.newRequestQueue(getContext()).add(new StringRequest(Request.Method.GET, APIClient.BASE_URL + "myaccount/get_user_info?user_id=" + strUserid, new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(final String response) {
+                Log.e("response ", response);
+                loading.dismiss();
+
+                try {
+                    final JSONObject obj = new JSONObject(response);
+                    String name=obj.getString("firstname")+ " " + obj.getString("lastname");
+                    //profileTxtName.setText(name);
+                    //profileTxtEmail.setText(AndroidUtils.wordFirstCap(obj.getString("email")));
+
+
+
+                    profileEdtFistname.setText(AndroidUtils.wordFirstCap(obj.getString("firstname")));
+                    profileEdtLastName.setText(AndroidUtils.wordFirstCap(obj.getString("lastname")));
+                    edtEmail.setText(AndroidUtils.wordFirstCap(obj.getString("email")));
+                    mobileNo.setText(AndroidUtils.wordFirstCap(obj.getString("mobile")));
+                    if (!obj.getString("other_subcast").equals(""))
+                        edSubcastOther.setText(AndroidUtils.wordFirstCap(obj.getString("other_subcast")));
+                    edtOrganizationName.setText(AndroidUtils.wordFirstCap(obj.getString("organization")));
+                    edtDesignation.setText(AndroidUtils.wordFirstCap(obj.getString("designation")));
+                    edtHouseno.setText(AndroidUtils.wordFirstCap(obj.getString("house_no")));
+                    edtArea.setText(AndroidUtils.wordFirstCap(obj.getString("area")));
+                    edtPincode.setText(AndroidUtils.wordFirstCap(obj.getString("pincode")));
+                    edtOfficeNo.setText(AndroidUtils.wordFirstCap(obj.getString("contactno")));
+                    edtEducationQualification.setText(AndroidUtils.wordFirstCap(obj.getString("educational_qual")));
+                    edtNameOfInstitute.setText(AndroidUtils.wordFirstCap(obj.getString("institution")));
+                    residetialEdtHouseno.setText(AndroidUtils.wordFirstCap(obj.getString("r_house_no")));
+                    residetialEdtArea.setText(AndroidUtils.wordFirstCap(obj.getString("r_area")));
+                    residetialEdtWardno.setText(AndroidUtils.wordFirstCap(obj.getString("r_ward_no")));
+                    residetialEdtConstituency.setText(AndroidUtils.wordFirstCap(obj.getString("r_constituency")));
+                    residetialEdtVillage.setText(AndroidUtils.wordFirstCap(obj.getString("r_village")));
+                    residetialEdtTehsil.setText(AndroidUtils.wordFirstCap(obj.getString("r_tehsil")));
+
+                    parmenentEdtHouseno.setText(AndroidUtils.wordFirstCap(obj.getString("p_house_no")));
+                    parmenentEdtArea.setText(AndroidUtils.wordFirstCap(obj.getString("p_area")));
+                    parmenentEdtWardno.setText(AndroidUtils.wordFirstCap(obj.getString("p_ward_no")));
+                    parmenentEdtConstituency.setText(AndroidUtils.wordFirstCap(obj.getString("p_constituency")));
+                    parmenentEdtVillage.setText(AndroidUtils.wordFirstCap(obj.getString("p_village")));
+                    parmenentEdtTehsil.setText(AndroidUtils.wordFirstCap(obj.getString("p_tehsil")));
+
+                    EdtMobileNo1.setText(AndroidUtils.wordFirstCap(obj.getString("mobile2")));
+                    //EdtMobileNo2.setText(AndroidUtils.wordFirstCap(response.body().getM));
+                    edtStdNo.setText(AndroidUtils.wordFirstCap(obj.getString("landline")));
+                    edtEmail.setText(AndroidUtils.wordFirstCap(obj.getString("email")));
+                    if (!obj.getString("email").equals("")) {
+                        edtEmail.setEnabled(true);
+                    }
+                    edAreaStudyOther.setText(AndroidUtils.wordFirstCap(obj.getString("area_study_others")));
+                    if (!obj.getString("profession_other").equals("") )
+                        edOtherProfessionIndustry.setText(AndroidUtils.wordFirstCap(obj.getString("profession_other")));
+                    if (!obj.getString("profession_status_other").equals("") )
+                        edOtherStatus.setText(AndroidUtils.wordFirstCap(obj.getString("profession_status_other")));
+                    new AsyncTask<Void, Void, Bitmap>() {
+
+                        @Override
+                        protected Bitmap doInBackground(Void... params) {
+                            Bitmap bitmap = null;
+                            try {
+//                            bitmap = Glide.with(getActivity()).load(response.body().getPicture()).asBitmap().into(500, 500).get();
+                                InputStream input = new java.net.URL(obj.getString("picture")).openStream();
+                                // Decode Bitmap
+                                bitmap = BitmapFactory.decodeStream(input);
+                            } catch (MalformedURLException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            return bitmap;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Bitmap bitmap) {
+                            super.onPostExecute(bitmap);
+                            if (bitmap != null) {
+                                ProfileImage = AndroidUtils.BitMapToString(bitmap);
+                            }
+                        }
+                    }.execute();
+
+                    Picasso.with(getActivity()).load("" + obj.getString("pictures")); //**//*.error(R.drawable.placeholder)*//**//*.into(imgUser);
+                            Picasso.with(getActivity()).load("" + obj.getString("pictures")) ;//**//*.error(R.drawable.placeholder)*//**//*.into(HomeActivity.navProfile);
+
+                            gender = obj.getString("gender") + "";
+                    Log.e("gender", gender + "");
+                    if (radiomale.getText().toString().equalsIgnoreCase(gender.toString().toLowerCase() + "")) {
+                        radiomale.setChecked(true);
+                    } else if (radioFemale.getText().toString().equalsIgnoreCase(gender.toString())) {
+                        radioFemale.setChecked(true);
+                    }
+                    edtDob.setText(obj.getString("dob"));
+                    dob = obj.getString("dob");
+                    getOfficeCountry(obj.getString("country"), obj.getString("state"), obj.getString("city"));
+                    strOCountryName = obj.getString("country");
+                    strOStateName = obj.getString("state");
+                    strOCityName = obj.getString("city");
+                    getPCountry(obj.getString("p_country"), obj.getString("p_state"), obj.getString("p_city"));
+                    strPCountryName = obj.getString("p_country");
+                    strPStateName = obj.getString("p_state");
+                    strPCityName = obj.getString("p_city");
+                    getRCountry(obj.getString("r_country"), obj.getString("r_state"), obj.getString("r_city"));
+                    strRCountryName = obj.getString("r_country");
+                    strRStateName = obj.getString("r_state");
+                    strRCityName = obj.getString("r_city");
+                    getCastlist(obj.getString("subcaste"));
+                    subcaste = obj.getString("subcaste");
+                    getProfession(obj.getString("profession"));
+                    strProfession = obj.getString("profession");
+                    getGotraSelf(obj.getString("gotra_self"));
+                    strGotraSelf = obj.getString("gotra_self");
+                    getGotraMother(obj.getString("gotra_mother"));
+                    strGotraMother = obj.getString("gotra_mother");
+                    getMaratial(obj.getString("marital_status"));
+                    strMaritalStatus = obj.getString("marital_status");
+                    getProfessionStatus(obj.getString("profession_status"));
+                    strProfessionStatus = obj.getString("profession_status");
+
+                    getProfessionIndustry(obj.getString("profession_industry"), obj.getString("sub_category"));
+                    strProfessionIndustry = obj.getString("profession_industry");
+                    if (!obj.getString("sub_category").isEmpty()) {
+                        //getSubProfessionCategory(obj.getString("")getSubCategory());
+                        strProfessionSubCat = obj.getString("sub_category");
+                        lvSubProfessionCategory.setVisibility(View.GONE);
+                        spinnerProfessionIndustrySubCat.setVisibility(View.GONE);
+                    } else {
+                        lvSubProfessionCategory.setVisibility(View.VISIBLE);
+                        spinnerProfessionIndustrySubCat.setVisibility(View.VISIBLE);
+                    }
+                    getSubProfessionCategory(obj.getString("sub_category"));
+                    strProfessionSubCat = obj.getString("sub_category");
+
+                    getAreaStudy(obj.getString("area_study"));
+                    strAreaStudy = obj.getString("area_study");
+                    getEducationStatus(obj.getString("status_of_education"));
+                    strStatusEducation = obj.getString("status_of_education");
+                    HomeActivity.navUsername.setText(obj.getString("firstname") + " " + obj.getString("lastname"));
+
+                    if (!obj.getString("firstname").isEmpty() && !obj.getString("lastname").isEmpty() && !obj.getString("mobile").isEmpty() && !obj.getString("subcaste").isEmpty() && !obj.getString("gotra_self").isEmpty() && !obj.getString("gotra_mother").isEmpty() && !obj.getString("marital_status").isEmpty() && !obj.getString("dob").isEmpty() && !obj.getString("gender").isEmpty()) {
+                        profile_ok_image.setVisibility(View.VISIBLE);
+                    } else {
+                        profile_ok_image.setVisibility(View.GONE);
+                    }
+
+                    Log.e("profother", "" + obj.getString("profession_others").length());
+                    if (!obj.getString("profession").isEmpty() && !obj.getString("profession_others").isEmpty() && !obj.getString("organization").isEmpty() && !obj.getString("profession_status").isEmpty() && !obj.getString("profession_industry").isEmpty() && !obj.getString("designation").isEmpty() && !obj.getString("house_no").isEmpty() && !obj.getString("area").isEmpty() && !obj.getString("pincode").isEmpty() && !obj.getString("country").isEmpty() && !obj.getString("state").isEmpty() && !obj.getString("city").isEmpty() && !obj.getString("contactno").isEmpty()) {
+                        profession_ok_image.setVisibility(View.VISIBLE);
+                    } else {
+                        profession_ok_image.setVisibility(View.GONE);
+                    }
+
+                    if (!obj.getString("educational_qual").isEmpty() && !obj.getString("institution").isEmpty() && !obj.getString("area_study").isEmpty() && !obj.getString("status_of_education").isEmpty()) {
+                        education_ok_image.setVisibility(View.VISIBLE);
+                    } else {
+                        education_ok_image.setVisibility(View.GONE);
+                    }
+
+                    if (!obj.getString("mobile2").isEmpty() && !obj.getString("landline").isEmpty() && !obj.getString("email").isEmpty()) {
+                        contact_ok_image.setVisibility(View.VISIBLE);
+                    } else {
+                        contact_ok_image.setVisibility(View.GONE);
+                    }
+
+                    if (!obj.getString("r_house_no").isEmpty() && !obj.getString("r_area").isEmpty() && !obj.getString("r_ward_no").isEmpty() && !obj.getString("r_constituency").isEmpty() && !obj.getString("r_village").isEmpty() && !obj.getString("r_tehsil").isEmpty() && !obj.getString("r_country").isEmpty() && !obj.getString("r_state").isEmpty() && !obj.getString("r_city").isEmpty() &&
+
+                            !obj.getString("p_house_no").isEmpty() && !obj.getString("p_area").isEmpty() && !obj.getString("p_ward_no").isEmpty() && !obj.getString("p_constituency").isEmpty() && !obj.getString("p_village").isEmpty() && !obj.getString("p_tehsil").isEmpty() && !obj.getString("p_country").isEmpty() && !obj.getString("p_state").isEmpty() && !obj.getString("p_city").isEmpty()) {
+                        address_ok_image.setVisibility(View.VISIBLE);
+                    } else {
+                        address_ok_image.setVisibility(View.GONE);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) /*{
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("user_id", strUserid);
+                return params;
+            }
+        }*/);
+        //getData();
 
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -497,10 +728,10 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 lvParmenentAddressDetails.setVisibility(View.GONE);
                 lvContactDetails.setVisibility(View.GONE);
 
-               /* profileBnEdit.setVisibility(View.GONE);*/
+                /* profileBnEdit.setVisibility(View.GONE);*/
 //                btnUpdate.setVisibility(View.GONE);
                 lvTitle.setVisibility(View.GONE);
-                Disable();
+                //Disable();
                 /*} else {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                     dialog.setCancelable(false);
@@ -569,7 +800,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
     public boolean allowBackPressed() {
         if (btnLayout.getVisibility() == View.GONE) {
-           /* if (!isEmpty()) {*/
+            /* if (!isEmpty()) {*/
             btnLayout.setVisibility(View.VISIBLE);
             lvPersionalDetails.setVisibility(View.GONE);
             lvPerofessionDetails.setVisibility(View.GONE);
@@ -578,11 +809,11 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             lvParmenentAddressDetails.setVisibility(View.GONE);
             lvContactDetails.setVisibility(View.GONE);
 
-         /*   profileBnEdit.setVisibility(View.GONE);*/
+            /*   profileBnEdit.setVisibility(View.GONE);*/
 //            btnUpdate.setVisibility(View.GONE);
             lvTitle.setVisibility(View.GONE);
 
-            Disable();
+//            Disable();
             return true;
             /*} else {
 
@@ -628,29 +859,29 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private void Disable() {
 
         imgUser.setEnabled(true);
-      /*  profileTxtName.setEnabled(false);
-        profileTxtEmail.setEnabled(false);*/
-//        profileEdtFistname.setEnabled(false);
-        profileEdtLastName.setEnabled(false);
-        mobileNo.setEnabled(false);
-        spinnerSubcaste.setEnabled(false);
-        spinnerGotraSelf.setEnabled(false);
-        spinnerGotraMother.setEnabled(false);
-        spinnerMaritalstatus.setEnabled(false);
-        edtDob.setEnabled(false);
-        edSubcastOther.setEnabled(false);
-        radioFemale.setEnabled(false);
-        radiomale.setEnabled(false);
+      /*  profileTxtName.setEnabled(true);
+        profileTxtEmail.setEnabled(true);*/
+//        profileEdtFistname.setEnabled(true);
+        profileEdtLastName.setEnabled(true);
+        mobileNo.setEnabled(true);
+        spinnerSubcaste.setEnabled(true);
+        spinnerGotraSelf.setEnabled(true);
+        spinnerGotraMother.setEnabled(true);
+        spinnerMaritalstatus.setEnabled(true);
+        edtDob.setEnabled(true);
+        edSubcastOther.setEnabled(true);
+        radioFemale.setEnabled(true);
+        radiomale.setEnabled(true);
 
 //            spinnerGender.setEnabled(true);
 
         //    <--Professional details-->
 
-        spinnerProfession.setEnabled(false);
-        edtOrganizationName.setEnabled(false);
-        spinnerProfessionStatus.setEnabled(false);
-        spinnerProfessionIndustry.setEnabled(false);
-        spinnerProfessionIndustrySubCat.setEnabled(false);
+        spinnerProfession.setEnabled(true);
+        edtOrganizationName.setEnabled(true);
+        spinnerProfessionStatus.setEnabled(true);
+        spinnerProfessionIndustry.setEnabled(true);
+        spinnerProfessionIndustrySubCat.setEnabled(true);
         edtDesignation.setEnabled(false);
         edtHouseno.setEnabled(false);
         edtArea.setEnabled(false);
@@ -700,16 +931,48 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     }
 
     private void getData() {
-        loading = new ProgressDialog(getActivity());
+        /*loading = new ProgressDialog(getActivity());
         loading.setMessage("Please Wait..");
         loading.setCancelable(false);
         loading.setCanceledOnTouchOutside(false);
         loading.show();
-        String strUserid = Constants.loginSharedPreferences.getString(Constants.uid, "");
-        API apiService = APIClient.getClient().create(API.class);
-        Call<ModelProfileDetails> call1 = apiService.userInfo1(strUserid);
-        call1.enqueue(new Callback<ModelProfileDetails>() {
+        final String strUserid = Constants.loginSharedPreferences.getString(Constants.uid, "");
+        Log.e("user id ",strUserid);
+//        Toast.makeText(getContext(), "user id "+strUserid, Toast.LENGTH_SHORT).show();
+        Volley.newRequestQueue(getContext()).add(new StringRequest(Request.Method.GET, APIClient.BASE_URL + "myaccount/get_user_info", new com.android.volley.Response.Listener<String>() {
             @Override
+            public void onResponse(String response) {
+                Log.e("response ",response);
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("user_id", strUserid);
+                return params;
+            }
+        });*/
+        API apiService = APIClient.getClient().create(API.class);
+//        Call<ModelProfileDetails> call1 = apiService.userInfo1(strUserid);
+       /* call1.enqueue(new Callback<ModelProfileDetails>() {
+
+            @Override
+            @NonNull
+            public void onResponse(@NonNull Call<ModelProfileDetails> call, @NonNull Response<ModelProfileDetails> response) {
+
+//                if (response.body() != null) {
+                Log.e("profile Response", obj.getString("")toString());
+                Log.e("organization", response.body().getOrganization());
+                Log.e("profession industry", response.body().getProfessionIndustry());
+                Log.e("sub profession industry", response.body().getSubCategory());
+//                }
+            }
+        *//*    @Override
             public void onResponse(Call<ModelProfileDetails> call, final Response<ModelProfileDetails> response) {
                 Log.e("profile Response", response.body().toString());
                 Log.e("organization", response.body().getOrganization());
@@ -788,14 +1051,14 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }.execute();
 
                 Log.e("picture", response.body().getPicture());
-                Picasso.with(getActivity()).load("" + response.body().getPicture())/*.error(R.drawable.placeholder)*/.into(imgUser);
-                Picasso.with(getActivity()).load("" + response.body().getPicture())/*.error(R.drawable.placeholder)*/.into(HomeActivity.navProfile);
+                Picasso.with(getActivity()).load("" + response.body().getPicture())*//**//*.error(R.drawable.placeholder)*//**//*.into(imgUser);
+                Picasso.with(getActivity()).load("" + response.body().getPicture())*//**//*.error(R.drawable.placeholder)*//**//*.into(HomeActivity.navProfile);
 
                 gender = response.body().getGender() + "";
                 Log.e("gender", gender + "");
-                if (radiomale.getText().toString().trim().equalsIgnoreCase(gender.toString().trim().toLowerCase() + "")) {
+                if (radiomale.getText().toString().equalsIgnoreCase(gender.toString().toLowerCase() + "")) {
                     radiomale.setChecked(true);
-                } else if (radioFemale.getText().toString().trim().equalsIgnoreCase(gender.toString().trim())) {
+                } else if (radioFemale.getText().toString().equalsIgnoreCase(gender.toString())) {
                     radioFemale.setChecked(true);
                 }
                 edtDob.setText(response.body().getDob());
@@ -877,14 +1140,14 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 } else {
                     address_ok_image.setVisibility(View.GONE);
                 }
-            }
+            }*//*
 
             @Override
             public void onFailure(Call<ModelProfileDetails> call, Throwable t) {
                 loading.dismiss();
                 Log.e("loginData", t.getMessage() + "");
             }
-        });
+        });*/
 
     }
 
@@ -901,7 +1164,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         spinnerStatusEducation.setAdapter(aa0);
 
         for (int j = 0; j < mother.size(); j++) {
-            if (mother.get(j).toString().trim().equalsIgnoreCase(statusOfEducation)) {
+            if (mother.get(j).toString().equalsIgnoreCase(statusOfEducation)) {
                 spinnerStatusEducation.setSelection(j);
             }
         }
@@ -946,7 +1209,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         spinnerAreaStudy.setAdapter(aa0);
 
         for (int j = 0; j < mother.size(); j++) {
-            if (mother.get(j).trim().equalsIgnoreCase(areaStudy)) {
+            if (mother.get(j).equalsIgnoreCase(areaStudy)) {
                 spinnerAreaStudy.setSelection(j);
             }
 
@@ -1112,7 +1375,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         spinnerProfessionStatus.setAdapter(aa0);
 
         for (int j = 0; j < mother.size(); j++) {
-            if (mother.get(j).trim().equalsIgnoreCase(professionStatus)) {
+            if (mother.get(j).equalsIgnoreCase(professionStatus)) {
                 spinnerProfessionStatus.setSelection(j);
             }
 
@@ -1152,7 +1415,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         spinnerMaritalstatus.setAdapter(aa0);
 
         for (int j = 0; j < mother.size(); j++) {
-            if (mother.get(j).trim().equalsIgnoreCase(maritalStatus)) {
+            if (mother.get(j).equalsIgnoreCase(maritalStatus)) {
                 spinnerMaritalstatus.setSelection(j);
             }
 
@@ -1192,7 +1455,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < gotraMotherList.size(); j++) {
-                    if (gotraMotherList.get(j).trim().equalsIgnoreCase(gotraMother)) {
+                    if (gotraMotherList.get(j).equalsIgnoreCase(gotraMother)) {
                         spinnerGotraMother.setSelection(j);
                     }
                 }
@@ -1245,7 +1508,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < gotraSelfList.size(); j++) {
-                    if (gotraSelfList.get(j).trim().equalsIgnoreCase(gotraSelf)) {
+                    if (gotraSelfList.get(j).equalsIgnoreCase(gotraSelf)) {
                         spinnerGotraSelf.setSelection(j);
                     }
                 }
@@ -1322,7 +1585,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 spinnerProfession.setAdapter(aa11);
 
                 for (int j = 0; j < Profession.size(); j++) {
-                    if (Profession.get(j).trim().equalsIgnoreCase(professionss)) {
+                    if (Profession.get(j).equalsIgnoreCase(professionss)) {
                         spinnerProfession.setSelection(j);
                     }
                 }
@@ -1368,7 +1631,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         spinnerSubcaste.setAdapter(aa0);
 
         for (int j = 0; j < MainActivity.CastList.size(); j++) {
-            if (MainActivity.CastList.get(j).trim().equalsIgnoreCase(cast)) {
+            if (MainActivity.CastList.get(j).equalsIgnoreCase(cast)) {
                 spinnerSubcaste.setSelection(j);
             }
 
@@ -1451,7 +1714,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 getState(states, citys);
 
                 for (int j = 0; j < country.size(); j++) {
-                    if (country.get(j).trim().equals(countrydd.trim())) {
+                    if (country.get(j).equals(countrydd)) {
                         spinnerCountry.setSelection(j);
                         strOCountryId = CountryList.get(j).getId();
                     }
@@ -1537,7 +1800,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < country.size(); j++) {
-                    if (country.get(j).trim().equalsIgnoreCase(countrydd.trim())) {
+                    if (country.get(j).equalsIgnoreCase(countrydd)) {
                         parmenentSpinnerCountry.setSelection(j);
                         strPCountryId = CountryList.get(j - 1).getId();
                     }
@@ -1614,8 +1877,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                         if (i == 0) {
                             country.add("Select");
                             country.add(CountryList.get(i).getCountryName());
-                        } else
-                            country.add(CountryList.get(i).getCountryName());
+                        } else country.add(CountryList.get(i).getCountryName());
 
                     }
 
@@ -1627,7 +1889,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < country.size(); j++) {
-                    if (country.get(j).trim().equals(countrydd.trim())) {
+                    if (country.get(j).equals(countrydd)) {
                         residetialSpinnerCountry.setSelection(j);
                         strRCountryId = CountryList.get(j - 1).getId();
                     }
@@ -1697,7 +1959,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 spinnerState.setAdapter(aa11);
 
                 for (int j = 0; j < state.size(); j++) {
-                    if (state.get(j).trim().equalsIgnoreCase(statesss.trim())) {
+                    if (state.get(j).equalsIgnoreCase(statesss)) {
                         spinnerState.setSelection(j);
                     }
                 }
@@ -1756,7 +2018,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < state.size(); j++) {
-                    if (state.get(j).trim().equalsIgnoreCase(statesss.trim())) {
+                    if (state.get(j).equalsIgnoreCase(statesss)) {
                         parmenentSpinnerState.setSelection(j);
                     }
                 }
@@ -1815,7 +2077,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < state.size(); j++) {
-                    if (state.get(j).trim().equalsIgnoreCase(statesss.trim())) {
+                    if (state.get(j).equalsIgnoreCase(statesss)) {
                         residetialSpinnerState.setSelection(j);
                     }
                 }
@@ -1880,7 +2142,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < city.size(); j++) {
-                    if (city.get(j).trim().equalsIgnoreCase(citsy.trim())) {
+                    if (city.get(j).equalsIgnoreCase(citsy)) {
                         spinnerDistrict.setSelection(j);
 
                     }
@@ -1949,7 +2211,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < city.size(); j++) {
-                    if (city.get(j).toString().trim().equalsIgnoreCase(citsy.toString().trim())) {
+                    if (city.get(j).toString().equalsIgnoreCase(citsy.toString())) {
                         parmenentSpinnerDistrict.setSelection(j);
 
                     }
@@ -2017,7 +2279,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
 
                 for (int j = 0; j < city.size(); j++) {
-                    if (city.get(j).toString().trim().equalsIgnoreCase(citsy.toString().trim())) {
+                    if (city.get(j).toString().equalsIgnoreCase(citsy.toString())) {
                         residetialSpinnerDistrict.setSelection(j);
 
                     }
@@ -2059,29 +2321,29 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             } /*else if (mobileNo.getText().toString().isEmpty()) {
            mobileNo.setError("Enter mobile number");
                 return true;
-            } */ else if (subcaste.trim().equalsIgnoreCase("Subcaste")) {
+            } */ else if (subcaste.equalsIgnoreCase("Subcaste")) {
                 TextView errorText = (TextView) spinnerSubcaste.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Sub Caste");
                 spinnerSubcaste.requestFocus();
                 return true;
-            } else if (lvsubcastOther.getVisibility() == View.VISIBLE && edSubcastOther.getText().toString().trim().isEmpty()) {
+            } else if (lvsubcastOther.getVisibility() == View.VISIBLE && edSubcastOther.getText().toString().isEmpty()) {
                 edSubcastOther.setError("Enter Other Sub Caste");
                 edSubcastOther.requestFocus();
                 return true;
-            } else if (strGotraSelf.trim().equalsIgnoreCase("Select")) {
+            } else if (strGotraSelf.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerGotraSelf.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Gotra self");
                 spinnerGotraSelf.requestFocus();
                 return true;
-            } else if (strGotraMother.trim().equalsIgnoreCase("Select")) {
+            } else if (strGotraMother.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerGotraMother.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Gotra mother");
                 spinnerGotraMother.requestFocus();
                 return true;
-            } else if (strMaritalStatus.trim().equalsIgnoreCase("Select")) {
+            } else if (strMaritalStatus.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerMaritalstatus.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Marital status");
@@ -2095,13 +2357,13 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         }
 
         if (lvPerofessionDetails.getVisibility() == View.VISIBLE) {
-            if (strProfession.trim().equalsIgnoreCase("Select")) {
+            if (strProfession.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerProfession.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Profession");
                 spinnerProfession.requestFocus();
                 return true;
-            } else if (lvOtherProfessionIndustry.getVisibility() == View.VISIBLE && edOtherProfessionIndustry.getText().toString().trim().isEmpty()) {
+            } else if (lvOtherProfessionIndustry.getVisibility() == View.VISIBLE && edOtherProfessionIndustry.getText().toString().isEmpty()) {
                 edOtherProfessionIndustry.setError("Enter Profession!");
                 edOtherProfessionIndustry.requestFocus();
                 return true;
@@ -2109,17 +2371,17 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 edtOrganizationName.setError("Enter Organization Name!");
                 edtOrganizationName.requestFocus();
                 return true;
-            } else if (strProfessionStatus.trim().equalsIgnoreCase("Select")) {
+            } else if (strProfessionStatus.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerProfessionStatus.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Profession Status!");
                 spinnerProfessionStatus.requestFocus();
                 return true;
-            } else if (lvOtherStatus.getVisibility() == View.VISIBLE && edOtherStatus.getText().toString().trim().isEmpty()) {
+            } else if (lvOtherStatus.getVisibility() == View.VISIBLE && edOtherStatus.getText().toString().isEmpty()) {
                 edOtherStatus.setError("Enter Other Status!");
                 edOtherStatus.requestFocus();
                 return true;
-            } else if (strProfessionIndustry.trim().equalsIgnoreCase("Select")) {
+            } else if (strProfessionIndustry.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerProfessionIndustry.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Profession Industry!");
@@ -2131,41 +2393,41 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 errorText.setText("Select Sub Profession Industry!");
                 spinnerProfessionIndustrySubCat.requestFocus();
                 return true;
-            } else if (edtDesignation.getText().toString().trim().isEmpty()) {
+            } else if (edtDesignation.getText().toString().isEmpty()) {
                 edtDesignation.setError("Enter Designation!");
                 edtDesignation.requestFocus();
                 return true;
-            } else if (edtHouseno.getText().toString().trim().isEmpty()) {
+            } else if (edtHouseno.getText().toString().isEmpty()) {
                 edtHouseno.setError("Enter House Number!");
                 edtHouseno.requestFocus();
                 return true;
-            } else if (edtArea.getText().toString().trim().isEmpty()) {
+            } else if (edtArea.getText().toString().isEmpty()) {
                 edtArea.setError("Enter Area!");
                 edtArea.requestFocus();
                 return true;
-            } else if (edtPincode.getText().toString().trim().isEmpty()) {
+            } else if (edtPincode.getText().toString().isEmpty()) {
                 edtPincode.setError("Enter Pincode!");
                 edtPincode.requestFocus();
                 return true;
-            } else if (strOCountryName.trim().equalsIgnoreCase("Select")) {
+            } else if (strOCountryName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerCountry.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Country");
                 spinnerCountry.requestFocus();
                 return true;
-            } else if (strOStateName.trim().equalsIgnoreCase("Select")) {
+            } else if (strOStateName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerState.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select State");
                 spinnerState.requestFocus();
                 return true;
-            } else if (strOCityName.trim().equalsIgnoreCase("Select")) {
+            } else if (strOCityName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerDistrict.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select District");
                 spinnerDistrict.requestFocus();
                 return true;
-            } else if (edtOfficeNo.getText().toString().trim().isEmpty()) {
+            } else if (edtOfficeNo.getText().toString().isEmpty()) {
                 edtOfficeNo.setError("Enter Office Number!");
                 edtOfficeNo.requestFocus();
                 return true;
@@ -2177,17 +2439,17 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 edtEducationQualification.setError("Enter Educational Qualification!");
                 edtEducationQualification.requestFocus();
                 return true;
-            } else if (edtNameOfInstitute.getText().toString().trim().isEmpty()) {
+            } else if (edtNameOfInstitute.getText().toString().isEmpty()) {
                 edtNameOfInstitute.setError("Enter Institute Name!");
                 edtNameOfInstitute.requestFocus();
                 return true;
-            } else if (strAreaStudy.trim().equalsIgnoreCase("Select")) {
+            } else if (strAreaStudy.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerAreaStudy.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Study Area!");
                 spinnerAreaStudy.requestFocus();
                 return true;
-            } else if (strStatusEducation.trim().equalsIgnoreCase("Select")) {
+            } else if (strStatusEducation.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) spinnerStatusEducation.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Education Status!");
@@ -2202,39 +2464,39 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 residetialEdtHouseno.setError("Enter House Number!");
                 residetialEdtHouseno.requestFocus();
                 return true;
-            } else if (residetialEdtArea.getText().toString().trim().isEmpty()) {
+            } else if (residetialEdtArea.getText().toString().isEmpty()) {
                 residetialEdtArea.setError("Enter Area!");
                 residetialEdtArea.requestFocus();
                 return true;
-            } else if (residetialEdtWardno.getText().toString().trim().isEmpty()) {
+            } else if (residetialEdtWardno.getText().toString().isEmpty()) {
                 residetialEdtWardno.setError("Enter Ward Number!");
                 residetialEdtWardno.requestFocus();
                 return true;
-            } else if (residetialEdtConstituency.getText().toString().trim().isEmpty()) {
+            } else if (residetialEdtConstituency.getText().toString().isEmpty()) {
                 residetialEdtConstituency.setError("Enter Constituency!");
                 residetialEdtConstituency.requestFocus();
                 return true;
-            } else if (residetialEdtVillage.getText().toString().trim().isEmpty()) {
+            } else if (residetialEdtVillage.getText().toString().isEmpty()) {
                 residetialEdtVillage.setError("Enter Village Name!");
                 residetialEdtVillage.requestFocus();
                 return true;
-            } else if (residetialEdtTehsil.getText().toString().trim().isEmpty()) {
+            } else if (residetialEdtTehsil.getText().toString().isEmpty()) {
                 residetialEdtTehsil.setError("Enter Tehsil!");
                 residetialEdtTehsil.requestFocus();
                 return true;
-            } else if (strRCountryName.trim().equalsIgnoreCase("Select")) {
+            } else if (strRCountryName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) residetialSpinnerCountry.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Country");
                 residetialSpinnerCountry.requestFocus();
                 return true;
-            } else if (strRStateName.trim().equalsIgnoreCase("Select")) {
+            } else if (strRStateName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) residetialSpinnerState.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select State");
                 residetialSpinnerState.requestFocus();
                 return true;
-            } else if (strRCityName.trim().equalsIgnoreCase("Select")) {
+            } else if (strRCityName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) residetialSpinnerDistrict.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select District");
@@ -2244,39 +2506,39 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 parmenentEdtHouseno.setError("");
                 parmenentEdtHouseno.requestFocus();
                 return true;
-            } else if (parmenentEdtArea.getText().toString().trim().isEmpty()) {
+            } else if (parmenentEdtArea.getText().toString().isEmpty()) {
                 parmenentEdtArea.setError("");
                 parmenentEdtArea.requestFocus();
                 return true;
-            } else if (parmenentEdtWardno.getText().toString().trim().isEmpty()) {
+            } else if (parmenentEdtWardno.getText().toString().isEmpty()) {
                 parmenentEdtWardno.setError("");
                 parmenentEdtWardno.requestFocus();
                 return true;
-            } else if (parmenentEdtConstituency.getText().toString().trim().isEmpty()) {
+            } else if (parmenentEdtConstituency.getText().toString().isEmpty()) {
                 parmenentEdtConstituency.setError("");
                 parmenentEdtConstituency.requestFocus();
                 return true;
-            } else if (parmenentEdtVillage.getText().toString().trim().isEmpty()) {
+            } else if (parmenentEdtVillage.getText().toString().isEmpty()) {
                 parmenentEdtVillage.setError("");
                 parmenentEdtVillage.requestFocus();
                 return true;
-            } else if (parmenentEdtTehsil.getText().toString().trim().isEmpty()) {
+            } else if (parmenentEdtTehsil.getText().toString().isEmpty()) {
                 parmenentEdtTehsil.setError("");
                 parmenentEdtTehsil.requestFocus();
                 return true;
-            } else if (strPCountryName.trim().equalsIgnoreCase("Select")) {
+            } else if (strPCountryName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) parmenentSpinnerCountry.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Country");
                 parmenentSpinnerCountry.requestFocus();
                 return true;
-            } else if (strPStateName.trim().equalsIgnoreCase("Select")) {
+            } else if (strPStateName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) parmenentSpinnerState.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select State");
                 parmenentSpinnerState.requestFocus();
                 return true;
-            } else if (strPCityName.trim().equalsIgnoreCase("Select")) {
+            } else if (strPCityName.equalsIgnoreCase("Select")) {
                 TextView errorText = (TextView) parmenentSpinnerDistrict.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select District");
@@ -2290,10 +2552,10 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             if (EdtMobileNo1.getText().toString().isEmpty()) {
                 EdtMobileNo1.setError("Enter Mobile/Whatsapp Number");
                 return true;
-            } else if (edtStdNo.getText().toString().trim().isEmpty()) {
+            } else if (edtStdNo.getText().toString().isEmpty()) {
                 edtStdNo.setError("Enter STD");
                 return true;
-            } else if (edtEmail.getText().toString().trim().isEmpty()) {
+            } else if (edtEmail.getText().toString().isEmpty()) {
                 edtEmail.setError("Enter Email");
             }
 
@@ -2426,34 +2688,10 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         }
         // respond to users whose devices do not support the crop action
         catch (ActivityNotFoundException anfe) {
-            Toast toast = Toast
-                    .makeText(getActivity(), "This device doesn't support the crop action!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getActivity(), "This device doesn't support the crop action!", Toast.LENGTH_SHORT);
             toast.show();
             anfe.printStackTrace();
         }
-    }
-
-    public static Bitmap decodeUri(Context c, Uri uri, final int requiredSize)
-            throws FileNotFoundException {
-
-        BitmapFactory.Options o = new BitmapFactory.Options();
-        o.inJustDecodeBounds = true;
-        BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o);
-
-        int width_tmp = o.outWidth, height_tmp = o.outHeight;
-        int scale = 1;
-
-        while (true) {
-            if (width_tmp / 2 < requiredSize || height_tmp / 2 < requiredSize)
-                break;
-            width_tmp /= 2;
-            height_tmp /= 2;
-            scale *= 2;
-        }
-
-        BitmapFactory.Options o2 = new BitmapFactory.Options();
-        o2.inSampleSize = scale;
-        return BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o2);
     }
 
     public Bitmap decodeFile1(String path) {
@@ -2591,7 +2829,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //            btnContact.setBackgroundResource(R.drawable.gradient_round1);
 
         } else if (v == profileBtnFamilyDetails) {
-            /*if (Constants.loginSharedPreferences.getString(Constants.profile_completion, "").trim().equalsIgnoreCase("false")) {
+            /*if (Constants.loginSharedPreferences.getString(Constants.profile_completion, "").equalsIgnoreCase("false")) {
                 DialogFamily();
             } else {*/
             Intent i = new Intent(getActivity(), FamilyActivity.class);
@@ -2618,7 +2856,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             edSubcastOther.setEnabled(true);
             radioFemale.setEnabled(true);
             radiomale.setEnabled(true);
-            if (edtEmail.getText().toString().trim().isEmpty()) {
+            if (edtEmail.getText().toString().isEmpty()) {
                 edtEmail.setEnabled(true);
             } else {
                 edtEmail.setEnabled(false);
@@ -2690,7 +2928,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 updateData();
             } else {
 
-                final Dialog alertDialog = new Dialog(getActivity());
+                final Dialog alertDialog = new Dialog(getContext());
                 alertDialog.setCanceledOnTouchOutside(false);
                 alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 alertDialog.getWindow().getDecorView().setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.drawable_back_dialog));
@@ -2703,14 +2941,15 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 lp.gravity = Gravity.CENTER;
 
                 alertDialog.getWindow().setAttributes(lp);
-                View rootView = LayoutInflater.from(getActivity()).inflate(R.layout.view_alert_dialog, null);
+                View rootView = LayoutInflater.from(getContext()).inflate(R.layout.view_alert_dialog, null);
+                alertDialog.setContentView(rootView);
                 Button button_ok;
                 ImageView btnClose;
                 TextView textview;
 
-                button_ok = (Button) rootView.findViewById(R.id.button_ok);
-                textview = (TextView) rootView.findViewById(R.id.textview);
-                btnClose = (ImageView) rootView.findViewById(R.id.img_close);
+//                button_ok =  alertDialog.findViewById(R.id.alert_diaog_button_ok);
+                textview =  alertDialog.findViewById(R.id.textview);
+                btnClose = alertDialog.findViewById(R.id.img_close);
 
                 btnClose.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -2719,15 +2958,15 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                     }
                 });
 
-                textview.setText("Please fill the all the data");
+                textview.setText("Please fill all fields");
 
-                alertDialog.setContentView(rootView);
-                button_ok.setOnClickListener(new View.OnClickListener() {
+
+               /* button_ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         alertDialog.dismiss();
                     }
-                });
+                });*/
                 alertDialog.show();
 
             }
@@ -2820,14 +3059,13 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             }
 */
         } else if (v == edtDob) {
-            AndroidUtils.hideSoftKeyboard(getActivity());
+           //AndroidUtils.hideSoftKeyboard(getActivity());
             myCalendar = Calendar.getInstance();
 
             final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
                 @Override
-                public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                      int dayOfMonth) {
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                     // TODO Auto-generated method stub
                     myCalendar.set(Calendar.YEAR, year);
                     myCalendar.set(Calendar.MONTH, monthOfYear);
@@ -2837,14 +3075,12 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
             };
 
-            new DatePickerDialog(getActivity(), date, myCalendar
-                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                    myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            new DatePickerDialog(getActivity(), date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
 
         } else if (v == radioFemale) {
-            gender = radioFemale.getText().toString().trim();
+            gender = radioFemale.getText().toString();
         } else if (v == radiomale) {
-            gender = radiomale.getText().toString().trim();
+            gender = radiomale.getText().toString();
         } else if (v == imgUser) {
 //            registerForContextMenu(imgUser);
 //            getActivity().openContextMenu(imgUser);
@@ -3116,103 +3352,46 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //            Log.e("state",strOStateName);
 //            Log.e("city",strOCityName);
 
-        if (subcaste.trim().equalsIgnoreCase("Others")) {
+       /* if (subcaste.equalsIgnoreCase("Others")) {
             subcaste = "Others";
             strSubCastOther = edSubcastOther.getText().toString();
         } else {
             strSubCastOther = "";
         }
 
-        if (strAreaStudy.trim().equalsIgnoreCase("Others")) {
+        if (strAreaStudy.equalsIgnoreCase("Others")) {
             strAreaStudy = "Others";
             strAreaStudyothers = edAreaStudyOther.getText().toString();
         } else {
             strAreaStudyothers = "";
         }
 
-        if (strProfessionStatus.trim().equalsIgnoreCase("Others")) {
+        if (strProfessionStatus.equalsIgnoreCase("Others")) {
             strProfessionStatus = "Others";
             strProfessionStatusothers = edOtherStatus.getText().toString();
         } else {
             strProfessionStatusothers = "";
         }
 
-        if (strProfession.trim().equalsIgnoreCase("Others")) {
+        if (strProfession.equalsIgnoreCase("Others")) {
             strProfession = "Others";
             strProfessionothers = edOtherProfessionIndustry.getText().toString();
         } else {
             strProfessionothers = "";
-        }
+        }*/
 
-        /*if (strProfessionIndustry.trim().equalsIgnoreCase("Others")) {
+        /*if (strProfessionIndustry.equalsIgnoreCase("Others")) {
             strProfessionIndustry = "Others";
             strProfessionSubCat = edOtherProfessionIndustry.getText().toString();
         } else {
             strProfessionSubCat = "";
         }*/
 
-        final OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .readTimeout(3, TimeUnit.MINUTES)
-                .connectTimeout(3, TimeUnit.MINUTES)
-                .build();
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder().readTimeout(3, TimeUnit.MINUTES).connectTimeout(3, TimeUnit.MINUTES).build();
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build();
         API apiservice = retrofit.create(API.class);
-        Call<ModelUpadateProfile> call1 = apiservice.update_user(
-                Constants.loginSharedPreferences.getString(Constants.uid, ""),
-                profileEdtFistname.getText().toString(),
-                profileEdtLastName.getText().toString(),
-                mobileNo.getText().toString(),
-                subcaste,
-                strSubCastOther,
-                strGotraSelf,
-                strGotraMother,
-                strMaritalStatus,
-                dob,
-                gender,
-                strProfession,
-                strProfessionothers,
-                edtOrganizationName.getText().toString(),
-                edtArea.getText().toString(),
-                strAreaStudyothers,
-                strProfessionStatusothers,
-                strProfessionStatus,
-                strProfessionIndustry,
-                strProfessionSubCat,
-                edtDesignation.getText().toString(),
-                edtHouseno.getText().toString(),
-                edtPincode.getText().toString(),
-                strOCountryName,
-                strOStateName,
-                strOCityName,
-                edtOfficeNo.getText().toString(),
-                edtEmail.getText().toString(),
-                edtEducationQualification.getText().toString(),
-                edtNameOfInstitute.getText().toString(),
-                strAreaStudy,
-                strStatusEducation,
-                residetialEdtHouseno.getText().toString(),
-                residetialEdtArea.getText().toString(),
-                residetialEdtWardno.getText().toString(),
-                residetialEdtConstituency.getText().toString(),
-                residetialEdtVillage.getText().toString(),
-                residetialEdtTehsil.getText().toString(),
-                strRCountryName,
-                strRStateName,
-                strRCityName,
-                parmenentEdtHouseno.getText().toString(),
-                parmenentEdtArea.getText().toString(),
-                parmenentEdtWardno.getText().toString(),
-                parmenentEdtConstituency.getText().toString(),
-                parmenentEdtVillage.getText().toString(),
-                parmenentEdtTehsil.getText().toString(),
-                strPCountryName,
-                strPStateName,
-                strPCityName,
-                EdtMobileNo1.getText().toString(),
-                edtStdNo.getText().toString(),
-                ProfileImage,
-                strSubCastOther);
+        Call<ModelUpadateProfile> call1 = apiservice.update_user(Constants.loginSharedPreferences.getString(Constants.uid, ""), profileEdtFistname.getText().toString(), profileEdtLastName.getText().toString(), mobileNo.getText().toString(), subcaste, strSubCastOther, strGotraSelf, strGotraMother, strMaritalStatus, dob, gender, strProfession, strProfessionothers, edtOrganizationName.getText().toString(), edtArea.getText().toString(), strAreaStudyothers, strProfessionStatusothers, strProfessionStatus, strProfessionIndustry, strProfessionSubCat, edtDesignation.getText().toString(), edtHouseno.getText().toString(), edtPincode.getText().toString(), strOCountryName, strOStateName, strOCityName, edtOfficeNo.getText().toString(), edtEmail.getText().toString(), edtEducationQualification.getText().toString(), edtNameOfInstitute.getText().toString(), strAreaStudy, strStatusEducation, residetialEdtHouseno.getText().toString(), residetialEdtArea.getText().toString(), residetialEdtWardno.getText().toString(), residetialEdtConstituency.getText().toString(), residetialEdtVillage.getText().toString(), residetialEdtTehsil.getText().toString(), strRCountryName, strRStateName, strRCityName, parmenentEdtHouseno.getText().toString(), parmenentEdtArea.getText().toString(), parmenentEdtWardno.getText().toString(), parmenentEdtConstituency.getText().toString(), parmenentEdtVillage.getText().toString(), parmenentEdtTehsil.getText().toString(), strPCountryName, strPStateName, strPCityName, EdtMobileNo1.getText().toString(), edtStdNo.getText().toString(), ProfileImage, strSubCastOther);
 
         call1.enqueue(new Callback<ModelUpadateProfile>() {
 

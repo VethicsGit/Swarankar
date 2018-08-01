@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +23,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.google.gson.JsonObject;
 import com.swarankar.Activity.Model.joblist.ModelPersonalJob;
 import com.swarankar.Activity.Utils.API;
 import com.swarankar.Activity.Utils.APIClient;
@@ -29,6 +34,10 @@ import com.swarankar.Activity.Utils.AndroidUtils;
 import com.swarankar.Activity.Utils.Constants;
 import com.swarankar.Activity.adapter.PersonalJbAdapter;
 import com.swarankar.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +147,7 @@ public class JobManage extends AppCompatActivity {
         ImageView btnClose;
         TextView textview;
 
-        button_ok = (Button) rootView.findViewById(R.id.button_ok);
+//        button_ok = (Button) rootView.findViewById(R.id.button_ok);
         textview = (TextView) rootView.findViewById(R.id.textview);
         btnClose = (ImageView) rootView.findViewById(R.id.img_close);
 
@@ -153,14 +162,14 @@ public class JobManage extends AppCompatActivity {
         }
 
         alertDialog.setContentView(rootView);
-        button_ok.setOnClickListener(new View.OnClickListener() {
+     /*   button_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
                 finish();
 
             }
-        });
+        });*/
         alertDialog.show();
 
     }
@@ -187,4 +196,5 @@ public class JobManage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

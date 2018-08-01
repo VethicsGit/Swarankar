@@ -5,11 +5,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.swarankar.Activity.Model.EventList;
 import com.swarankar.Activity.Utils.API;
@@ -28,8 +31,7 @@ public class EventsActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     EventListAdapter adapter;
-    //ImageView imgBack;
-    List<EventList> eneEventLists = new ArrayList<>();
+
 
 
     @Override
@@ -54,7 +56,7 @@ public class EventsActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.events_recyclerview);
         //imgBack = (ImageView) findViewById(R.id.event_img_back);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         ApiCallEventsList();
@@ -83,23 +85,28 @@ public class EventsActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onResponse(Call<List<EventList>> call, retrofit2.Response<List<EventList>> response) {
-                loading.dismiss();
+
 
                 try {
 //                    Log.e("get_event", "" + response.body().string());
 
                     if (response.isSuccessful()) {
-                        eneEventLists.clear();
 
-                        for (int i = 0; i < response.body().size(); i++) {
+                     /*   for (int i = 0; i < response.body().size(); i++) {
                             eneEventLists.add(response.body().get(i));
                         }
-
-                        if (eneEventLists.size() > 0) {
-                            adapter = new EventListAdapter(getApplicationContext(), eneEventLists);
-                            recyclerView.setAdapter(adapter);
-                            SetClick();
-                        }
+*/
+                            if (response.body() != null && response.body().size() > 0) {
+                                loading.dismiss();
+    //                            Toast.makeText(EventsActivity.this, "service ", Toast.LENGTH_SHORT).show();
+                                adapter = new EventListAdapter(getApplicationContext(), response.body());
+                                recyclerView.setAdapter(adapter);
+                                SetClick();
+                            }else {
+                                loading.dismiss();
+                                onBackPressed();
+                                Toast.makeText(getApplicationContext(),"Please try again..",Toast.LENGTH_SHORT).show();
+                            }
 
 
                     }

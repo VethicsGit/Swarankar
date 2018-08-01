@@ -1,67 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation = "vertical">
 
 
     <LinearLayout
-        android:id="@+id/profile_btn_layout"
-        android:layout_width="match_parent"
-        android:background="#ffffff"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id = "@+id/profile_btn_layout"
+        android:layout_width = "match_parent"
+        android:background = "#ffffff"
+        android:layout_height = "match_parent"
+        android:orientation = "vertical">
 
         <!--new-->
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:orientation = "vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:orientation = "vertical">
 
 
                 <RelativeLayout
-                    android:id="@+id/profile_btn_personal_details"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:drawablePadding="5dp"
-                    android:text="      Personal Detail      "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp">
+                    android:id = "@+id/profile_btn_personal_details"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "55dp"
+                    android:layout_gravity = "center"
+                    android:drawablePadding = "5dp"
+                    android:text = "      Personal Detail      "
+                    android:textColor = "@color/white"
+                    android:textSize = "@dimen/_13sdp">
+
+                    <FrameLayout
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content">
+
+                        <ImageView
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@mipmap/personal" />
+
+                        <ImageView
+                            android:gravity = "center"
+                            android:layout_marginLeft = "20dp"
+                            android:layout_width = "match_parent"
+                            android:id="@+id/personal_green_dot"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@drawable/green_dot" />
+                    </FrameLayout>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="15dp"
-                        android:src="@mipmap/personal" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_red_aerrow" />
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_alignParentRight = "true"
+                        android:padding = "10dp"
+                        android:src = "@drawable/ic_red_aerrow" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Personal Detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "match_parent"
+                        android:gravity = "center"
+                        android:text = "Personal Detail"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "18dp" />
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimary"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "0.5dp"
+                        android:background = "@color/colorPrimary"
 
                         />
 
@@ -69,79 +83,107 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/profile_btn_Profession_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:text="  Professional Detail  "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp">
+                    android:id = "@+id/profile_btn_Profession_details"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "55dp"
+                    android:layout_gravity = "center"
+                    android:text = "  Professional Detail  "
+                    android:textColor = "@color/white"
+                    android:textSize = "@dimen/_13sdp">
+
+                    <FrameLayout
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content">
+
+                        <ImageView
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@mipmap/profesional" />
+
+                        <ImageView
+                            android:gravity = "center"
+                            android:layout_marginLeft = "20dp"
+                            android:layout_width = "match_parent"
+                            android:id = "@+id/professional_green_dot"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@drawable/green_dot" />
+                    </FrameLayout>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="15dp"
-                        android:src="@mipmap/profesional" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_red_aerrow" />
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_alignParentRight = "true"
+                        android:padding = "10dp"
+                        android:src = "@drawable/ic_red_aerrow" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Professional Detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "match_parent"
+                        android:gravity = "center"
+                        android:text = "Professional Detail"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "18dp" />
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimary" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "0.5dp"
+                        android:background = "@color/colorPrimary" />
                 </RelativeLayout>
 
 
                 <RelativeLayout
-                    android:id="@+id/profile_btn_education_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:text="   Educational Detail   "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp"
-                    android:translationZ="@dimen/_20sdp">
+                    android:id = "@+id/profile_btn_education_details"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "55dp"
+                    android:layout_gravity = "center"
+                    android:text = "   Educational Detail   "
+                    android:textColor = "@color/white"
+                    android:textSize = "@dimen/_13sdp"
+                    android:translationZ = "@dimen/_20sdp">
+
+                    <FrameLayout
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content">
+
+                        <ImageView
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+
+                            android:padding = "15dp"
+                            android:src = "@mipmap/education" />
+
+                        <ImageView
+                            android:gravity = "center"
+                            android:layout_marginLeft = "20dp"
+                            android:layout_width = "match_parent"
+                            android:id = "@+id/educational_green_dot"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@drawable/green_dot" />
+                    </FrameLayout>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
 
-                        android:padding="15dp"
-                        android:src="@mipmap/education" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentRight="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_red_aerrow" />
+                        android:layout_alignParentRight = "true"
+                        android:padding = "10dp"
+                        android:src = "@drawable/ic_red_aerrow" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Educational Detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "match_parent"
+                        android:gravity = "center"
+                        android:text = "Educational Detail"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "18dp" />
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimary"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "0.5dp"
+                        android:background = "@color/colorPrimary"
 
                         />
 
@@ -149,126 +191,168 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/profile_btn_address_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
+                    android:id = "@+id/profile_btn_address_details"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "55dp"
+                    android:layout_gravity = "center"
 
-                    android:text="       Address Detail        "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp"
-                    android:translationZ="@dimen/_20sdp">
+                    android:text = "       Address Detail        "
+                    android:textColor = "@color/white"
+                    android:textSize = "@dimen/_13sdp"
+                    android:translationZ = "@dimen/_20sdp">
+
+                    <FrameLayout
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content">
+
+                        <ImageView
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+
+                            android:padding = "15dp"
+                            android:src = "@mipmap/address" />
+
+                        <ImageView
+                            android:gravity = "center"
+                            android:layout_marginLeft = "20dp"
+                            android:layout_width = "match_parent"
+                            android:id = "@+id/address_green_dot"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@drawable/green_dot" />
+                    </FrameLayout>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
 
-                        android:padding="15dp"
-                        android:src="@mipmap/address" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentRight="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_red_aerrow" />
+                        android:layout_alignParentRight = "true"
+                        android:padding = "10dp"
+                        android:src = "@drawable/ic_red_aerrow" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Address Detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "match_parent"
+                        android:gravity = "center"
+                        android:text = "Address Detail"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "18dp" />
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimary"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "0.5dp"
+                        android:background = "@color/colorPrimary"
 
                         />
 
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/profile_btn_contact_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:text="        Contact Detail      "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp"
-                    android:translationZ="@dimen/_20sdp">
+                    android:id = "@+id/profile_btn_contact_details"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "55dp"
+                    android:layout_gravity = "center"
+                    android:text = "        Contact Detail      "
+                    android:textColor = "@color/white"
+                    android:textSize = "@dimen/_13sdp"
+                    android:translationZ = "@dimen/_20sdp">
+
+                    <FrameLayout
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content">
+
+                        <ImageView
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+
+                            android:padding = "15dp"
+                            android:src = "@mipmap/contact" />
+
+                        <ImageView
+                            android:gravity = "center"
+                            android:layout_marginLeft = "20dp"
+                            android:layout_width = "match_parent"
+                            android:id = "@+id/contact_green_dot"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@drawable/green_dot" />
+                    </FrameLayout>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
 
-                        android:padding="15dp"
-                        android:src="@mipmap/contact" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentRight="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_red_aerrow" />
+                        android:layout_alignParentRight = "true"
+                        android:padding = "10dp"
+                        android:src = "@drawable/ic_red_aerrow" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Contact Detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "match_parent"
+                        android:gravity = "center"
+                        android:text = "Contact Detail"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "18dp" />
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimary"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "0.5dp"
+                        android:background = "@color/colorPrimary"
 
                         />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/profile_btn_family_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:text="         Family Detail         "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp"
-                    android:translationZ="@dimen/_20sdp">
+                    android:id = "@+id/profile_btn_family_details"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "55dp"
+                    android:layout_gravity = "center"
+                    android:text = "         Family Detail         "
+                    android:textColor = "@color/white"
+                    android:textSize = "@dimen/_13sdp"
+                    android:translationZ = "@dimen/_20sdp">
+
+                    <FrameLayout
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content">
+
+                        <ImageView
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+
+                            android:padding = "15dp"
+                            android:src = "@mipmap/family" />
+
+                        <ImageView
+                            android:gravity = "center"
+                            android:layout_marginLeft = "20dp"
+                            android:layout_width = "match_parent"
+                            android:id = "@+id/family_green_dot"
+                            android:layout_height = "wrap_content"
+                            android:padding = "15dp"
+                            android:src = "@drawable/green_dot" />
+                    </FrameLayout>
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
 
-                        android:padding="15dp"
-                        android:src="@mipmap/family" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentRight="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_red_aerrow" />
+                        android:layout_alignParentRight = "true"
+                        android:padding = "10dp"
+                        android:src = "@drawable/ic_red_aerrow" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Family Detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18dp" />
+                        android:layout_width = "match_parent"
+                        android:layout_height = "match_parent"
+                        android:gravity = "center"
+                        android:text = "Family Detail"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "18dp" />
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/colorPrimary"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "0.5dp"
+                        android:background = "@color/colorPrimary"
 
                         />
                 </RelativeLayout>

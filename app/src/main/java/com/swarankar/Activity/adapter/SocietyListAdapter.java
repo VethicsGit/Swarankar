@@ -30,17 +30,17 @@ public class SocietyListAdapter extends RecyclerView.Adapter<SocietyListAdapter.
     private List<Society> eneSocietyLists;
     private String joined;
     private AdapterView.OnItemClickListener onItemClickListener;
-    SocietyActivity activity;
+//    SocietyActivity activity;
 
     public SocietyListAdapter(Context context, List<Society> eneSocietyLists) {
         this.context = context;
         this.eneSocietyLists = eneSocietyLists;
-        this.activity = (SocietyActivity) context;
+//        this.activity = (SocietyActivity) context;
     }
 
     @Override
     public SocietyListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new SocietyListAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adt_society_item, parent, false), this);
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.adt_society_item,null));
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {
@@ -54,7 +54,7 @@ public class SocietyListAdapter extends RecyclerView.Adapter<SocietyListAdapter.
     @Override
     public void onBindViewHolder(SocietyListAdapter.ViewHolder holder, final int position) {
 
-        holder.textEname.setText(eneSocietyLists.get(position).getSocietyName());
+       /* holder.textEname.setText(eneSocietyLists.get(position).getSocietyName());
         holder.textEdate.setText(eneSocietyLists.get(position).getCreatedAt());
         joined = eneSocietyLists.get(position).getJoined();
         Log.e("joined", joined);
@@ -76,28 +76,29 @@ public class SocietyListAdapter extends RecyclerView.Adapter<SocietyListAdapter.
             public void onClick(View v) {
                 showDialog(position);
             }
-        });
+        });*/
+        Glide.with(context).load("http://www.reliancenipponlife.com/images/solutionsForGroup_banner.jpg").into(holder.societyImg);
 
     }
 
     @Override
     public int getItemCount() {
-        return eneSocietyLists.size();
+        return 10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         SocietyListAdapter recyclerViewAdapter;
         private ImageView societyImg;
         private TextView textPlace;
-        private TextView textEname;
+         TextView textEname;
         private TextView textEdate;
         private Button btnJoin, btnGetContacts;
 
-        public ViewHolder(View itemView, SocietyListAdapter recyclerViewAdapter) {
+        public ViewHolder(View itemView) {
             super(itemView);
 
-            societyImg = (ImageView) itemView.findViewById(R.id.society_img);
-            textEname = (TextView) itemView.findViewById(R.id.society_text_ename);
+            societyImg = (ImageView) itemView.findViewById(R.id.society_img_society);
+            textEname =  itemView.findViewById(R.id.society_text_ename_society);
             textEdate = (TextView) itemView.findViewById(R.id.society_text_edate);
             btnJoin = (Button) itemView.findViewById(R.id.society_btn_join_now);
             btnGetContacts = (Button) itemView.findViewById(R.id.society_btn_get_contacts);
@@ -112,10 +113,10 @@ public class SocietyListAdapter extends RecyclerView.Adapter<SocietyListAdapter.
 
     private void showDialog(int position) {
 
-        final Dialog alertDialog = new Dialog(activity);
+        final Dialog alertDialog = new Dialog(context);
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        alertDialog.getWindow().getDecorView().setBackground(ContextCompat.getDrawable(activity, R.drawable.drawable_back_dialog));
+        alertDialog.getWindow().getDecorView().setBackground(ContextCompat.getDrawable(context, R.drawable.drawable_back_dialog));
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -125,7 +126,7 @@ public class SocietyListAdapter extends RecyclerView.Adapter<SocietyListAdapter.
         lp.gravity = Gravity.CENTER;
 
         alertDialog.getWindow().setAttributes(lp);
-        final View rootView = LayoutInflater.from(activity).inflate(R.layout.society_join_dialog1, null);
+        final View rootView = LayoutInflater.from(context).inflate(R.layout.society_join_dialog1, null);
 
         TextView txtError = (TextView) rootView.findViewById(R.id.society_join_dialog_error);
         Button btnOk = (Button) rootView.findViewById(R.id.button_ok);

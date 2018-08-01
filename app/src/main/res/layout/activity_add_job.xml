@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+
     android:orientation="vertical"
     tools:context="com.swarankar.Activity.Activity.AddJobActivity">
-
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -32,20 +31,34 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#E6E6E6"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:background="#E6E6E6"
                 android:padding="@dimen/_10sdp">
-
+                <android.support.v7.widget.CardView
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_margin="5dp"
+                    android:translationZ="2dp"
+                    >
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
                 <EditText
                     android:id="@+id/activity_add_job_ed_job"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:alpha="0.8"
-                    style="@style/editText"
+                    android:backgroundTint="@color/colorPrimary"
                     android:hint="Enter the Job"
                     android:textSize="@dimen/_12sdp" />
 
@@ -64,7 +77,8 @@
                         android:hint="Enter the Job"
                         android:textSize="@dimen/_12sdp" />
 
-                    <LinearLayout
+                    <View
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="#919191" />
@@ -77,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:alpha="0.8"
-                    style="@style/editText"
+                    android:backgroundTint="@color/colorPrimary"
                     android:hint="Enter Department"
                     android:textSize="@dimen/_12sdp" />
 
@@ -87,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:alpha="0.8"
-                    style="@style/editText"
+                    android:backgroundTint="@color/colorPrimary"
                     android:hint="Enter Designation"
                     android:textSize="@dimen/_12sdp" />
 
@@ -102,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        style="@style/editText"
+                       android:backgroundTint="@color/colorPrimary"
                         android:alpha="0.8"
 
                         android:hint="Contact Name"
@@ -118,7 +132,7 @@
                         android:hint="Contact Number"
                         android:inputType="number"
                         android:maxLength="10"
-                        style="@style/editText"
+                        android:backgroundTint="@color/colorPrimary"
 
                         android:textSize="@dimen/_12sdp" />
 
@@ -130,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:alpha="0.8"
-                    style="@style/editText"
+                   android:backgroundTint="@color/colorPrimary"
                     android:hint="Contact Email Address"
                     android:textSize="@dimen/_12sdp" />
 
@@ -155,24 +169,31 @@
                     <ImageView
                         android:id="@+id/activity_add_job_image_calender"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="30dp"
                         android:layout_weight="0.9"
                         android:src="@drawable/calander2" />
 
                 </LinearLayout>
 
-                <LinearLayout
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
-                    android:background="#919191"></LinearLayout>
-
+                    android:background="#919191"></View>
+                </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_width="match_parent"
+                    android:translationZ="2dp"
+                    android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/activity_add_job_ed_qualification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
                     android:alpha="0.8"
-                    style="@style/editText"
+                    android:padding="10dp"
                     android:background="@drawable/border1"
                     android:gravity="top"
                     android:hint="Qualification*"
@@ -182,30 +203,47 @@
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
                     android:textSize="@dimen/_12sdp" />
-
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    android:layout_width="match_parent"
+                    android:translationZ="2dp"
+                    android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/activity_add_job_ed_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
                     android:alpha="0.8"
                     android:background="@drawable/border1"
                     android:gravity="top"
-                    style="@style/editText"
+
+                    android:padding="10dp"
                     android:hint="Job Description*"
                     android:minHeight="@dimen/_80sdp"
                     android:paddingLeft="@dimen/_2sdp"
                     android:textSize="@dimen/_12sdp" />
+                </android.support.v7.widget.CardView>
             </LinearLayout>
 
+
+            <android.support.v7.widget.CardView android:layout_margin="5dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp"
+                android:padding="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:translationZ="2dp"
+                android:layout_height="wrap_content">
             <Button
                 android:id="@+id/activity_add_job_btn_submit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:background="#229fbd"
                 android:text="ADD"
+                android:padding="5dp"
                 android:textColor="@color/white" />
+            </android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
 

@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/news_image_back"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@drawable/back"/>
             <TextView
@@ -34,6 +34,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_weight="0.3"
+                android:textSize="15dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -59,7 +60,6 @@
 <android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <include layout="@layout/content_news" />
 
     <ImageView

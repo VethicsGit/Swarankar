@@ -77,7 +77,9 @@ public class SocietyActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SocietyActivity.this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        ApiCallSocietyList();
+//        ApiCallSocietyList();
+        adapter = new SocietyListAdapter(getApplicationContext(), eneSocietyLists);
+        recyclerView.setAdapter(adapter);
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +95,7 @@ public class SocietyActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
     }
 
@@ -129,7 +132,7 @@ public class SocietyActivity extends AppCompatActivity {
                             adapter = new SocietyListAdapter(SocietyActivity.this, eneSocietyLists);
                             recyclerView.setAdapter(adapter);
                             recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
-                            SetClick();
+//                            SetClick();
 //
                         }
                     }
@@ -179,10 +182,10 @@ public class SocietyActivity extends AppCompatActivity {
                             String res = response.body().getResponse();
                             if (res.equals("Failure")) {
                                 String error = response.body().getMessage();
-                                showDialog(error);
+//                                showDialog(error);
                             } else {
                                 String str = "You successfully join the society";
-                                showDialog(str);
+//                                showDialog(str);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -224,7 +227,7 @@ public class SocietyActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ApiCallSocietyList();
+//                ApiCallSocietyList();
                 /*Intent i = new Intent(getApplicationContext(), SocietyActivity.class);
                 startActivity(i);
                 finish();*/
@@ -235,7 +238,7 @@ public class SocietyActivity extends AppCompatActivity {
         imgClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ApiCallSocietyList();
+//                ApiCallSocietyList();
                 alertDialog.dismiss();
             }
         });

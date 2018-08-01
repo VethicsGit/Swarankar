@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:visibility="gone"
         android:background="#E6E6E6"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
@@ -36,13 +36,12 @@
         <android.support.v7.widget.CardView
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
+
+            android:layout_margin="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
-            android:elevation="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
+            android:translationZ="2dp"
             android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,14 +59,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="Profession :" />
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/spinner_profession"
+                android:entries="@array/profession"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false" />
+               android:enabled="true" />
         </LinearLayout>
 
 
@@ -106,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:enabled="false" />
+                   android:enabled="true" />
 
 
             </LinearLayout>
@@ -140,11 +141,12 @@
 
             <EditText
                 android:id="@+id/edt_organization_name"
+                android:hint="Organization Name :"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-               android:hint="Organization Name :"
+                android:textSize="15dp"
                 android:backgroundTint="@color/colorPrimaryDark"
+                android:enabled="true"
                 android:inputType="textPersonName"/>
         </LinearLayout>
         </LinearLayout>
@@ -154,12 +156,11 @@
         <android.support.v7.widget.CardView
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_margin="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:elevation="@dimen/_10sdp"
+            android:translationZ="2dp"
             android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
@@ -187,14 +188,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="Status :" />
 
             <Spinner
                 android:id="@+id/spinner_status"
                 android:layout_width="match_parent"
+                android:entries="@array/profession_status"
            android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
-                android:enabled="false" />
+               android:enabled="true" />
         </LinearLayout>
 
 
@@ -233,8 +236,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Other Profession Status :"
+                    android:textSize="15dp"
                     android:backgroundTint="@color/colorPrimaryDark"
-                    android:enabled="false" />
+                   android:enabled="true" />
             </LinearLayout>
         </LinearLayout>
         </LinearLayout>
@@ -243,12 +247,11 @@
         <android.support.v7.widget.CardView
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_margin="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
-            android:layout_marginBottom="@dimen/_15sdp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
-            android:elevation="@dimen/_10sdp"
+            android:translationZ="2dp"
             android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
@@ -275,14 +278,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="Profession Industry :" />
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/spinner_profession_industry"
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
+                android:entries="@array/profession_industry"
                 android:layout_height="wrap_content"
-                android:enabled="false" />
+               android:enabled="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -313,6 +318,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.9"
+                    android:visibility="gone"
                     android:textSize="@dimen/_13sdp"
                     android:text="Sub Profession Industry:" />
 
@@ -320,9 +326,10 @@
                     android:id="@+id/spinner_sub_profession_industry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:entries="@array/profession_industry"
                    android:backgroundTint="@color/colorPrimaryDark"
                     android:layout_weight="1"
-                    android:enabled="false" />
+                   android:enabled="true" />
             </LinearLayout>
 
         </LinearLayout>
@@ -353,7 +360,7 @@
                 android:id="@+id/spinner_profession_industry_sub_cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false" />
+               android:enabled="true" />
 
         </LinearLayout>
 
@@ -384,8 +391,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                android:hint="Designation"
+                android:textSize="15dp"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false" />
+               android:enabled="true" />
 
         </LinearLayout>
         </LinearLayout>
@@ -424,9 +432,9 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
+            android:translationZ="5dp"
             android:layout_marginTop="@dimen/_15sdp"
             android:elevation="@dimen/_10sdp"
             android:layout_height="wrap_content">
@@ -463,7 +471,7 @@
                 android:layout_height="wrap_content"
               android:hint="House No./Street"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false" />
+               android:enabled="true" />
 
         </LinearLayout>
 
@@ -493,7 +501,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"
+               android:enabled="true"
                 android:hint="Locality/Area" />
 
         </LinearLayout>
@@ -527,7 +535,7 @@
                 android:layout_height="wrap_content"
                 android:hint="PinCode "
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"
+               android:enabled="true"
                 android:inputType="number" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -542,7 +550,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Office Contact Number"
                     android:backgroundTint="@color/colorPrimaryDark"
-                    android:enabled="false"
+                   android:enabled="true"
                     android:inputType="number"
                     android:maxLength="12" />
 
@@ -558,9 +566,9 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
+            android:translationZ="5dp"
             android:elevation="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginBottom="@dimen/_15sdp"
@@ -600,7 +608,7 @@
                 android:layout_width="match_parent"
                android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
-                android:enabled="false" />
+               android:enabled="true" />
 
         </LinearLayout>
 
@@ -631,7 +639,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false" />
+               android:enabled="true" />
 
         </LinearLayout>
 
@@ -663,7 +671,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
      android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false" />
+               android:enabled="true" />
 
         </LinearLayout>
 

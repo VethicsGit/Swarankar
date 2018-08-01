@@ -32,13 +32,11 @@
     <android.support.v7.widget.CardView
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_margin="@dimen/_15sdp"
         app:cardCornerRadius="4dp"
-        app:cardElevation="4dp"
+        app:cardElevation="1dp"
         android:layout_width="match_parent"
-        android:translationZ="10dp"
-        android:elevation="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
+        android:translationZ="2dp"
         android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +58,7 @@
             android:visibility="gone"
             android:text="House No./Street residetial :" />
 
-        <EditText
+        <EditText android:textSize="15dp"
             android:id="@+id/residetial_edt_houseno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,7 +89,7 @@
             android:visibility="gone"
             android:text="Locality/Area :" />
 
-        <EditText
+        <EditText android:textSize="15dp"
             android:id="@+id/residetial_edt_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +121,7 @@
             android:visibility="gone"
             android:text="Ward No :" />
 
-        <EditText
+        <EditText android:textSize="15dp"
             android:id="@+id/residetial_edt_wardno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,7 +153,7 @@
             android:visibility="gone"
             android:text="Consituency :" />
 
-        <EditText
+        <EditText android:textSize="15dp"
             android:id="@+id/residetial_edt_constituency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,7 +184,7 @@
             android:visibility="gone"
             android:text="Village :" />
 
-        <EditText
+        <EditText android:textSize="15dp"
             android:id="@+id/residetial_edt_village"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -217,7 +215,7 @@
             android:visibility="gone"
             android:text="Tehsil :" />
 
-        <EditText
+        <EditText android:textSize="15dp"
             android:id="@+id/residetial_edt_tehsil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -232,12 +230,11 @@
     <android.support.v7.widget.CardView
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_margin="@dimen/_15sdp"
         app:cardCornerRadius="4dp"
-        app:cardElevation="4dp"
+        app:cardElevation="1dp"
         android:layout_width="match_parent"
-        android:translationZ="10dp"
-        android:elevation="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
+        android:translationZ="2dp"
         android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
@@ -265,12 +262,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:textSize="@dimen/_13sdp"
             android:text="Country :" />
 
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/residetial_spinner_country"
             android:layout_width="match_parent"
+            android:entries="@array/country"
             android:backgroundTint="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
             android:enabled="false"/>
@@ -297,12 +296,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_13sdp"
+            android:visibility="gone"
             android:text="State :" />
 
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/residetial_spinner_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:entries="@array/state"
             android:backgroundTint="@color/colorPrimaryDark"
             android:enabled="false"/>
 
@@ -328,6 +329,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_13sdp"
+            android:visibility="gone"
             android:text="District :" />
 
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
@@ -335,6 +337,7 @@
             android:layout_width="match_parent"
             android:backgroundTint="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
+            android:entries="@array/district"
             android:enabled="false"/>
 
     </LinearLayout>

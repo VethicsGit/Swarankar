@@ -34,20 +34,22 @@ public class PeriodicalsAdapter extends RecyclerView.Adapter<PeriodicalsAdapter.
 
 
     public int getItemCount() {
-        return periodicalsList.size();
+        return 5;
     }
 
 
 
     public PeriodicalsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new PeriodicalsAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.periodicals_item, parent, false), this);
+        return new PeriodicalsAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.periodicals_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.txtTitle.setText(periodicalsList.get(position).getPeriodicalName());
+     /*   holder.txtTitle.setText(periodicalsList.get(position).getPeriodicalName());
         Glide.with(context).load("http://demo.vethics.in/swarnkar/uploads/periodicals/" + periodicalsList.get(position).getImageFront() + "").into(holder.frontImg);
-        Glide.with(context).load("http://demo.vethics.in/swarnkar/uploads/periodicals/" + periodicalsList.get(position).getImageBack() + "").into(holder.backImage);
+        Glide.with(context).load("http://demo.vethics.in/swarnkar/uploads/periodicals/" + periodicalsList.get(position).getImageBack() + "").into(holder.backIma ge);*/
+     Glide.with(context).load("http://huronuc.ca/Assets/website/images/FASS/FASS%20Achievements/vprwinter2016-front_cover.jpg").into(holder.frontImg);
+     Glide.with(context).load("http://www.victorianweb.org/art/design/books/142.jpg").into(holder.backImage);
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
@@ -60,13 +62,13 @@ public class PeriodicalsAdapter extends RecyclerView.Adapter<PeriodicalsAdapter.
         ImageView frontImg,backImage;
         Button btnDownload;
         PeriodicalsAdapter recyclerViewAdapter;
-        public ViewHolder(View itemView, PeriodicalsAdapter recyclerViewAdapter) {
+        public ViewHolder(View itemView) {
             super(itemView);
             
             this.recyclerViewAdapter = recyclerViewAdapter; 
             frontImg = (ImageView)itemView.findViewById(R.id.periodicals_item_front_image);
             backImage = (ImageView)itemView.findViewById(R.id.periodicals_item_back_image);
-            txtTitle = (TextView)itemView.findViewById(R.id.periodicals_item_txt_title);
+            txtTitle =itemView.findViewById(R.id.periodicals_item_txt_title);
             btnDownload = (Button)itemView.findViewById(R.id.periodicals_item_btn_download);
             btnDownload.setOnClickListener(this);
         }

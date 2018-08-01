@@ -32,11 +32,11 @@ public class JobsAdapter extends Adapter<JobsAdapter.ViewHolder> {
 
     public int getItemCount() {
 //        return 10;
-        return this.araList.size();
+        return 10;
     }
 
-    public void setItemClick(ViewHolder viewHolder) {
-        this.onItemClickListener.onItemClick(null, viewHolder.itemView, viewHolder.getAdapterPosition(), viewHolder.getItemId());
+    private void setItemClick(ViewHolder viewHolder) {
+       onItemClickListener.onItemClick(null, viewHolder.itemView, viewHolder.getAdapterPosition(), viewHolder.getItemId());
     }
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,11 +45,11 @@ public class JobsAdapter extends Adapter<JobsAdapter.ViewHolder> {
 
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
-        viewHolder.textJobtitle.setText(AndroidUtils.wordFirstCap(araList.get(position).getJobTitle()));
+      /*  viewHolder.textJobtitle.setText(AndroidUtils.wordFirstCap(araList.get(position).getJobTitle()));
         viewHolder.textOrganization.setText(AndroidUtils.wordFirstCap(araList.get(position).getOrganization()));
         viewHolder.textDesignation.setText(AndroidUtils.wordFirstCap(araList.get(position).getDesignation()));
         viewHolder.textId.setText(AndroidUtils.wordFirstCap(araList.get(position).getId()));
-        viewHolder.textMinutedgo.setText(AndroidUtils.wordFirstCap(araList.get(position).getCreatedDate()));
+        viewHolder.textMinutedgo.setText(AndroidUtils.wordFirstCap(araList.get(position).getCreatedDate()));*/
 
 
     }
@@ -80,7 +80,7 @@ public class JobsAdapter extends Adapter<JobsAdapter.ViewHolder> {
         }
 
         public void onClick(View v) {
-            this.recyclerViewAdapter.setItemClick(this);
+//            this.recyclerViewAdapter.setItemClick(this);
         }
     }
 }

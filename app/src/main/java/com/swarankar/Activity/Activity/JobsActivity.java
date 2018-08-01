@@ -41,7 +41,7 @@ public class JobsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobs);
-
+//        getSupportActionBar().setTitle("Jobs");
         findViews();
     }
 
@@ -76,7 +76,10 @@ public class JobsActivity extends AppCompatActivity {
         });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         my_recycler_view.setLayoutManager(linearLayoutManager);
-        ApiCalLJobsList();
+        jobsAdapter = new JobsAdapter(getApplicationContext(), arStrings);
+        my_recycler_view.setAdapter(jobsAdapter);
+
+//        ApiCalLJobsList();
     }
 
     private void ApiCalLJobsList() {

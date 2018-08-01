@@ -53,7 +53,7 @@
     </array>
 
     <array name="profession">
-        <item>Select</item>
+        <item>Select Profession</item>
         <item>Government</item>
         <item>Private</item>
         <item>Professional</item>
@@ -63,14 +63,14 @@
         <item>others</item>
     </array>
     <array name="profession_status">
-        <item>Select</item>
+        <item>Select professional status</item>
         <item>Working</item>
         <item>Retired</item>
         <item>others</item>
     </array>
 
     <array name="profession_industry">
-        <item>Select</item>
+        <item>Select Profession Industry</item>
         <item>Gems and Jewellery -Sub Gems and Jewellery</item>
         <item>Gems and Jewellery -test</item>
         <item>Gems and Jewellery -Sub Gems</item>
@@ -128,7 +128,7 @@
     </array>
 
     <array name="Area_study">
-        <item>Select</item>
+        <item>Select Area of study</item>
         <item>Architecture/Design</item>
         <item>Arts and Humanities</item>
         <item>Basics Sciences</item>
@@ -148,7 +148,7 @@
     </array>
 
     <array name="Status_Education">
-        <item>Select</item>
+        <item>Select status of education</item>
         <item>Completed</item>
         <item>Pursuing</item>
         <item>Incomplete</item>
@@ -511,6 +511,13 @@ body {margin-top: 0px;margin-left: 0px;}
     <string name="title_activity_advance_search">Advance Search</string>
     <string name="search">Search</string>
 
+    <string-array name="country">
+    <item>Select Country</item>
+    </string-array><string-array name="state">
+    <item>Select State</item>
+    </string-array><string-array name="district">
+    <item>Select District</item>
+    </string-array>
     <string-array name="advance_search_fields">
         <item>First Name</item>
         <item>Last Name</item>

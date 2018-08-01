@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -48,7 +49,7 @@ public class EventListAdapter extends Adapter<EventListAdapter.ViewHolder> {
     }
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.events_item, parent, false), this);
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.events_item, parent, false), this);
     }
 
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
@@ -57,7 +58,7 @@ public class EventListAdapter extends Adapter<EventListAdapter.ViewHolder> {
         viewHolder.textEname.setText(araList.get(position).getEventTitle());
         viewHolder.textEdate.setText(araList.get(position).getEventStart());
 
-        viewHolder.btnSeeEvents.setOnClickListener(new OnClickListener() {
+        viewHolder.event_layout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 //                final ProgressDialog loading = new ProgressDialog(context.);
@@ -100,6 +101,7 @@ public class EventListAdapter extends Adapter<EventListAdapter.ViewHolder> {
         private TextView textEname;
         private TextView textEdate;
         private Button btnSeeEvents;
+        private RelativeLayout event_layout;
 
 
         public ViewHolder(View itemView, EventListAdapter recyclerViewAdapter) {
@@ -111,6 +113,7 @@ public class EventListAdapter extends Adapter<EventListAdapter.ViewHolder> {
             textEname = (TextView) itemView.findViewById(R.id.text_ename);
             textEdate = (TextView) itemView.findViewById(R.id.text_edate);
             btnSeeEvents = (Button) itemView.findViewById(R.id.btn_see_events);
+            event_layout =itemView.findViewById(R.id.event_layout);
             this.recyclerViewAdapter = recyclerViewAdapter;
             itemView.setOnClickListener(this);
         }

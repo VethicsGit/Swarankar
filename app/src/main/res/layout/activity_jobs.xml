@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context="com.swarankar.Activity.Activity.JobsActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar1"
         android:layout_width="match_parent"
@@ -15,44 +19,51 @@
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/img_back"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:background="@drawable/back" />
 
             <TextView
+                android:layout_toRightOf="@+id/img_back"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="45dp"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:gravity="center_vertical"
                 android:text="Jobs"
                 android:layout_weight="0.3"
+                android:layout_gravity="center"
+                android:textSize="18dp"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+               />
 
             <Button
+                android:layout_alignParentRight="true"
                 android:id="@+id/btn_job_manage"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_weight="0.5"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:background="@color/transparent"
                 android:layout_marginRight="@dimen/_4sdp"
                 android:text="Manage"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -65,7 +76,7 @@
             android:layout_weight="1"
             android:background="@color/white"
             android:orientation="vertical"
-            android:padding="@dimen/_8sdp"
+
             tools:listitem="@layout/adt_job_activity" />
 
 

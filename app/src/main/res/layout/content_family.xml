@@ -20,11 +20,11 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
+            android:translationZ="3dp"
             android:layout_marginBottom="@dimen/_15sdp"
-            android:elevation="@dimen/_10sdp"
+            android:elevation="5dp"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_height="wrap_content">
         <LinearLayout
@@ -104,29 +104,29 @@
 
         </LinearLayout>
         </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView
+       <!-- <android.support.v7.widget.CardView
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="4dp"
+            app:cardElevation="1dp"
             android:layout_width="match_parent"
-            android:translationZ="10dp"
+            android:translationZ="3dp"
             android:layout_marginBottom="@dimen/_15sdp"
-            android:elevation="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content">-->
                 <Button
                     android:id="@+id/btn_family_submit"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                   android:background="@color/white"
+android:textColor="@color/white"
+                    android:layout_gravity="center"
+                   android:backgroundTint="@color/colorPrimary"
                     android:text="Submit"
                     android:elevation="@dimen/_10sdp"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edt_mother_name" />
-        </android.support.v7.widget.CardView>
+        <!--</android.support.v7.widget.CardView>-->
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
