@@ -421,7 +421,7 @@
                         android:visibility="gone"
                         android:textSize="@dimen/_13sdp" />
 
-                    <android.support.v7.widget.AppCompatSpinner
+                    <Spinner
                         android:id="@+id/spinner_gotra_self"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -457,7 +457,7 @@
                         android:id="@+id/spinner_maritalstatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:entries="@id/spinner_maritalstatus"
+                        android:entries="@array/maratial_status"
                         android:layout_weight="1"
                         android:backgroundTint="@color/colorPrimaryDark"
                         />

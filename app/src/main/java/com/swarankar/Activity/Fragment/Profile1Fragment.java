@@ -85,6 +85,7 @@ import com.swarankar.Activity.Utils.Constants;
 import com.swarankar.Activity.cropper.CropImage;
 import com.swarankar.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -107,6 +108,7 @@ import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.OkHttpClient;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -133,6 +135,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     public List<Profession> professionlist = new ArrayList<>();
     public List<String> gotraSelfList = new ArrayList<>();
     public List<String> gotraMotherList = new ArrayList<>();
+    public List<String> getCastList = new ArrayList<>();
     ImageView arc, profile_ok_image, profession_ok_image, education_ok_image, address_ok_image, contact_ok_image, family_ok_image;
     CheckBox permenent_address_checkbox;
     String uri;
@@ -300,13 +303,12 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         profileBtnFamilyDetails.setOnClickListener(this);
 
 
-        family_green_dot=view.findViewById(R.id.family_green_dot);
-        personal_green_dot=view.findViewById(R.id.personal_green_dot);
-        professional_green_dot=view.findViewById(R.id.professional_green_dot);
-        educational_green_dot=view.findViewById(R.id.educational_green_dot);
-        address_green_dot=view.findViewById(R.id.address_green_dot);
-        contact_green_dot=view.findViewById(R.id.contact_green_dot);
-
+        family_green_dot = view.findViewById(R.id.family_green_dot);
+        personal_green_dot = view.findViewById(R.id.personal_green_dot);
+        professional_green_dot = view.findViewById(R.id.professional_green_dot);
+        educational_green_dot = view.findViewById(R.id.educational_green_dot);
+        address_green_dot = view.findViewById(R.id.address_green_dot);
+        contact_green_dot = view.findViewById(R.id.contact_green_dot);
 
 
 //    <--Persional details-->
@@ -513,10 +515,9 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
                 try {
                     final JSONObject obj = new JSONObject(response);
-                    String name=obj.getString("firstname")+ " " + obj.getString("lastname");
+                    String name = obj.getString("firstname") + " " + obj.getString("lastname");
                     //profileTxtName.setText(name);
                     //profileTxtEmail.setText(AndroidUtils.wordFirstCap(obj.getString("email")));
-
 
 
                     profileEdtFistname.setText(AndroidUtils.wordFirstCap(obj.getString("firstname")));
@@ -555,9 +556,9 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                         edtEmail.setEnabled(true);
                     }
                     edAreaStudyOther.setText(AndroidUtils.wordFirstCap(obj.getString("area_study_others")));
-                    if (!obj.getString("profession_other").equals("") )
+                    if (!obj.getString("profession_other").equals(""))
                         edOtherProfessionIndustry.setText(AndroidUtils.wordFirstCap(obj.getString("profession_other")));
-                    if (!obj.getString("profession_status_other").equals("") )
+                    if (!obj.getString("profession_status_other").equals(""))
                         edOtherStatus.setText(AndroidUtils.wordFirstCap(obj.getString("profession_status_other")));
                     new AsyncTask<Void, Void, Bitmap>() {
 
@@ -590,9 +591,9 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                     }.execute();
 
                     Picasso.with(getActivity()).load("" + obj.getString("pictures")); //**//*.error(R.drawable.placeholder)*//**//*.into(imgUser);
-                            Picasso.with(getActivity()).load("" + obj.getString("pictures")) ;//**//*.error(R.drawable.placeholder)*//**//*.into(HomeActivity.navProfile);
+                    Picasso.with(getActivity()).load("" + obj.getString("pictures"));//**//*.error(R.drawable.placeholder)*//**//*.into(HomeActivity.navProfile);
 
-                            gender = obj.getString("gender") + "";
+                    gender = obj.getString("gender") + "";
                     Log.e("gender", gender + "");
                     if (radiomale.getText().toString().equalsIgnoreCase(gender.toString().toLowerCase() + "")) {
                         radiomale.setChecked(true);
@@ -614,7 +615,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                     strRStateName = obj.getString("r_state");
                     strRCityName = obj.getString("r_city");
                     getCastlist(obj.getString("subcaste"));
-                    subcaste = obj.getString("subcaste");
+//                    subcaste = obj.getString("subcaste");
                     getProfession(obj.getString("profession"));
                     strProfession = obj.getString("profession");
                     getGotraSelf(obj.getString("gotra_self"));
@@ -1626,6 +1627,63 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
     private void getCastlist(String cast) {
 
+
+      /*  Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://demo.vethics.in/swarnkar/mobile/Register/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        API apiServices = retrofit.create(API.class);
+
+        Call<ResponseBody> call = apiServices.get_subcaste();
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+//                progressDialog.dismiss();
+
+                try {
+                    JSONArray js = new JSONArray(response.body().string());
+                    Log.e("response", String.valueOf(js));
+//                    Log.e("js", js.toString(0));
+                    CastList.clear();
+                    for (int i = 0; i < js.length(); i++) {
+
+                        JSONObject person = (JSONObject) js.get(i);
+                        String caste = person.getString("subcaste");
+
+                        if (i == 0) {
+                            CastList.add("Subcaste");
+                            CastList.add(caste);
+                        } else {
+                            CastList.add(caste);
+                        }
+
+//                        CastList.add(caste);
+//                        CastListid.add(person.getString("id"));
+
+                    }
+
+//                    Log.e("caste", CastList.size() + "CastListid : " + CastListid.size());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                progressDialog.dismiss();
+                t.getStackTrace();
+                Log.e("msgfail", "" + t.getMessage());
+            }
+        });
+
+*/
         ArrayAdapter aa0 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, MainActivity.CastList);
         aa0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSubcaste.setAdapter(aa0);
@@ -1635,6 +1693,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 spinnerSubcaste.setSelection(j);
             }
 
+
         }
 
         spinnerSubcaste.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -1642,6 +1701,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView errorText = (TextView) spinnerSubcaste.getSelectedView();
                 subcaste = adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(getContext(), "subcaste " + subcaste, Toast.LENGTH_SHORT).show();
                 if (subcaste.equalsIgnoreCase("Others")) {
                     lvsubcastOther.setVisibility(View.VISIBLE);
                     errorText.setTextColor(Color.parseColor("#17a6c8"));
@@ -1653,6 +1713,10 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 }
             }
 
+
+
+
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -1660,6 +1724,8 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         });
 
     }
+
+
 
     private void getOfficeCountry(final String countrydd, final String states, final String citys) {
         Log.e("officeCountry", countrydd);
@@ -2318,15 +2384,16 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 profileEdtLastName.setError("Enter Last Name");
                 profileEdtLastName.requestFocus();
                 return true;
-            } /*else if (mobileNo.getText().toString().isEmpty()) {
+            } else if (mobileNo.getText().toString().isEmpty()) {
            mobileNo.setError("Enter mobile number");
                 return true;
-            } */ else if (subcaste.equalsIgnoreCase("Subcaste")) {
+            }  else if (spinnerSubcaste.getSelectedItem().toString().equals("SubCaste")) {
                 TextView errorText = (TextView) spinnerSubcaste.getSelectedView();
                 errorText.setError("");
                 errorText.setText("Select Sub Caste");
                 spinnerSubcaste.requestFocus();
                 return true;
+
             } else if (lvsubcastOther.getVisibility() == View.VISIBLE && edSubcastOther.getText().toString().isEmpty()) {
                 edSubcastOther.setError("Enter Other Sub Caste");
                 edSubcastOther.requestFocus();

@@ -42,7 +42,7 @@
                 android:textColor="@color/black" />
 
 
-           <!-- <android.support.v7.widget.AppCompatButton
+          <!--  <android.support.v7.widget.AppCompatButton
                 android:id="@+id/alert_diaog_button_ok"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_25sdp"
@@ -58,6 +58,7 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="@dimen/_10sdp"
+                android:visibility="gone"
                 android:textStyle="bold" />-->
 
         </LinearLayout>

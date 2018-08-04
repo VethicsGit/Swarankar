@@ -308,6 +308,7 @@
                             android:id="@+id/spinner_maritalstatus"
                             style="@style/Widget.AppCompat.Spinner.Underlined"
                             android:layout_width="match_parent"
+                            android:entries="@array/maratial_status"
                             android:layout_height="@dimen/_35sdp"></Spinner>
                     </LinearLayout>
 

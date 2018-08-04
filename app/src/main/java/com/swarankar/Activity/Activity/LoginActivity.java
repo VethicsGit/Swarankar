@@ -83,12 +83,15 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(i);
                 Log.e("login", edMobileNumber.getTag().toString().trim() + edMobileNumber.getText().toString().trim());
                 if (!Empty()) {
                     AndroidUtils.hideSoftKeyboard(LoginActivity.this);
                     //ApiCallRegister();
                     getLogin();
                 } else {
+
                     Toast.makeText(LoginActivity.this, "Fill all the details!", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -238,6 +238,7 @@
 
                             android:id="@+id/spinner_gotra_self"
                             android:layout_width="match_parent"
+
                             android:layout_height="wrap_content"></Spinner>
                     </LinearLayout>
 
@@ -307,6 +308,7 @@
 
                             android:id="@+id/spinner_maritalstatus"
                             android:layout_width="match_parent"
+                            android:entries="@array/maratial_status"
                             android:layout_height="wrap_content"></Spinner>
                     </LinearLayout>
 

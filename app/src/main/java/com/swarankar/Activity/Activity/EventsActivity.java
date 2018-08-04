@@ -45,8 +45,8 @@ public class EventsActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AndroidUtils.hideSoftKeyboard(EventsActivity.this);
-                finish();
+              /*  AndroidUtils.hideSoftKeyboard(EventsActivity.this);
+                finish();*/
             }
         });
         findView();

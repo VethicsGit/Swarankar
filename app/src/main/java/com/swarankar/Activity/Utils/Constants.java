@@ -55,7 +55,7 @@ public class Constants {
         ImageView btnClose;
         TextView textview;
 
-        button_ok = (Button) rootView.findViewById(R.id.button_ok);
+      /*  button_ok = (Button) rootView.findViewById(R.id.button_ok);*/
         textview = (TextView) rootView.findViewById(R.id.textview);
         btnClose =(ImageView)rootView.findViewById(R.id.img_close);
 
@@ -70,13 +70,13 @@ public class Constants {
         }
 
         alertDialog.setContentView(rootView);
-        button_ok.setOnClickListener(new View.OnClickListener() {
+      /*  button_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
 
             }
-        });
+        });*/
         alertDialog.show();
     }
 

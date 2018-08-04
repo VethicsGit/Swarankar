@@ -18,9 +18,10 @@
 
 
     <array name="sub_cast">
-        <item>Sub Caste</item>
+        <item>SubCaste</item>
+        <item>SubCaste1</item>
+        <item>SubCaste2</item>
     </array>
-
 
 
     <array name="gotra_self">

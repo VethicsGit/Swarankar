@@ -493,7 +493,7 @@ final Dialog alertDialog=new Dialog(HomeActivity.this);
         }
         if(view==lvFamily){
 
-           /* if (Constants.loginSharedPreferences.getString(Constants.profile_completion, "").trim().equals("false")) {
+        /*    if (Constants.loginSharedPreferences.getString(Constants.profile_completion, "").trim().equals("false")) {
                 DialogProfileNotCompleted();
             } else {*/
         Intent i=new Intent(HomeActivity.this,FamilyActivity.class);
@@ -598,12 +598,14 @@ final Dialog alertDialog=new Dialog(HomeActivity.this);
         }
         }
 
-@Override public boolean onCreateOptionsMenu(Menu menu){
+@Override
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.home,menu);
         return true;
         }
 
-@Override public boolean onOptionsItemSelected(MenuItem item){
+@Override
+    public boolean onOptionsItemSelected(MenuItem item){
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.

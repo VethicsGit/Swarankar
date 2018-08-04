@@ -13,6 +13,7 @@ public class ModelCaste {
     @Expose
     private String subcaste;
 
+
     public String getId() {
         return id;
     }
