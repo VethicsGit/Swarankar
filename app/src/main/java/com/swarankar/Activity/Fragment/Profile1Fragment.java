@@ -732,7 +732,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                 /* profileBnEdit.setVisibility(View.GONE);*/
 //                btnUpdate.setVisibility(View.GONE);
                 lvTitle.setVisibility(View.GONE);
-                //Disable();
+                Disable();
                 /*} else {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                     dialog.setCancelable(false);
@@ -785,7 +785,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //                    btnUpdate.setVisibility(View.GONE);
 //                    lvTitle.setVisibility(View.GONE);
 //
-//                    Disable();
+                    Disable();
 //                    return true;
 //                }
 //                else {
@@ -814,7 +814,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 //            btnUpdate.setVisibility(View.GONE);
             lvTitle.setVisibility(View.GONE);
 
-//            Disable();
+            Disable();
             return true;
             /*} else {
 

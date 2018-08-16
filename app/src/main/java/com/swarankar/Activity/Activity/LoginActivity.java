@@ -83,8 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                startActivity(i);
+
                 Log.e("login", edMobileNumber.getTag().toString().trim() + edMobileNumber.getText().toString().trim());
                 if (!Empty()) {
                     AndroidUtils.hideSoftKeyboard(LoginActivity.this);
@@ -92,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                     getLogin();
                 } else {
 
-                    Toast.makeText(LoginActivity.this, "Fill all the details!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Fill all the details!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -195,6 +194,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean(Constants.LoginStatus, true);
                     editor.apply();
 
+                    /*Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(i);*/
 //                    Toast.makeText(getApplicationContext(), "" + strMessage, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                     i.putExtra("flag", "");

@@ -38,10 +38,11 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="78dp"
+                    android:layout_width="wrap_content "
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:padding="5dp">
@@ -51,7 +52,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sign In"
-                        android:textColor="@color/TextColor"
+                        android:layout_gravity="end"
+
                         android:textSize="20dp" />
 
                     <View
@@ -137,7 +139,7 @@
                             android:id="@+id/login_btn_login"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#f04742"
+                            android:backgroundTint="#f04742"
                             android:text="Login"
                             android:textColor="@color/TextColor"
                             android:textStyle="bold" />
