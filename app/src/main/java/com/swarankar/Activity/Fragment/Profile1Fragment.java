@@ -186,7 +186,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
     private CircleImageView imgUser;
     private TextView profileTxtName;
     private TextView profileTxtEmail;
-    private Button profileBnEdit;
+//    private Button profileBnEdit;
     private Button profileBtnChangePass;
     private LinearLayout lvPersionalDetails;
     private EditText profileEdtFistname;
@@ -320,7 +320,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         imgUser.setEnabled(true);
         profileTxtName = (TextView) view.findViewById(R.id.profile_txt_name);
         profileTxtEmail = (TextView) view.findViewById(R.id.profile_txt_email);
-        profileBnEdit = (Button) view.findViewById(R.id.profile_bn_edit);
+//        profileBnEdit = (Button) view.findViewById(R.id.profile_bn_edit);
         profileBtnChangePass = (Button) view.findViewById(R.id.profile_btn_change_pass);
         lvPersionalDetails = (LinearLayout) view.findViewById(R.id.lv_persional_details);
         profileEdtFistname = (EditText) view.findViewById(R.id.profile_edt_fistname);
@@ -2903,7 +2903,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             startActivity(i);
             //   }
         }
-        if (v == profileBnEdit) {
+        /*if (v == profileBnEdit) {
 
             profileBnEdit.setVisibility(View.GONE);
 //            btnUpdate.setVisibility(View.GONE);
@@ -2986,7 +2986,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
             EdtMobileNo2.setEnabled(true);
             edtStdNo.setEnabled(true);
 
-        } else if (v == profileBtnChangePass) {
+        } else*/ if (v == profileBtnChangePass) {
             Intent i = new Intent(getActivity(), ChangePassword.class);
             startActivity(i);
         } else if (v == btnSignOut) {

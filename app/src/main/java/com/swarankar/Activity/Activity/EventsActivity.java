@@ -99,7 +99,7 @@ public class EventsActivity extends AppCompatActivity {
                             if (response.body() != null && response.body().size() > 0) {
                                 loading.dismiss();
     //                            Toast.makeText(EventsActivity.this, "service ", Toast.LENGTH_SHORT).show();
-                                adapter = new EventListAdapter(getApplicationContext(), response.body());
+                                adapter = new EventListAdapter(EventsActivity.this, response.body());
                                 recyclerView.setAdapter(adapter);
                                 SetClick();
                             }else {

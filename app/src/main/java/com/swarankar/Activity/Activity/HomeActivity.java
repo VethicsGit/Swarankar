@@ -470,9 +470,10 @@ final Dialog alertDialog=new Dialog(HomeActivity.this);
         ft2.replace(R.id.content_frame,m2,TAG_FRAGMENT);
         ft2.addToBackStack("Profile");
         ft2.commit();
+
         }
         });
-        alertDialog.show();
+    alertDialog.show();
 
         }
 

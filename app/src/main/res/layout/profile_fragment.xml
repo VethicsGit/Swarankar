@@ -51,7 +51,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/placeholder"
                      />
-                <Button
+              <!--  <Button
                     android:id="@+id/profile_bn_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_25sdp"
@@ -61,7 +61,7 @@
                     android:textColor="#17a6c8"
                     android:textSize="@dimen/_10sdp"
                     android:visibility="gone"
-                     />
+                     />-->
                 <!--  <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
