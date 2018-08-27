@@ -62,6 +62,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 import com.swarankar.Activity.Activity.ChangePassword;
@@ -75,6 +76,7 @@ import com.swarankar.Activity.Model.ModelGotra.ModelGotra;
 import com.swarankar.Activity.Model.ModelProfession.ModelProfessionSociety;
 import com.swarankar.Activity.Model.ModelProfession.ModelSubProfessionCategory;
 import com.swarankar.Activity.Model.ModelProfession.Profession;
+import com.swarankar.Activity.Model.ModelProfile.ModelProfile;
 import com.swarankar.Activity.Model.ModelState.ModelState;
 import com.swarankar.Activity.Model.ProfileDetails.ModelProfileDetails;
 import com.swarankar.Activity.Model.UpdateProfile.ModelUpadateProfile;
@@ -883,52 +885,52 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
         spinnerProfessionStatus.setEnabled(true);
         spinnerProfessionIndustry.setEnabled(true);
         spinnerProfessionIndustrySubCat.setEnabled(true);
-        edtDesignation.setEnabled(false);
-        edtHouseno.setEnabled(false);
-        edtArea.setEnabled(false);
-        edtPincode.setEnabled(false);
-        spinnerCountry.setEnabled(false);
-        spinnerState.setEnabled(false);
-        spinnerDistrict.setEnabled(false);
-        edtOfficeNo.setEnabled(false);
-        edOtherProfessionIndustry.setEnabled(false);
-        edOtherStatus.setEnabled(false);
+//        edtDesignation.setEnabled(false);
+//        edtHouseno.setEnabled(false);
+//        edtArea.setEnabled(false);
+//        edtPincode.setEnabled(false);
+//        spinnerCountry.setEnabled(false);
+//        spinnerState.setEnabled(false);
+//        spinnerDistrict.setEnabled(false);
+//        edtOfficeNo.setEnabled(false);
+//        edOtherProfessionIndustry.setEnabled(false);
+//        edOtherStatus.setEnabled(false);
 
         //    <--Education details-->
-        edtEducationQualification.setEnabled(false);
-        edtNameOfInstitute.setEnabled(false);
-        spinnerAreaStudy.setEnabled(false);
-        spinnerStatusEducation.setEnabled(false);
-        edAreaStudyOther.setEnabled(false);
+//        edtEducationQualification.setEnabled(false);
+//        edtNameOfInstitute.setEnabled(false);
+//        spinnerAreaStudy.setEnabled(false);
+//        spinnerStatusEducation.setEnabled(false);
+//        edAreaStudyOther.setEnabled(false);
 
         //    <--Residetial details-->
-        residetialEdtHouseno.setEnabled(false);
-        residetialEdtArea.setEnabled(false);
-        residetialEdtWardno.setEnabled(false);
-        residetialEdtConstituency.setEnabled(false);
-        residetialEdtVillage.setEnabled(false);
-        residetialEdtTehsil.setEnabled(false);
-        residetialSpinnerCountry.setEnabled(false);
-        residetialSpinnerState.setEnabled(false);
-        residetialSpinnerDistrict.setEnabled(false);
+//        residetialEdtHouseno.setEnabled(false);
+//        residetialEdtArea.setEnabled(false);
+//        residetialEdtWardno.setEnabled(false);
+//        residetialEdtConstituency.setEnabled(false);
+//        residetialEdtVillage.setEnabled(false);
+//        residetialEdtTehsil.setEnabled(false);
+//        residetialSpinnerCountry.setEnabled(false);
+//        residetialSpinnerState.setEnabled(false);
+//        residetialSpinnerDistrict.setEnabled(false);
 
         //    <--parmenent details-->
-        permenent_address_checkbox.setEnabled(false);
-        parmenentEdtHouseno.setEnabled(false);
-        parmenentEdtArea.setEnabled(false);
-        parmenentEdtWardno.setEnabled(false);
-        parmenentEdtConstituency.setEnabled(false);
-        parmenentEdtVillage.setEnabled(false);
-        parmenentEdtTehsil.setEnabled(false);
-        parmenentSpinnerCountry.setEnabled(false);
-        parmenentSpinnerState.setEnabled(false);
-        parmenentSpinnerDistrict.setEnabled(false);
+//        permenent_address_checkbox.setEnabled(false);
+//        parmenentEdtHouseno.setEnabled(false);
+//        parmenentEdtArea.setEnabled(false);
+//        parmenentEdtWardno.setEnabled(false);
+//        parmenentEdtConstituency.setEnabled(false);
+//        parmenentEdtVillage.setEnabled(false);
+//        parmenentEdtTehsil.setEnabled(false);
+//        parmenentSpinnerCountry.setEnabled(false);
+//        parmenentSpinnerState.setEnabled(false);
+//        parmenentSpinnerDistrict.setEnabled(false);
 
         //    <--Contact details-->
 
-        EdtMobileNo1.setEnabled(false);
-        EdtMobileNo2.setEnabled(false);
-        edtStdNo.setEnabled(false);
+//        EdtMobileNo1.setEnabled(false);
+//        EdtMobileNo2.setEnabled(false);
+//        edtStdNo.setEnabled(false);
     }
 
     private void getData() {
@@ -1773,6 +1775,27 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
 
                 }
                 if (getActivity() != null) {
+
+                 /*   API apiService = APIClient.getClient().create(API.class);
+                    Call<String> call1 = apiService.get_country();
+
+                    call1.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            try {
+                                JSONArray array=new JSONArray(call);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+
+                        }
+                    });*/
+
                     ArrayAdapter a = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, country);
                     a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerCountry.setAdapter(a);

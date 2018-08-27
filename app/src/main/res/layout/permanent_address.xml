@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#E6E6E6"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:hint="House No./Street"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"></EditText>
+                ></EditText>
 
         </LinearLayout>
 
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                android:hint="Locality/Area"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"></EditText>
+                ></EditText>
 
         </LinearLayout>
 
@@ -143,11 +143,11 @@
                 android:layout_height="wrap_content"
                 android:hint="Ward No"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"
+                
                 android:inputType="number"></EditText>
 
         </LinearLayout>
-
+            <!--android:enabled="false"-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                android:hint="Consituency"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"></EditText>
+                ></EditText>
 
         </LinearLayout>
 
@@ -206,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Village"
                android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"></EditText>
+                ></EditText>
 
         </LinearLayout>
 
@@ -237,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Tehsil"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"></EditText>
+                ></EditText>
 
         </LinearLayout>
         </LinearLayout>
@@ -277,14 +277,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="Country :" />
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/parmenent_spinner_country"
                 android:layout_width="match_parent"
+                android:entries="@array/country"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
-               android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"/>
+                />
 
         </LinearLayout>
 
@@ -308,14 +310,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="State :" />
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/parmenent_spinner_state"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:entries="@array/state"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"/>
+                />
 
         </LinearLayout>
 
@@ -339,14 +343,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="District :" />
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/parmenent_spinner_district"
                 android:layout_width="match_parent"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
-              android:backgroundTint="@color/colorPrimaryDark"
-                android:enabled="false"/>
+                android:entries="@array/district"
+                />
 
         </LinearLayout>
         </LinearLayout>
