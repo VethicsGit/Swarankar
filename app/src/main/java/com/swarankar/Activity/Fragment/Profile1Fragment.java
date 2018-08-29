@@ -1983,6 +1983,7 @@ public class Profile1Fragment extends Fragment implements View.OnClickListener {
                         strRCountryId = CountryList.get(j - 1).getId();
                     }
                 }
+
                 getRState(states, citys);
 
                 residetialSpinnerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
